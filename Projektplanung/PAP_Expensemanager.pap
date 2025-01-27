@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="D4C2D0519766084B">
+  <PROJECT FORMAT="1.00" NAME="Expensemanager" AUTHOR="41783" CREATED="2025.01.27 11:09:26" MODIFIED="2025.01.27 12:31:28">
+    <DIAGRAMS>
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Main" CREATED="2025.01.27 11:09:49" MODIFIED="2025.01.27 12:31:28">
+        <LAYOUT FORMAT="1.00" COLUMNS="6" ROWS="16">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Main]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Hat der user ein Login?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="4">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[Register]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="5">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="43">
+                <TEXT><![CDATA[Eingabe von: EMail, Password, Vorname, Nachname, Monatliches Einkommen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="46">
+                <TEXT><![CDATA[Main Dashboard anzeigen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="9">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="51">
+                <TEXT><![CDATA[Navigation]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="15">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="34">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[Login]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="11">
+                <TEXT><![CDATA[Username]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="13">
+                <TEXT><![CDATA[Password]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="15">
+                <TEXT><![CDATA[CheckLogin]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="17">
+                <TEXT><![CDATA[Login erfolgreich?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="48">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="52">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="70">
+                <TEXT><![CDATA[Eingabe von: Kategorie Beschreibung Betrag]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="2">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="29">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="7">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="19">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="54">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="11">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="72">
+                <TEXT><![CDATA[Eingabe von: Kategoriename Zielbetrag]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="10">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="90">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="12">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="111">
+                <TEXT><![CDATA[Speichern]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="3" ROW="14">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="101">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="64">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="10">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="108">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="11">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="73">
+                <TEXT><![CDATA[Ausgabe von: Alle Einträge ausgeben mit deren Kategorie, Betrag und Description]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="12">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="77">
+                <TEXT><![CDATA[Benutzer will eintrag ändern?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="13">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="93">
+                <TEXT><![CDATA[Eintrag auswählen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="4" ROW="14">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="96">
+                <TEXT><![CDATA[Eingabe von neuen Werten]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="5" ROW="11">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="76">
+                <TEXT><![CDATA[Ausgabe von Kategorien]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="8" TEXT="false" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="4" TO="10" TEXT="true" />
+          <CONNECTION FORMAT="1.00" ID="47" FROM="46" TO="51" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="37" FROM="34" TO="10" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="14" FROM="11" TO="13" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="16" FROM="13" TO="15" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="18" FROM="15" TO="17" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="20" FROM="17" TO="19" TEXT="false" />
+          <CONNECTION FORMAT="1.00" ID="110" FROM="108" TO="73" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="104" FROM="64" TO="108" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="112" FROM="111" TO="90" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="22" FROM="19" TO="29" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="36" FROM="29" TO="34" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="49" FROM="17" TO="48" TEXT="true" />
+          <CONNECTION FORMAT="1.00" ID="44" FROM="8" TO="43" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="50" FROM="48" TO="46" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="45" FROM="43" TO="46" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="53" FROM="51" TO="52" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="55" FROM="52" TO="54" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="59" FROM="54" TO="72" TEXT="Neues Zeil" />
+          <CONNECTION FORMAT="1.00" ID="57" FROM="52" TO="70" TEXT="Neue Ausgabe" />
+          <CONNECTION FORMAT="1.00" ID="106" FROM="77" TO="93" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="63" FROM="54" TO="64" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="107" FROM="93" TO="96" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="103" FROM="101" TO="111" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="105" FROM="73" TO="77" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="109" FROM="90" TO="108" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="102" FROM="96" TO="101" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+    </DIAGRAMS>
+  </PROJECT>
+</FRAME>
