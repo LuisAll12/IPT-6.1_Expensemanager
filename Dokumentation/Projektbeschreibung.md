@@ -1,5 +1,5 @@
 # **Projekt: Personal Expense Tracker**
-## _Luis & Benjamin_
+## _Luis, Benjamin und Janik_
 
 ## **Beschreibung**
 Der **Personal Expense Tracker** ist eine Desktop-Anwendung, die es Benutzern ermöglicht, ihre täglichen Ausgaben zu verwalten, Budgets festzulegen und eine Übersicht über ihre finanziellen Aktivitäten zu behalten. Die Anwendung wird mit **C# WPF** für die Benutzeroberfläche und **SQLite** als Datenbank entwickelt.
