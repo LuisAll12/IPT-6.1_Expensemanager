@@ -1,0 +1,29 @@
+Primary: #5529ee
+
+Primary Light: #8d6eef
+
+Secondary: #22c3f7
+
+
+Grayscales:
+Dark:
+
+	#101721
+	#161a25
+	#181c28
+	#1d2331
+	#252837
+	#2f3646
+Light:
+	#3f4656
+	#6b7485
+	#99a4b8
+	#e4ecf9
+	#ffffff
+
+Gradients:
+	Primary: #5529ee -> #8d6eef
+
+Alert: #58ca82
+Error: #d04763
+Warning: #f6d77a
