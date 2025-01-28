@@ -1,9 +1,9 @@
-﻿<Window x:Class="Expensesmanager.View.LoginView"
+﻿<Window x:Class="Expensesmanager.View.RegisterView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Login" 
-        Height="450" 
-        Width="400" 
+        Title="Register" 
+        Height="640" 
+        Width="470" 
         WindowStartupLocation="CenterScreen"
         Background="#181C28"
         WindowStyle="None"
@@ -65,28 +65,49 @@
             <Run Text="Expenses" Foreground="#8D6EEF" FontSize="28" FontWeight="Bold" />
             <Run Text="Manager" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
         </TextBlock>
-
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <!-- Email -->
             <TextBlock Text="E-Mail:" 
-                   Foreground="White" 
-                   FontSize="14" 
-                   Margin="0,20,0,5" />
-
-
+                       Foreground="White" 
+                       FontSize="14" 
+                       Margin="0,20,0,5" />
             <TextBox x:Name="EmailTextBox" 
                      Tag="Max.Mustermann@user.com" 
-                     Style="{StaticResource RoundedInputBoxTheme}" />
-
+                     Style="{StaticResource RoundedInputBoxTheme}"/>
+            <!-- Password -->
             <TextBlock Text="Passwort:" 
                        Foreground="White" 
                        FontSize="14" 
                        Margin="0,20,0,5" />
             <PasswordBox x:Name="PasswordBox" 
                          Style="{StaticResource RoundedPasswordBoxTheme}"/>
-            
+            <!-- FirstName -->
+            <TextBlock Text="Vorname:" 
+                       Foreground="White" 
+                       FontSize="14" 
+                       Margin="0,20,0,5" />
+            <TextBox x:Name="FirstNameTextBox" 
+                     Tag="Max"  
+                     Style="{StaticResource RoundedInputBoxTheme}"/>
+            <!-- LastName -->
+            <TextBlock Text="Nachname:" 
+                       Foreground="White" 
+                       FontSize="14" 
+                       Margin="0,20,0,5" />
+            <TextBox x:Name="LastNameTextBox" 
+                     Tag="Mustermann"
+                     Style="{StaticResource RoundedInputBoxTheme}"/>
+            <!-- MonthlyIncome -->
+            <TextBlock Text="Monatliches Einkommen:" 
+                       Foreground="White" 
+                       FontSize="14" 
+                       Margin="0,20,0,5" />
+            <TextBox x:Name="MonthlyIncomeTextBox" 
+                     Tag="6500.00"
+                     Style="{StaticResource RoundedInputBoxTheme}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button Content="Reset" 
-                        Width="100" 
+                        Width="140" 
                         Height="35" 
                         Background="#8D6EEF" 
                         Foreground="White" 
@@ -105,15 +126,15 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Content="Login" 
-                        Width="100" 
+                <Button Content="Register" 
+                        Width="140" 
                         Height="35" 
                         Background="#5529EE" 
                         Foreground="White" 
                         BorderThickness="0" 
                         Cursor="Hand" 
                         Margin="10,0,10,0"
-                        Click="LoginButton_Click">
+                        Click="RegisterButton_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -136,16 +157,16 @@
                        Margin="0,10,0,0" />
 
         </StackPanel>
-        <Button Content="Kein Account?" 
+        <Button Content="Account vorhanden?" 
                 Background="#5529EE" 
                 Foreground="White" 
                 BorderBrush="#424242" 
                 BorderThickness="1" 
                 Height="35" 
                 Width="150" 
-                Margin="240,389,10,10" 
+                Margin="310,595,10,10" 
                 Cursor="Hand"
-                Click="NoAccountAvailable_Click">
+                Click="AccountAvailable_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 

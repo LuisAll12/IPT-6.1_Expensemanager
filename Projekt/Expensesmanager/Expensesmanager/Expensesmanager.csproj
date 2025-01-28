@@ -81,6 +81,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVMM\View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\InputBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +99,7 @@
     <Compile Include="MVMM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVMM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MainVeiwModel.cs" />
+    <Compile Include="MVMM\ViewModel\RegisterViewModel.cs" />
     <Compile Include="MVMM\View\DiscoveryView.xaml.cs">
       <DependentUpon>DiscoveryView.xaml</DependentUpon>
     </Compile>
@@ -99,6 +108,9 @@
     </Compile>
     <Compile Include="MVMM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVMM\View\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

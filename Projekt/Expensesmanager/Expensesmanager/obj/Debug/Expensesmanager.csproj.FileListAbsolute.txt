@@ -46,3 +46,6 @@ C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemana
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.csproj.CoreCompileInputs.cache
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.exe
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.pdb
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\RegisterView.baml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\RegisterView.g.cs
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Theme\InputBoxTheme.baml

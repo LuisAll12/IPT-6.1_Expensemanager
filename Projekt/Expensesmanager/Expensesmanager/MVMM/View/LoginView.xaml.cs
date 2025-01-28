@@ -61,5 +61,19 @@ namespace Expensesmanager.View
         {
             this.Close();
         }
+        private void ShowRegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Show Register Field
+        }
+
+        private void NoAccountAvailable_Click(object sender, RoutedEventArgs e)
+        {
+            // Open the register window
+            RegisterView registerWindow = new RegisterView();
+            registerWindow.Show();
+
+            // Close the login window
+            this.Close();
+        }
     }
 }

@@ -1,0 +1,105 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Pinseldefinitionen -->
+    <SolidColorBrush x:Key="InputBoxBackgroundColor" Color="#101721" />
+    <SolidColorBrush x:Key="InputBoxForegroundColor" Color="#E0E0E0" />
+    <SolidColorBrush x:Key="InputBoxBorderColor" Color="Transparent" />
+    <SolidColorBrush x:Key="InputBoxHoverBorderColor" Color="#3f4656" />
+    <SolidColorBrush x:Key="InputBoxFocusedBorderColor" Color="#6b7485" />
+
+    <!-- Abgerundeter Stil für die TextBox -->
+    <Style TargetType="TextBox" x:Key="RoundedInputBoxTheme">
+        <Setter Property="Background" Value="{StaticResource InputBoxBackgroundColor}" />
+        <Setter Property="Foreground" Value="{StaticResource InputBoxForegroundColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource InputBoxBorderColor}" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <!-- Hintergrund mit Border -->
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="8"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1">
+                            <ScrollViewer Margin="0"
+                                      x:Name="PART_ContentHost"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      HorizontalScrollBarVisibility="Hidden" />
+                        </Border>
+
+                        <!-- Platzhalter Text -->
+                        <TextBlock x:Name="PlaceholderText"
+                               Text="{TemplateBinding Tag}"
+                               Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="10,0,0,0"
+                               IsHitTestVisible="False" 
+                               Opacity="0" />
+                        <!-- Standardmäßig unsichtbar -->
+                    </Grid>
+
+                    <!-- Trigger innerhalb des ControlTemplates -->
+                    <ControlTemplate.Triggers>
+                        <!-- Zeige PlaceholderText NUR wenn:
+                         - Text leer ist 
+                         - UND das Textfeld nicht fokussiert ist -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value="" />
+                                <Condition Property="IsFocused" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PlaceholderText" Property="Opacity" Value="1" />
+                        </MultiTrigger>
+
+                        <!-- Verstecke PlaceholderText, wenn das Textfeld fokussiert ist -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="PlaceholderText" Property="Opacity" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- Abgerundeter Stil für die PasswordBox -->
+    <Style TargetType="PasswordBox" x:Key="RoundedPasswordBoxTheme">
+        <Setter Property="Background" Value="{StaticResource InputBoxBackgroundColor}" />
+        <Setter Property="Foreground" Value="{StaticResource InputBoxForegroundColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource InputBoxBorderColor}" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource InputBoxForegroundColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="8"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1">
+                        <ScrollViewer Margin="0"
+                                      x:Name="PART_ContentHost"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      HorizontalScrollBarVisibility="Hidden" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!-- Trigger für MouseOver -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource InputBoxHoverBorderColor}" />
+            </Trigger>
+
+            <!-- Trigger für Focus -->
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource InputBoxFocusedBorderColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
