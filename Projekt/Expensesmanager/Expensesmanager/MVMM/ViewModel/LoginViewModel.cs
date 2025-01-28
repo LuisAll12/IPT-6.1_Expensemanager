@@ -13,7 +13,6 @@ namespace Expensesmanager.ViewModel
             }
             else
             {
-                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }

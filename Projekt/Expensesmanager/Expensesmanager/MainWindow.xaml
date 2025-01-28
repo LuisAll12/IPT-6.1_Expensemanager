@@ -10,29 +10,82 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True"
-        >
+        AllowsTransparency="True">
+
+    <!-- DataContext wird hier definiert -->
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#272537"
-            CornerRadius="20">
+    <!-- UI-Inhalt -->
+    <Border Background="#272537" CornerRadius="20">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <!-- Tab-Leiste mit Buttons oben links -->
+            <Grid VerticalAlignment="Top" Height="30" Margin="10,10,10,0" Grid.Column="1" Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                    <!-- Grüner Button -->
+                    <Button Width="12" 
+                            Height="12" 
+                            Background="#28C940" 
+                            BorderThickness="0" 
+                            Cursor="Hand" 
+                            Margin="5,0,0,0" 
+                            ToolTip="Minimize"
+                            Click="MinimizeButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Ellipse Fill="{TemplateBinding Background}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- Orangener Button -->
+                    <Button Width="12" 
+                            Height="12" 
+                            Background="#FFBD2E" 
+                            BorderThickness="0" 
+                            Cursor="Hand" 
+                            Margin="5,0,0,0" 
+                            ToolTip="Maximize/Restore"
+                            Click="MaximizeButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Ellipse Fill="{TemplateBinding Background}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- Roter Button -->
+                    <Button Width="12" 
+                            Height="12" 
+                            Background="#FF5F56" 
+                            BorderThickness="0" 
+                            Cursor="Hand" 
+                            Margin="5,0,0,0" 
+                            ToolTip="Close"
+                            Click="CloseButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Ellipse Fill="{TemplateBinding Background}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Grid>
             <TextBlock Text="Elysian"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Foreground="White"
                    FontSize="22"
-                   FontFamily="/Fonts/#Roboto"/>
+                   FontFamily="/Fonts/#Roboto"
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+
+
+            <!-- Titel -->
+           
+
+            <!-- Navigation -->
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Home"
                              Height="50"
@@ -41,26 +94,35 @@
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}"/>
-                
+
                 <RadioButton Content="Discovery"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DiscoveryViewCommand}"/>
-                
+
                 <RadioButton Content="Featured"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
+
+            <!-- Content View -->
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
-                            Content="{Binding CurrentView}"/>
-
+                            Content="{Binding CurrentView}"/> 
+            <!-- Hauptinhalt -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
         </Grid>
-        
     </Border>
 </Window>

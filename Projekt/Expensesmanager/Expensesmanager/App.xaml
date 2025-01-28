@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Expensesmanager"
              xmlns:viewModel="clr-namespace:Expensesmanager.MVMM.ViewModel"
              xmlns:view="clr-namespace:Expensesmanager.MVMM.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MVMM/View/LoginView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

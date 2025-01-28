@@ -15,10 +15,10 @@ namespace Expensesmanager.View
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text;
+            string email = EmailTextBox.Text;
             string password = PasswordBox.Password;
 
-            if (loginViewModel.AuthenticateUser(username, password))
+            if (loginViewModel.AuthenticateUser(email, password))
             {
                 // Open the main window
                 MainWindow mainWindow = new MainWindow();
@@ -32,6 +32,34 @@ namespace Expensesmanager.View
                 // Show error message
                 ErrorTextBlock.Visibility = Visibility.Visible;
             }
+        }
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmailTextBox.Text = string.Empty;
+            PasswordBox.Password = string.Empty;
+        }
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        // Maximize/Restore Button
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        // Close Button
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
