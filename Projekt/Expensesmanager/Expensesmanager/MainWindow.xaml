@@ -24,8 +24,8 @@
             <Grid VerticalAlignment="Top" Height="30" Margin="10,10,10,0" Grid.Column="1" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
                     <!-- Grüner Button -->
-                    <Button Width="12" 
-                            Height="12" 
+                    <Button Width="15" 
+                            Height="15" 
                             Background="#28C940" 
                             BorderThickness="0" 
                             Cursor="Hand" 
@@ -40,8 +40,8 @@
                     </Button>
 
                     <!-- Orangener Button -->
-                    <Button Width="12" 
-                            Height="12" 
+                    <Button Width="15" 
+                            Height="15" 
                             Background="#FFBD2E" 
                             BorderThickness="0" 
                             Cursor="Hand" 
@@ -56,8 +56,8 @@
                     </Button>
 
                     <!-- Roter Button -->
-                    <Button Width="12" 
-                            Height="12" 
+                    <Button Width="15" 
+                            Height="15" 
                             Background="#FF5F56" 
                             BorderThickness="0" 
                             Cursor="Hand" 
@@ -71,6 +71,7 @@
                         </Button.Template>
                     </Button>
                 </StackPanel>
+
             </Grid>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
                 <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
@@ -105,7 +106,7 @@
             <!-- Content View -->
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="10"
+                            Margin="10,0,0,0"
                             Content="{Binding CurrentView}"/>
             <!-- Hauptinhalt -->
             <Grid.ColumnDefinitions>
