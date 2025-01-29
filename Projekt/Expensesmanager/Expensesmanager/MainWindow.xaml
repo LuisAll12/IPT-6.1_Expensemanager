@@ -72,25 +72,18 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <TextBlock Text="Elysian"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Foreground="White"
-                   FontSize="22"
-                   FontFamily="/Fonts/#Roboto"
-                       Grid.Column="0"
-                       Grid.Row="0"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
+                <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
+                <Run Text="Manager" Foreground="#5529EE" FontSize="22" FontWeight="Bold" />
+            </TextBlock>
 
-
-            <!-- Titel -->
-           
 
             <!-- Navigation -->
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Home"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}"/>
@@ -98,14 +91,14 @@
                 <RadioButton Content="Discovery"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DiscoveryViewCommand}"/>
 
                 <RadioButton Content="Featured"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 
@@ -113,14 +106,14 @@
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
-                            Content="{Binding CurrentView}"/> 
+                            Content="{Binding CurrentView}"/>
             <!-- Hauptinhalt -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>

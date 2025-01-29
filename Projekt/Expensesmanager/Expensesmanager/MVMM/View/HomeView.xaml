@@ -6,57 +6,94 @@
              xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="475">
     <StackPanel>
-        <TextBlock Text="Discover"
+        <TextBlock Text="Statistiken"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Left"
-                   Margin="0,0,0,20"/>
+                   Margin="0,0,0,10"/>
         <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,10">
-            <Border Width="400"
-                    Height="200"
-                    >
+                    Margin="0,0,0,5"
+                    Height="65">
+
+            <Border Width="210"
+                    Height="60"
+                    CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
-                        <GradientStop Color="#3aa0ff" Offset="1"/>
+                        <GradientStop Color="#5529EE" Offset="0.0"/>
+                        <GradientStop Color="#8D6EEF" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0,400,200"/>
-                </Border.Clip>
 
                 <Grid>
-                    <StackPanel>
-                        <TextBlock Text="World leader&#x0a;in global finance"
-                                   Foreground="White"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"/>
-                        <TextBlock Text="Get started today"
-                                   Foreground="White"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"/>
-                    </StackPanel>
+                    <TextBlock Text="Einkommen:"
+                               Foreground="White"
+                               FontSize="17"
+                               HorizontalAlignment="Left"
+                               Margin="9,0,0,38"/>
 
-                    <Image Width="150"
-                           Height="150"
-                           Source="/Images/FinanceTracker_ico.jpg"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Bottom"/>
+                    <TextBlock x:Name="IncomeTextBlock"
+                               Text="21442136"
+                               Foreground="White"
+                               FontSize="24"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,18,0,15"/>
                 </Grid>
             </Border>
-            <Border Width="200"
-                    Height="200"
-                    CornerRadius="10"
-                    Margin="45,0,0,0">
+            <Border Width="210"
+                    Height="60"
+                    Margin="30,0,0,0"
+                    CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#ffc654" Offset="0.0"/>
-                        <GradientStop Color="#ffb73a" Offset="1"/>
+                        <GradientStop Color="#5529EE" Offset="0.0"/>
+                        <GradientStop Color="#8D6EEF" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+
+                <Grid>
+                    <TextBlock Text="Ausgaben:"
+                               Foreground="White"
+                               FontSize="17"
+                               HorizontalAlignment="Left"
+                               Margin="9,0,0,38"/>
+
+                    <TextBlock x:Name="ExpensesTextBlock"
+                               Text="2144136"
+                               Foreground="White"
+                               FontSize="24"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,18,0,15"/>
+                </Grid>
+            </Border>
+            <Border Width="210"
+                    Height="60"
+                    Margin="30,0,0,0"
+                    CornerRadius="15">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#5529EE" Offset="0.0"/>
+                        <GradientStop Color="#8D6EEF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <TextBlock Text="Verbleibende Tage:"
+                               Foreground="White"
+                               FontSize="17"
+                               HorizontalAlignment="Left"
+                               Margin="9,0,0,38"/>
+
+                    <TextBlock x:Name="RemainingDaysTextBlock"
+                               Text="12"
+                               Foreground="White"
+                               FontSize="24"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,18,0,15"/>
+                </Grid>
             </Border>
         </StackPanel>
         <StackPanel>
@@ -65,7 +102,7 @@
                     <Setter Property="Margin" Value="15,0,0,0"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock Text="Most Watched"
+            <TextBlock Text="Personalisiertes Diagramm"
                        Foreground="White"
                        FontSize="28"
                        HorizontalAlignment="Left"
