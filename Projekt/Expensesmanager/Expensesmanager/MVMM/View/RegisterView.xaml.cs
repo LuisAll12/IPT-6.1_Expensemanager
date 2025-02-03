@@ -21,45 +21,69 @@ namespace Expensesmanager.View
             string firstname = FirstNameTextBox.Text;
             string lastname = LastNameTextBox.Text;
             double monthlyincome = 0.0;
+
+            bool checkinput = true;
             try
             {
+              ErrorTextBlock.Text = string.Empty;
+
                 monthlyincome = double.Parse(MonthlyIncomeTextBox.Text);
                 if (double.IsNaN(monthlyincome))
                 {
-                    ErrorTextBlock.Text = "Fill in all fields!";
+                    checkinput = false;
+                    ErrorTextBlock.Text = "Geben Sie ein gültiges Monatseinkommen an!";
                     ErrorTextBlock.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     if (email == "" || password == "" || firstname == "" || lastname == "")
                     {
-                        ErrorTextBlock.Text = "Fill in all fields!";
+                      checkinput = false;
+
+                        ErrorTextBlock.Text = "Füllen Sie alle Felder aus!";
                         ErrorTextBlock.Visibility = Visibility.Visible;
                     }
-                    else
+                    if (!email.Contains("@"))
                     {
+                        checkinput = false;
+                        ErrorTextBlock.Text = "Geben Sie eine gültige Email an!";
+                        ErrorTextBlock.Visibility = Visibility.Visible;
+                     }
+                    if (!email.Contains("."))
+                    {
+                      checkinput = false;
+                      ErrorTextBlock.Text = "Geben Sie eine gültige Email an!";
+                      ErrorTextBlock.Visibility = Visibility.Visible;
+                    }
+
+                        else
+                        {
+                          if (checkinput == true) 
+                          {
                         // Send RegisterInfos
                         if (registerviewmodel.RegisterUser(email, password, firstname, lastname, monthlyincome))
                         {
-                            // Open the main window
-                            MainWindow mainWindow = new MainWindow();
-                            mainWindow.Show();
+                          // Open the main window
+                          MainWindow mainWindow = new MainWindow();
+                          mainWindow.Show();
 
-                            // Close the login window
-                            this.Close();
+                          // Close the login window
+                          this.Close();
                         }
                         else
                         {
-                            // Show error message
-                            ErrorTextBlock.Text = "Registrierung fehlgeschlagen!";
-                            ErrorTextBlock.Visibility = Visibility.Visible;
+                          // Show error message
+                          ErrorTextBlock.Text = "Registrierung fehlgeschlagen!";
+                          ErrorTextBlock.Visibility = Visibility.Visible;
                         }
+                      }
+                        
                     }
                 }
             }
             catch (FormatException)
             {
-                ErrorTextBlock.Text = "Is not a Double";
+                ErrorTextBlock.Text = "Geben Sie ein gültiges Monatseinkommen an!";
                 ErrorTextBlock.Visibility = Visibility.Visible;
             }
             // Check Field 
@@ -105,5 +129,15 @@ namespace Expensesmanager.View
             // Close the register window
             this.Close();
         }
+
+    private void LastNameTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+
+        }
+
+    private void MonthlyIncomeTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+
     }
+  }
 }
