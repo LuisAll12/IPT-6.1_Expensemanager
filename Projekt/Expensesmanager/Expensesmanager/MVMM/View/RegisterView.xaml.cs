@@ -22,71 +22,59 @@ namespace Expensesmanager.View
             string lastname = LastNameTextBox.Text;
             double monthlyincome = 0.0;
 
+            ErrorTextBlock.Text = string.Empty;
             bool checkinput = true;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(firstname) || string.IsNullOrWhiteSpace(lastname))
+            {
+              checkinput = false;
+              ErrorTextBlock.Text = "Füllen Sie alle Felder aus!";
+            }
+
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+              checkinput = false;
+              ErrorTextBlock.Text = "Geben Sie eine gültige Email an!";
+            }
+
             try
             {
-              ErrorTextBlock.Text = string.Empty;
-
-                monthlyincome = double.Parse(MonthlyIncomeTextBox.Text);
-                if (double.IsNaN(monthlyincome))
-                {
-                    checkinput = false;
-                    ErrorTextBlock.Text = "Geben Sie ein gültiges Monatseinkommen an!";
-                    ErrorTextBlock.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    if (email == "" || password == "" || firstname == "" || lastname == "")
-                    {
-                      checkinput = false;
-
-                        ErrorTextBlock.Text = "Füllen Sie alle Felder aus!";
-                        ErrorTextBlock.Visibility = Visibility.Visible;
-                    }
-                    if (!email.Contains("@"))
-                    {
-                        checkinput = false;
-                        ErrorTextBlock.Text = "Geben Sie eine gültige Email an!";
-                        ErrorTextBlock.Visibility = Visibility.Visible;
-                     }
-                    if (!email.Contains("."))
-                    {
-                      checkinput = false;
-                      ErrorTextBlock.Text = "Geben Sie eine gültige Email an!";
-                      ErrorTextBlock.Visibility = Visibility.Visible;
-                    }
-
-                        else
-                        {
-                          if (checkinput == true) 
-                          {
-                        // Send RegisterInfos
-                        if (registerviewmodel.RegisterUser(email, password, firstname, lastname, monthlyincome))
-                        {
-                          // Open the main window
-                          MainWindow mainWindow = new MainWindow();
-                          mainWindow.Show();
-
-                          // Close the login window
-                          this.Close();
-                        }
-                        else
-                        {
-                          // Show error message
-                          ErrorTextBlock.Text = "Registrierung fehlgeschlagen!";
-                          ErrorTextBlock.Visibility = Visibility.Visible;
-                        }
-                      }
-                        
-                    }
-                }
+              monthlyincome = double.Parse(MonthlyIncomeTextBox.Text);
             }
             catch (FormatException)
             {
-                ErrorTextBlock.Text = "Geben Sie ein gültiges Monatseinkommen an!";
+              checkinput = false;
+              ErrorTextBlock.Text = "Geben Sie ein gültiges Monatseinkommen an!";
+            }
+
+            if (checkinput)
+            {
+                try
+                {
+                    if (registerviewmodel.RegisterUser(email, password, firstname, lastname, monthlyincome))
+                    {
+                        // Registrierung erfolgreich
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        ErrorTextBlock.Text = "Registrierung fehlgeschlagen!";
+                        ErrorTextBlock.Visibility = Visibility.Visible;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hier wird die genaue Fehlermeldung angezeigt
+                    MessageBox.Show("Registrierung fehlgeschlagen: " + ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
                 ErrorTextBlock.Visibility = Visibility.Visible;
             }
-            // Check Field 
         }
 
         // Reset All Fields

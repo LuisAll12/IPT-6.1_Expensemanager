@@ -76,3 +76,17 @@ C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\ob
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.csproj.CoreCompileInputs.cache
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.exe
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.pdb
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\Microsoft.Data.Sqlite.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\Microsoft.Data.Sqlite.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.csproj.CopyComplete
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Buffers.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Memory.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Buffers.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Memory.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
