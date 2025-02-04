@@ -55,8 +55,8 @@ namespace Expensesmanager.View
                     if (registerviewmodel.RegisterUser(email, password, firstname, lastname, monthlyincome))
                     {
                         // Registrierung erfolgreich
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
+                        LoginView loginview = new LoginView();
+                        loginview.Show();
                         this.Close();
                     }
                     else

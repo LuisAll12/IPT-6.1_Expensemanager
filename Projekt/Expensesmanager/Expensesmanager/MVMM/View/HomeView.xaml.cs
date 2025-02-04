@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Expensesmanager.MVMM.ViewModel;
+using Expensesmanager.ViewModel;
+using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,25 @@ namespace Expensesmanager.MVMM.View
     /// </summary>
     public partial class HomeView : UserControl
     {
+        private HomeViewModel _homeViewModel;
+
         public HomeView()
         {
             InitializeComponent();
+            _homeViewModel = new HomeViewModel();
+            _homeViewModel.GetUser();  
+            GetSetUserData(); 
         }
+
+        public void GetSetUserData()
+        {
+
+            string firstName = _homeViewModel.FirstName;
+            string lastName = _homeViewModel.LastName;
+            double monthlyIncome = _homeViewModel.MonthlyIncome;
+
+            Greet_TextBlock.Text = $"Hallo {firstName} {lastName}";
+            IncomeTextBlock.Text = monthlyIncome.ToString();
     }
+  }
 }

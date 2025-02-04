@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="500">
     <StackPanel>
-        <TextBlock Text="Statistiken"
+        <TextBlock x:Name="Greet_TextBlock"
+                   Text="Hallo ?"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Left"
