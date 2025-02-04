@@ -3,6 +3,8 @@ using SQLitePCL;
 using System;
 using System.IO;
 using System.Windows;
+using System.Security.Cryptography;
+using Expensesmanager.Core;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
@@ -40,11 +42,11 @@ namespace Expensesmanager.MVMM.ViewModel
                            VALUES (@Email, @Password, @FirstName, @LastName, @MonthlyIncome)";
           using (var command = new SqliteCommand(query, connection))
           {
-            // Hash the password before storing it
-            /*tring hashedPassword = HashPassword(password);*/
+            // Hash the password
+            string hashedPassword = PasswordHasher.HashPassword(password);
 
             command.Parameters.AddWithValue("@Email", email);
-            command.Parameters.AddWithValue("@Password", password);
+            command.Parameters.AddWithValue("@Password", hashedPassword);
             command.Parameters.AddWithValue("@FirstName", firstname);
             command.Parameters.AddWithValue("@LastName", lastname);
             command.Parameters.AddWithValue("@MonthlyIncome", monthlyincome);
@@ -53,6 +55,10 @@ namespace Expensesmanager.MVMM.ViewModel
             registerResult = rowsAffected > 0;
           }
         }
+      }
+      catch (SqliteException sqlEx)
+      {
+        MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
       }
       catch (Exception ex)
       {
