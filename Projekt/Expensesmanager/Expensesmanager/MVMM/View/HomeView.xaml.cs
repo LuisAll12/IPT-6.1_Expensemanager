@@ -29,11 +29,12 @@ namespace Expensesmanager.MVMM.View
         {
             InitializeComponent();
             _homeViewModel = new HomeViewModel();
-            Loaded += HomeView_Loaded; 
+            Loaded += HomeView_Loaded;
         }
         private void HomeView_Loaded(object sender, RoutedEventArgs e)
         {
-            _homeViewModel.GetUser(); 
+            _homeViewModel.GetUser();
+            _homeViewModel.GetTotalExpenses();
             GetSetUserData();
         }
 
@@ -42,17 +43,44 @@ namespace Expensesmanager.MVMM.View
 
             string firstName = _homeViewModel.FirstName;
             string lastName = _homeViewModel.LastName;
+            string Expenses = _homeViewModel.Expenses;
             double monthlyIncome = _homeViewModel.MonthlyIncome;
             int RemainingDays = 9;
 
             Greet_TextBlock.Text = $"Hallo {firstName} {lastName}";
             IncomeTextBlock.Text = monthlyIncome.ToString();
+            ExpensesTextBlock.Text = Expenses;
 
-            // Orange warning RemainingDaysTextBlock
-            if (RemainingDays < 15) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
-            // Red warning RemainingDaysTextBlock
-            if (RemainingDays <= 10) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+            SetTBColores(Expenses, RemainingDays, monthlyIncome);
+
+            // a1@a1.a1
         }
+
+        public void SetTBColores( string Expenses, int RemainingDays, double monthlyIncome)
+        {
+            // RemainingDays
+
+                // Orange warning RemainingDaysTextBlock
+                if (RemainingDays < 15) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+
+                // Red warning RemainingDaysTextBlock
+                if (RemainingDays <= 10) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+
+
+            // Expenses
+
+                double expeses = Double.Parse(Expenses);
+
+                double TwentyPercentLess = monthlyIncome - (monthlyIncome / 100 * 20);
+                double ThirtyPercentLess = monthlyIncome - (monthlyIncome / 100 * 30);
+
+                // Orange warning ExpensesTextBlock
+                if (expeses > ThirtyPercentLess) ExpensesTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+
+                // Red warning ExpensesTextBlock
+                if (expeses > TwentyPercentLess) ExpensesTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+        }
+
     }
 }
 
