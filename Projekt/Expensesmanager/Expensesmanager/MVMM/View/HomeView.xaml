@@ -17,7 +17,7 @@
                     Height="65">
 
             <Border Width="210"
-                    Height="60"
+                    Height="65"
                     CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -42,8 +42,9 @@
                                Margin="0,18,0,15"/>
                 </Grid>
             </Border>
-            <Border Width="210"
-                    Height="60"
+            <Border x:Name="ExpensesBorder"
+                    Width="210"
+                    Height="65"
                     Margin="30,0,0,0"
                     CornerRadius="15">
                 <Border.Background>
@@ -69,10 +70,13 @@
                                Margin="0,18,0,15"/>
                 </Grid>
             </Border>
-            <Border Width="210"
-                    Height="60"
+            <Border x:Name="RemainingDaysBorder"
+                    Width="210"
+                    Height="65"
                     Margin="30,0,0,0"
-                    CornerRadius="15">
+                    CornerRadius="15"
+                    BorderBrush="Yellow"
+                    BorderThickness="0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#5529EE" Offset="0.0"/>

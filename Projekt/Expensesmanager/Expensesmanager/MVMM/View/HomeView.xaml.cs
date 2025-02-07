@@ -59,11 +59,18 @@ namespace Expensesmanager.MVMM.View
         {
             // RemainingDays
 
-                // Orange warning RemainingDaysTextBlock
-                if (RemainingDays < 15) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+            // Orange warning RemainingDaysTextBlock
+                if (RemainingDays < 15) { 
+                  RemainingDaysBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+                  RemainingDaysBorder.BorderThickness = new Thickness(1);
+                }
 
                 // Red warning RemainingDaysTextBlock
-                if (RemainingDays <= 10) RemainingDaysTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+                if (RemainingDays <= 10) {
+                  RemainingDaysBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+                  RemainingDaysBorder.BorderThickness = new Thickness(1);
+                }
+
 
 
             // Expenses
@@ -74,13 +81,24 @@ namespace Expensesmanager.MVMM.View
                 double ThirtyPercentLess = monthlyIncome - (monthlyIncome / 100 * 30);
 
                 // Orange warning ExpensesTextBlock
-                if (expeses > ThirtyPercentLess) ExpensesTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+                if (expeses > ThirtyPercentLess) {
+                  ExpensesBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FFBD2E");
+                  ExpensesBorder.BorderThickness = new Thickness(1);
+                }
+
 
                 // Red warning ExpensesTextBlock
-                if (expeses > TwentyPercentLess) ExpensesTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+                if (expeses > TwentyPercentLess)
+                {
+                  ExpensesBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+                  ExpensesBorder.BorderThickness = new Thickness(1);
+                }
+
+
+           // Finish func SetTBColores
         }
 
-        public int GetRemainingDays(){
+    public int GetRemainingDays(){
 
           // Today
             DateTime Today = DateTime.Today;
