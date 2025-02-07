@@ -45,15 +45,14 @@ namespace Expensesmanager.MVMM.View
             string lastName = _homeViewModel.LastName;
             string Expenses = _homeViewModel.Expenses;
             double monthlyIncome = _homeViewModel.MonthlyIncome;
-            int RemainingDays = 9;
+            int RemainingDays = GetRemainingDays();
 
             Greet_TextBlock.Text = $"Hallo {firstName} {lastName}";
             IncomeTextBlock.Text = monthlyIncome.ToString();
             ExpensesTextBlock.Text = Expenses;
-
+            RemainingDaysTextBlock.Text = RemainingDays.ToString();
             SetTBColores(Expenses, RemainingDays, monthlyIncome);
 
-            // a1@a1.a1
         }
 
         public void SetTBColores( string Expenses, int RemainingDays, double monthlyIncome)
@@ -79,6 +78,18 @@ namespace Expensesmanager.MVMM.View
 
                 // Red warning ExpensesTextBlock
                 if (expeses > TwentyPercentLess) ExpensesTextBlock.Foreground = (Brush)new BrushConverter().ConvertFromString("#FF5F56");
+        }
+
+        public int GetRemainingDays(){
+
+          // Today
+            DateTime Today = DateTime.Today;
+          // LastDayOfMonth
+            DateTime LastDayOfMonth = new DateTime(Today.Year, Today.Month, DateTime.DaysInMonth(Today.Year, Today.Month));
+
+
+          // Return
+            return (LastDayOfMonth - Today).Days;
         }
 
     }
