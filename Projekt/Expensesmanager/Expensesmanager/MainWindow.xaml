@@ -6,32 +6,26 @@
         xmlns:local="clr-namespace:Expensesmanager"
         xmlns:viewModel="clr-namespace:Expensesmanager.MVMM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1020"
+        Title="Expenses Manager" Height="600" Width="1020"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
 
-    <!-- DataContext wird hier definiert -->
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <!-- UI-Inhalt -->
     <Border Background="#272537" CornerRadius="20" MouseDown="Window_MouseDown">
         <Grid>
-            <!-- Tab-Leiste mit Buttons oben links -->
-            <Grid VerticalAlignment="Top" Height="30" Margin="10,10,10,0" Grid.Column="1" Grid.Row="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
-                    <!-- Grüner Button -->
-                    <Button Width="15" 
-                            Height="15" 
-                            Background="#28C940" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Minimize"
-                            Click="MinimizeButton_Click">
+
+            <!-- Steuerung: Minimieren & Schließen -->
+            <Grid Height="30" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Button Width="15" Height="15" Background="#28C940" 
+                            BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
+                            ToolTip="Minimize" Click="MinimizeButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Ellipse Fill="{TemplateBinding Background}" />
@@ -39,31 +33,9 @@
                         </Button.Template>
                     </Button>
 
-                    <!-- Orangener Button -->
-                    <!--<Button Width="15" 
-                            Height="15" 
-                            Background="#FFBD2E" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Maximize/Restore"
-                            Click="MaximizeButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Ellipse Fill="{TemplateBinding Background}" />
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>-->
-
-                    <!-- Roter Button -->
-                    <Button Width="15" 
-                            Height="15" 
-                            Background="#FF5F56" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Close"
-                            Click="CloseButton_Click">
+                    <Button Width="15" Height="15" Background="#FF5F56" 
+                            BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
+                            ToolTip="Close" Click="CloseButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Ellipse Fill="{TemplateBinding Background}" />
@@ -71,44 +43,27 @@
                         </Button.Template>
                     </Button>
                 </StackPanel>
-
             </Grid>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
+
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
                 <Run Text="Manager" Foreground="#5529EE" FontSize="22" FontWeight="Bold" />
             </TextBlock>
-
-
-            <!-- Navigation -->
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Home"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
+                <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}" IsChecked="True"
                              Command="{Binding HomeViewCommand}"/>
-
-                <RadioButton Content="Discovery"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding DiscoveryViewCommand}"/>
-
-                <RadioButton Content="Featured"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
+                <RadioButton Content="Discovery" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}" Command="{Binding DiscoveryViewCommand}"/>
+                <RadioButton Content="Featured" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 
-            <!-- Content View -->
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10,0,0,0"
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
                             Content="{Binding CurrentView}"/>
-            <!-- Hauptinhalt -->
+            
+            
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
@@ -117,6 +72,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
         </Grid>
     </Border>
 </Window>
