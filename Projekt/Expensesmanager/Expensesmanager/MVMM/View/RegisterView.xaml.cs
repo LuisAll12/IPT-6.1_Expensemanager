@@ -2,6 +2,7 @@
 using Expensesmanager.ViewModel;
 using System;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Expensesmanager.View
 {
@@ -91,17 +92,17 @@ namespace Expensesmanager.View
         }
 
         // Maximize/Restore Button
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-        }
+        //private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (this.WindowState == WindowState.Maximized)
+        //    {
+        //        this.WindowState = WindowState.Normal;
+        //    }
+        //    else
+        //    {
+        //        this.WindowState = WindowState.Maximized;
+        //    }
+        //}
 
         // Close Button
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -117,15 +118,13 @@ namespace Expensesmanager.View
             // Close the register window
             this.Close();
         }
-
-    private void LastNameTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-    {
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove(); // Verschiebt das Fenster, wenn die linke Maustaste gedrückt wird
+            }
         }
 
-    private void MonthlyIncomeTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-    {
-
     }
-  }
 }

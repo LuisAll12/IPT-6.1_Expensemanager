@@ -1,5 +1,6 @@
 ﻿using Expensesmanager.ViewModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Expensesmanager.View
 {
@@ -74,6 +75,13 @@ namespace Expensesmanager.View
 
             // Close the login window
             this.Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove(); // Verschiebt das Fenster, wenn die linke Maustaste gedrückt wird
+            }
         }
     }
 }

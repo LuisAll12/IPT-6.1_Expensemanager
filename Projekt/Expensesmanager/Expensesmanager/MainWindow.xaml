@@ -18,7 +18,7 @@
     </Window.DataContext>
 
     <!-- UI-Inhalt -->
-    <Border Background="#272537" CornerRadius="20">
+    <Border Background="#272537" CornerRadius="20" MouseDown="Window_MouseDown">
         <Grid>
             <!-- Tab-Leiste mit Buttons oben links -->
             <Grid VerticalAlignment="Top" Height="30" Margin="10,10,10,0" Grid.Column="1" Grid.Row="0">
@@ -40,7 +40,7 @@
                     </Button>
 
                     <!-- Orangener Button -->
-                    <Button Width="15" 
+                    <!--<Button Width="15" 
                             Height="15" 
                             Background="#FFBD2E" 
                             BorderThickness="0" 
@@ -53,7 +53,7 @@
                                 <Ellipse Fill="{TemplateBinding Background}" />
                             </ControlTemplate>
                         </Button.Template>
-                    </Button>
+                    </Button>-->
 
                     <!-- Roter Button -->
                     <Button Width="15" 
