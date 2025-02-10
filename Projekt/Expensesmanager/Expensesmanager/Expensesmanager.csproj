@@ -109,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVMM\View\NewTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVMM\View\RegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +140,9 @@
     </Compile>
     <Compile Include="MVMM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVMM\View\NewTransaction.xaml.cs">
+      <DependentUpon>NewTransaction.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVMM\View\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>

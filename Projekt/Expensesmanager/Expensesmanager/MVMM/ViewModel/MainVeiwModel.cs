@@ -7,6 +7,8 @@ namespace Expensesmanager.MVMM.ViewModel
     {
 
         public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand NewTransactionCommand { get; set; }
+
         public RelayCommand DiscoveryViewCommand { get; set; }
 
         public HomeViewModel HomeViewModel { get; set; }

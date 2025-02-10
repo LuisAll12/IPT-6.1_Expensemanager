@@ -52,12 +52,16 @@
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}" IsChecked="True"
-                             Command="{Binding HomeViewCommand}"/>
+                             Command="{Binding HomeViewCommand}" Checked="RadioButton_Checked"/>
                 <RadioButton Content="Discovery" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}" Command="{Binding DiscoveryViewCommand}"/>
                 <RadioButton Content="Featured" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
+                <RadioButton Content="New transaction" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding NewTransactionCommand}" Checked="RadioButton_Checked"/>
+
+      </StackPanel>
 
             <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
                             Content="{Binding CurrentView}"/>
