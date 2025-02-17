@@ -23,6 +23,21 @@ namespace Expensesmanager.MVMM.View
         {
             InitializeComponent();
         }
+
+        private void txtDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string input = txtDescription.Text;
+            charCount.Text = input.Length.ToString() + "/255";
+            
+        }
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

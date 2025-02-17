@@ -6,11 +6,104 @@
         xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
         mc:Ignorable="d" d:DesignWidth="800" Height="500"
         >
-    <StackPanel>
-        <TextBlock  Text="Hallo ?"
-                    Foreground="White"
-                    FontSize="28"
-                    HorizontalAlignment="Left"
-                    Margin="0,0,0,10"/> 
-    </StackPanel>
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" Cursor="Hand">
+            <Run Text="Neue" Foreground="#8D6EEF" FontSize="28" FontWeight="Bold" />
+            <Run Text="Transaktion" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
+        </TextBlock>
+
+
+        <!-- Formular -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+            <!-- Betrag -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Betrag:" Foreground="White" FontSize="14" Width="80"/>
+                <TextBox x:Name="txtAmount" 
+                         Style="{StaticResource RoundedInputBoxTheme}"
+                         Width="200"
+                         Tag="220.00"/>
+            </StackPanel>
+
+            <!-- Datum -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Datum:" Foreground="White" FontSize="14" Width="80"/>
+                <DatePicker x:Name="dateTransaction" 
+                            Style="{DynamicResource RoundedDatePickerTheme}"
+                            Width="200"
+                            Background="#101721"
+                            Foreground="White"/>
+            </StackPanel>
+
+            <!-- Beschreibung -->
+            <StackPanel>
+                <TextBlock Text="Beschreibung:" Foreground="White"/>
+                <TextBox x:Name="txtDescription" MaxLength="255" Height="60" TextWrapping="Wrap" AcceptsReturn="True"
+                         Background="#101721" Foreground="White" TextChanged="txtDescription_TextChanged" />
+                <TextBlock x:Name="charCount" Foreground="Gray" FontSize="10" HorizontalAlignment="Right"
+                           Text="0/255"/>
+            </StackPanel>
+
+            <!-- Kategorie -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Kategorie:" Foreground="White" FontSize="14" Width="80"/>
+                <ComboBox x:Name="cmbCategory" Width="200" Background="#101721" Foreground="White">
+                    <ComboBoxItem Content="Kategorie1"/>
+                    <ComboBoxItem Content="Kategorie2"/>
+                    <ComboBoxItem Content="Kategorie3"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="Zurücksetzen" 
+                        Width="140" 
+                        Height="35" 
+                        Background="#8D6EEF" 
+                        Foreground="White" 
+                        BorderThickness="0" 
+                        Margin="10,0,10,0"
+                        Cursor="Hand" 
+                        Click="ResetButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Submit" 
+                        Width="140" 
+                        Height="35" 
+                        Background="#5529EE" 
+                        Foreground="White" 
+                        BorderThickness="0" 
+                        Cursor="Hand" 
+                        Margin="10,0,10,0"
+                        Click="SubmitButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <!-- Fehlermeldung -->
+            <TextBlock x:Name="lblError" 
+                       Foreground="Red" 
+                       HorizontalAlignment="Center"
+                       Visibility="Collapsed" 
+                       Text="Nicht alle Felder ausgefüllt"/>
+        </StackPanel>
+    </Grid>
 </UserControl>
