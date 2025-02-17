@@ -14,14 +14,15 @@ using System.Windows.Shapes;
 
 namespace Expensesmanager.MVMM.View
 {
-  /// <summary>
-  /// Interaktionslogik für NewTransaction.xaml
-  /// </summary>
-  public partial class NewTransaction : Window
-  {
-    public NewTransaction()
+    /// <summary>
+    /// Interaktionslogik für NewTransaction.xaml
+    /// </summary>
+    public partial class NewTransaction : UserControl
     {
-      InitializeComponent();
+        public NewTransaction()
+        {
+            InitializeComponent();
+        }
     }
-  }
+
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
-    class DiscoveryViewModel
+    internal class NewTransactionViewModel
     {
     }
 }

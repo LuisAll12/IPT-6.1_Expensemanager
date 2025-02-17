@@ -97,10 +97,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVMM\View\DiscoveryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MVMM\View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,14 +123,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVMM\ViewModel\DiscoveryViewModel.cs" />
     <Compile Include="MVMM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVMM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MainVeiwModel.cs" />
+    <Compile Include="MVMM\ViewModel\NewTransactionViewModel.cs" />
     <Compile Include="MVMM\ViewModel\RegisterViewModel.cs" />
-    <Compile Include="MVMM\View\DiscoveryView.xaml.cs">
-      <DependentUpon>DiscoveryView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MVMM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
