@@ -34,13 +34,24 @@ namespace Expensesmanager.MVMM.View
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             // Check Amount
-            if (!Check_UserInput_Date())
+            if (Check_UserInput_Date() != "")
             {
-                lblError.Focus();
-                lblError.Text = "Datum hat falsches format";
+                lblError.Text = Check_UserInput_Date();
+
                 lblError.Visibility = Visibility.Visible;
             }
+
             // Check Date
+            if (Check_UserInput_Amount() != "")
+            {
+                lblError.Text = Check_UserInput_Amount();
+
+                lblError.Visibility = Visibility.Visible;
+            }
+            // Check Description
+
+            // Check Category
+
 
 
         }
@@ -48,15 +59,39 @@ namespace Expensesmanager.MVMM.View
         {
             lblError.Visibility = Visibility.Hidden;
         }
-
         // Check Amount Func
-        private bool Check_UserInput_Date()
+        private string Check_UserInput_Amount()
+        {
+            string input = txtAmount.Text;
+            string res = "";
+
+            if (string.IsNullOrWhiteSpace(input)) res = "Nicht alle Felder ausgefüllt!";
+
+            try
+            {
+                double amount = 0.0;
+                amount = double.Parse(txtAmount.Text);
+            }
+            catch (FormatException)
+            {
+                res = "Geben Sie einen gültigen Betrag an!";
+            }
+            return res;
+        }
+
+        // Check Date Func
+        private string Check_UserInput_Date()   
         {
             string input = txtdateTransaction.Text;
-            return DateTime.TryParseExact(input, "dd.MM.yyyy",
-                        CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
+            string res = "";
+
+            if (string.IsNullOrWhiteSpace(input)) res = "Nicht alle Felder ausgefüllt!";
+
+            if (!DateTime.TryParseExact(input, "dd.MM.yyyy",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out _)) res = "Datum hat falsches format!";
+            return res;
         }
-        // Check Date Func
+        
 
 
     }
