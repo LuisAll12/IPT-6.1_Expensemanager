@@ -18,7 +18,11 @@
 
             <!-- Betrag -->
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Betrag:" Foreground="White" FontSize="14" Width="80"/>
+                <TextBlock Width="80" Height="20">
+                    <Run Text="Betrag:" Foreground="White" FontSize="14"/>
+                    <Run Text="*" Foreground="#d04763" />
+                </TextBlock>
+
                 <TextBox x:Name="txtAmount" 
                          Style="{StaticResource RoundedInputBoxTheme}"
                          Width="200"
@@ -26,8 +30,11 @@
             </StackPanel>
 
             <!-- Datum -->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Datum:" Foreground="White" FontSize="14" Width="80"/>
+            <StackPanel Orientation="Horizontal"  Margin="0 20 0 0">
+                <TextBlock Width="80" Height="20">
+                    <Run Text="Datum:" Foreground="White" FontSize="14"/>
+                    <Run Text="*" Foreground="#d04763" />
+                </TextBlock>
                 <TextBox x:Name="txtdateTransaction" 
                             Style="{DynamicResource RoundedInputBoxTheme}"
                             Width="200"
@@ -37,7 +44,7 @@
             </StackPanel>
 
             <!-- Beschreibung -->
-            <StackPanel>
+            <StackPanel  Margin="0 20 0 0">
                 <TextBlock Text="Beschreibung:" Foreground="White"/>
                 <TextBox x:Name="txtDescription" 
                          MaxLength="255" 
@@ -53,10 +60,11 @@
             </StackPanel>
 
             <!-- Kategorie -->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Kategorie:" 
-                           Foreground="White" 
-                           FontSize="14" Width="80"/>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <TextBlock Width="80" Height="20">
+                    <Run Text="Kategorie:" Foreground="White" FontSize="14"/>
+                    <Run Text="*" Foreground="#d04763" />
+                </TextBlock>
                 <ComboBox x:Name="cmbCategory" Width="200" Background="#101721" Foreground="White">
                     <ComboBoxItem Content="Kategorie1" Background="#101721" Foreground="White"/>
                     <ComboBoxItem Content="Kategorie2"/>
@@ -110,7 +118,7 @@
 
             <!-- Fehlermeldung -->
             <TextBlock x:Name="lblError" 
-                       Foreground="Red" 
+                       Foreground="#d04763" 
                        HorizontalAlignment="Center"
                        Visibility="Collapsed" 
                        Text="Nicht alle Felder ausgefüllt"/>

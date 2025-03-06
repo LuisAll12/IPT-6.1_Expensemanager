@@ -48,7 +48,6 @@ namespace Expensesmanager.MVMM.View
 
                 lblError.Visibility = Visibility.Visible;
             }
-            // Check Description
 
             // Check Category
 
@@ -91,7 +90,8 @@ namespace Expensesmanager.MVMM.View
                         CultureInfo.InvariantCulture, DateTimeStyles.None, out _)) res = "Datum hat falsches format!";
             return res;
         }
-        
+
+        // Check Category Func
 
 
     }
