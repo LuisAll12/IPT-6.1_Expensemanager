@@ -38,6 +38,7 @@ namespace Expensesmanager.View
         {
             EmailTextBox.Text = string.Empty;
             PasswordBox.Password = string.Empty;
+            ErrorTextBlock.Visibility = Visibility.Hidden;
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {

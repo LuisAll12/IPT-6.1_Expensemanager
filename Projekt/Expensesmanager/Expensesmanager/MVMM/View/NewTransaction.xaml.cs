@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,32 @@ namespace Expensesmanager.MVMM.View
         }
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            // Check Amount
+            if (!Check_UserInput_Date())
+            {
+                lblError.Focus();
+                lblError.Text = "Datum hat falsches format";
+                lblError.Visibility = Visibility.Visible;
+            }
+            // Check Date
+
 
         }
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-
+            lblError.Visibility = Visibility.Hidden;
         }
+
+        // Check Amount Func
+        private bool Check_UserInput_Date()
+        {
+            string input = txtdateTransaction.Text;
+            return DateTime.TryParseExact(input, "dd.MM.yyyy",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
+        }
+        // Check Date Func
+
+
     }
 
 }

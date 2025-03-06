@@ -28,27 +28,37 @@
             <!-- Datum -->
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Datum:" Foreground="White" FontSize="14" Width="80"/>
-                <DatePicker x:Name="dateTransaction" 
-                            Style="{DynamicResource RoundedDatePickerTheme}"
+                <TextBox x:Name="txtdateTransaction" 
+                            Style="{DynamicResource RoundedInputBoxTheme}"
                             Width="200"
                             Background="#101721"
-                            Foreground="White"/>
+                            Foreground="White"
+                            Tag="dd.mm.yyyy"/>
             </StackPanel>
 
             <!-- Beschreibung -->
             <StackPanel>
                 <TextBlock Text="Beschreibung:" Foreground="White"/>
-                <TextBox x:Name="txtDescription" MaxLength="255" Height="60" TextWrapping="Wrap" AcceptsReturn="True"
-                         Background="#101721" Foreground="White" TextChanged="txtDescription_TextChanged" />
+                <TextBox x:Name="txtDescription" 
+                         MaxLength="255" 
+                         Height="60" 
+                         TextWrapping="Wrap" 
+                         AcceptsReturn="True"
+                         Background="#101721" 
+                         Foreground="White" 
+                         TextChanged="txtDescription_TextChanged" 
+                         Style="{DynamicResource RoundedInputBoxTheme}"/>
                 <TextBlock x:Name="charCount" Foreground="Gray" FontSize="10" HorizontalAlignment="Right"
                            Text="0/255"/>
             </StackPanel>
 
             <!-- Kategorie -->
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Kategorie:" Foreground="White" FontSize="14" Width="80"/>
+                <TextBlock Text="Kategorie:" 
+                           Foreground="White" 
+                           FontSize="14" Width="80"/>
                 <ComboBox x:Name="cmbCategory" Width="200" Background="#101721" Foreground="White">
-                    <ComboBoxItem Content="Kategorie1"/>
+                    <ComboBoxItem Content="Kategorie1" Background="#101721" Foreground="White"/>
                     <ComboBoxItem Content="Kategorie2"/>
                     <ComboBoxItem Content="Kategorie3"/>
                 </ComboBox>
