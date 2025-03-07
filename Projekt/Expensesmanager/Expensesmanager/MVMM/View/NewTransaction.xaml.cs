@@ -162,11 +162,6 @@ namespace Expensesmanager.MVMM.View
             {
                 options.Add("Sie haben noch keine Kategorien");
             }
-            //else if (!options.Contains("Sie haben noch keine Kategorien"))
-            //{
-            //    options.Add("Sie haben noch keine Kategorien");
-            //}
-
             cmbCategory.ItemsSource = options;
         }
 
