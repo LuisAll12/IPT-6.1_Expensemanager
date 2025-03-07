@@ -60,6 +60,10 @@ namespace Expensesmanager.MVMM.View
         }
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
+            txtAmount.Text = String.Empty;
+            txtDescription.Text = String.Empty;
+            txtdateTransaction.Text = String.Empty;
+            cmbCategory.SelectedItem = null;
             lblError.Visibility = Visibility.Hidden;
         }
         // Check Amount Func
