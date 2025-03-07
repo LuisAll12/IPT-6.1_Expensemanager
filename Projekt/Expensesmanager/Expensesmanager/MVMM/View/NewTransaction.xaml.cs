@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Expensesmanager.MVMM.ViewModel;
+using Expensesmanager.View;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -20,9 +22,11 @@ namespace Expensesmanager.MVMM.View
     /// </summary>
     public partial class NewTransaction : UserControl
     {
+        private NewTransactionViewModel nta_viewmodel;
         public NewTransaction()
         {
             InitializeComponent();
+            nta_viewmodel = new NewTransactionViewModel();
         }
 
         private void txtDescription_TextChanged(object sender, TextChangedEventArgs e)
@@ -33,12 +37,58 @@ namespace Expensesmanager.MVMM.View
         }
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+
+            // Check Usersinput
+            if (CheckInputs())
+            {            
+                // Inputs
+                double amount = double.Parse(txtAmount.Text);
+                string SQL_date = DateToSQLiteDate(txtdateTransaction.Text);
+                string description = txtDescription.Text;
+                string category = cmbCategory.SelectedItem?.ToString() ?? "";
+                try
+                {
+                    if (nta_viewmodel.RegisterNewTransaction(amount, SQL_date, description, category))
+                    {
+                        // Enter successfully
+                        txtAmount.Text = String.Empty;
+                        txtDescription.Text = String.Empty;
+                        txtdateTransaction.Text = String.Empty;
+                        cmbCategory.SelectedItem = null;
+                        lblError.Visibility = Visibility.Visible;
+                        lblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#28C940"));
+                        lblError.Text = "Erfolgreich";
+                    }
+                    else
+                    {
+                        lblError.Text = "Registrierung fehlgeschlagen!";
+                        lblError.Visibility = Visibility.Visible;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hier wird die genaue Fehlermeldung angezeigt
+                    MessageBox.Show("Registrierung fehlgeschlagen: " + ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+
+        }
+        private string DateToSQLiteDate(string inputdate)
+        {
+            return DateTime.ParseExact(inputdate, "dd.MM.yyyy", CultureInfo.InvariantCulture).ToString();
+        }
+        private bool CheckInputs()
+        {
+            bool res = true;
+            lblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5F56"));
             // Check Amount
             if (Check_UserInput_Date() != "")
             {
                 lblError.Text = Check_UserInput_Date();
 
                 lblError.Visibility = Visibility.Visible;
+                res = false;
             }
 
             // Check Date
@@ -47,6 +97,7 @@ namespace Expensesmanager.MVMM.View
                 lblError.Text = Check_UserInput_Amount();
 
                 lblError.Visibility = Visibility.Visible;
+                res = false;
             }
 
             // Check Category
@@ -55,8 +106,9 @@ namespace Expensesmanager.MVMM.View
                 lblError.Text = Check_UserInput_Category();
 
                 lblError.Visibility = Visibility.Visible;
+                res = false;
             }
-
+            return res;
         }
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +151,7 @@ namespace Expensesmanager.MVMM.View
             return res;
         }
 
-        private List<string> options = new List<string> { };
+        private List<string> options = new List<string> {"Kategorie 1", "Kategorie 2"};
 
 
         // Load All Categorys
