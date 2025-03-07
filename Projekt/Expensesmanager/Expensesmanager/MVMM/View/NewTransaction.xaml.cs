@@ -151,14 +151,13 @@ namespace Expensesmanager.MVMM.View
             return res;
         }
 
-        private List<string> options = new List<string> {"Kategorie 1", "Kategorie 2"};
 
 
         // Load All Categorys
         private void cmbCategory_DropDownOpened(object sender, EventArgs e)
         {
             cmbCategory.ItemsSource = null;
-
+            List<string> options = nta_viewmodel.GetAccountCategory();
             if (options.Count == 0)
             {
                 options.Add("Sie haben noch keine Kategorien");
