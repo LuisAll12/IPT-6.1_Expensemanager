@@ -87,16 +87,21 @@ namespace Expensesmanager.MVMM.ViewModel
                 {
                     connection.Open();
 
-                    string query = @"SELECT t.CategoryID
-                                    FROM Transactions t
+                    string query = @"
+                                    SELECT t.CategoryID
+                                    FROM Category t
                                     JOIN Account a ON t.AccountID = a.AccountID
                                     JOIN Category c ON t.CategoryID = c.CategoryID
-                                    WHERE a.AccountID = @accountID AND c.Name = @categoryname";
+                                    WHERE a.AccountID = @accountID AND c.Name = @categoryname;
+                                ";
+
                     using (var command = new SqliteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@accountID", accountID);  
+                        // Add parameters
+                        command.Parameters.AddWithValue("@accountID", accountID);
                         command.Parameters.AddWithValue("@categoryname", category);
 
+                        // Execute the query
                         object result = command.ExecuteScalar();
 
                         if (result != null)
@@ -105,7 +110,7 @@ namespace Expensesmanager.MVMM.ViewModel
                         }
                         else
                         {
-                            MessageBox.Show("Keine passende Kategorie gefunden.");
+                            MessageBox.Show("Error in SQL");
                         }
                     }
                 }
@@ -118,7 +123,6 @@ namespace Expensesmanager.MVMM.ViewModel
             {
                 MessageBox.Show(ex.Message, "Registrierungsfehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
             return categoryId;
         }
 
