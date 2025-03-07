@@ -91,6 +91,14 @@ namespace Expensesmanager.MVMM.View
             return res;
         }
 
+        private List<string> options = new List<string> { "Option 1", "Option 2", "Option 3" };
+
+        private void cmbCategory_DropDownOpened(object sender, EventArgs e)
+        {
+            cmbCategory.ItemsSource = null;  // Notwendig, damit Änderungen erkannt werden
+            cmbCategory.ItemsSource = options;
+        }
+
         // Check Category Func
 
 
