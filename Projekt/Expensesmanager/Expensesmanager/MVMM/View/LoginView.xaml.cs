@@ -84,5 +84,10 @@ namespace Expensesmanager.View
                 this.DragMove(); // Verschiebt das Fenster, wenn die linke Maustaste gedrückt wird
             }
         }
+
+        private void LoginButton_Click(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

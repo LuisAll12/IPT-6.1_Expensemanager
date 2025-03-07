@@ -50,8 +50,12 @@ namespace Expensesmanager.MVMM.View
             }
 
             // Check Category
+            if (Check_UserInput_Category() != "")
+            {
+                lblError.Text = Check_UserInput_Category();
 
-
+                lblError.Visibility = Visibility.Visible;
+            }
 
         }
         private void ResetButton_Click(object sender, RoutedEventArgs e)
@@ -91,17 +95,41 @@ namespace Expensesmanager.MVMM.View
             return res;
         }
 
-        private List<string> options = new List<string> { "Option 1", "Option 2", "Option 3" };
+        private List<string> options = new List<string> { };
 
+
+        // Load All Categorys
         private void cmbCategory_DropDownOpened(object sender, EventArgs e)
         {
-            cmbCategory.ItemsSource = null;  // Notwendig, damit Änderungen erkannt werden
+            cmbCategory.ItemsSource = null;
+
+            if (options.Count == 0)
+            {
+                options.Add("Sie haben noch keine Kategorien");
+            }
+            else if (!options.Contains("Sie haben noch keine Kategorien"))
+            {
+                options.Add("Sie haben noch keine Kategorien");
+            }
+
             cmbCategory.ItemsSource = options;
         }
 
         // Check Category Func
 
+        private string Check_UserInput_Category()
+        {
+            string input = cmbCategory.SelectedItem?.ToString();
+            string res = "";
 
+            if (string.IsNullOrEmpty(input)) res = "Nicht alle Felder ausgefüllt!";
+            if (input == "Sie haben noch keine Kategorien")
+            {
+                res = "Sie müssen zuerst eine Kategorie erstellen";
+            }
+
+            return res;
+        }
     }
 
 }
