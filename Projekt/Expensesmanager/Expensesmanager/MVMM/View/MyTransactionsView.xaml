@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Expensesmanager.MVMM.View.MyTransactionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
+             mc:Ignorable="d" d:DesignWidth="800" Height="500">
+    <StackPanel>
+        <TextBlock x:Name="Greet_TextBlock"
+                   Text="Hallo ?"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,10"/>
+    </StackPanel>
+</UserControl>

@@ -53,9 +53,14 @@
                 <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}" IsChecked="True"
                              Command="{Binding HomeViewCommand}" Checked="RadioButton_Checked"/>
+                
                 <RadioButton Content="New Transaction" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewTransactionCommand}" Checked="RadioButton_Checked"/>
+                
+                <RadioButton Content="My Transactions" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding MyTransactionsCommand}" Checked="RadioButton_Checked"/>
 
       </StackPanel>
 

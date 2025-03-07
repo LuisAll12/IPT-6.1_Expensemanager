@@ -9,10 +9,11 @@ namespace Expensesmanager.MVMM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand NewTransactionCommand { get; set; }
 
-        public RelayCommand DiscoveryViewCommand { get; set; }
+        public RelayCommand MyTransactionsCommand { get; set; }
 
         public HomeViewModel HomeViewModel { get; set; }
         public NewTransactionViewModel NewTransactionVM { get; set; }
+        public MyTransactionsViewModel MyTransactionsVM { get; set; }
 
         private object _currentView;
 
@@ -30,6 +31,8 @@ namespace Expensesmanager.MVMM.ViewModel
         {
             HomeViewModel = new HomeViewModel();
             NewTransactionVM = new NewTransactionViewModel();
+            MyTransactionsVM = new MyTransactionsViewModel();
+
 
             CurrentView = HomeViewModel;
 
@@ -40,6 +43,10 @@ namespace Expensesmanager.MVMM.ViewModel
             NewTransactionCommand = new RelayCommand(o =>
             {
                 CurrentView = NewTransactionVM;
+            });
+            MyTransactionsCommand = new RelayCommand(o =>
+            {
+                CurrentView = MyTransactionsVM;
             });
         }
     }

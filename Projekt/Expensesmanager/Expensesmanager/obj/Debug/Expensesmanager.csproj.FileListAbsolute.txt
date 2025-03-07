@@ -106,3 +106,5 @@ C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\ob
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\NewTransaction.baml
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\NewTransaction.g.cs
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\NewTransaction.baml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\MyTransactionsView.g.cs
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\MyTransactionsView.baml
