@@ -6,11 +6,18 @@
              xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="500">
     <StackPanel>
-        <TextBlock x:Name="Greet_TextBlock"
-                   Text="Hallo ?"
+        <TextBlock x:Name="Description_Block"
+                   Text="Hier sehen Sie alle Transaktionen"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Left"
                    Margin="0,0,0,10"/>
+        <!--<DataGrid ItemsSource="{Binding Records}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Betrag" Binding="{Binding Betrag}" />
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd.MM.yyyy}}" />
+                <DataGridTextColumn Header="Kategorie" Binding="{Binding Kategorie}" />
+            </DataGrid.Columns>
+        </DataGrid>-->
     </StackPanel>
 </UserControl>

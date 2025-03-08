@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using SQLitePCL;
+using System;
+using System.IO;
+using System.Windows;
+using System.Security.Cryptography;
+using Expensesmanager.Core;
+using Expensesmanager.ViewModel;
+using System.Windows.Documents;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
