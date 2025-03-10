@@ -39,9 +39,9 @@ namespace Expensesmanager.MVMM.View
     }
     public class Record
     {
-        public double Betrag { get; set; }
-        public DateTime Datum { get; set; }
-        public string Kategorie { get; set; }
+        public double Amount { get; set; }
+        public DateTime Date { get; set; }
+        public string Category { get; set; }
     }
 }
     

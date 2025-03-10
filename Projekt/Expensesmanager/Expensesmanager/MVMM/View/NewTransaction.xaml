@@ -24,7 +24,7 @@
                 <TextBox x:Name="txtAmount" 
                          Style="{StaticResource RoundedInputBoxTheme}"
                          Width="200"
-                         Tag="+/-220.00"/>
+                         Tag="+/- 220.00"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"  Margin="0 20 0 0">

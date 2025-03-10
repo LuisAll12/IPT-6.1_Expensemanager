@@ -60,14 +60,13 @@ namespace Expensesmanager.MVMM.ViewModel
                   {
                     while (reader.Read())
                     {
-                      var record = new Record
-                      {
-                        Betrag = reader.GetDouble(0),
-                        Datum = reader.GetDateTime(1),
-                        Kategorie = reader.GetString(2)
-                      };
-
-                      Records.Add(record);
+                        var record = new Record
+                        {
+                            Amount = reader.GetDouble(0),
+                            Date = DateTime.Parse(reader.GetString(1)),
+                            Category = reader.GetString(2)
+                        };
+                        Records.Add(record);
                     }
                   }
                 }
