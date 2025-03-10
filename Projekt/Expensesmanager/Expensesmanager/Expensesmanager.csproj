@@ -91,6 +91,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\AmountToColorConverter.cs" />
+    <Compile Include="Core\BooleanToVisibilityConverter.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\PasswordHasher.cs" />
     <Compile Include="Core\RelayCommand.cs" />
