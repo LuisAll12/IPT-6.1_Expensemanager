@@ -5,19 +5,93 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="500">
-    <StackPanel>
-        <TextBlock x:Name="Description_Block"
-                   Text="Hier sehen Sie alle Transaktionen"
-                   Foreground="White"
-                   FontSize="28"
-                   HorizontalAlignment="Left"
-                   Margin="0,0,0,10"/>
-        <!--<DataGrid ItemsSource="{Binding Records}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Betrag" Binding="{Binding Betrag}" />
-                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd.MM.yyyy}}" />
-                <DataGridTextColumn Header="Kategorie" Binding="{Binding Kategorie}" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-    </StackPanel>
+  <StackPanel>
+    <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" Cursor="Hand">
+            <Run Text="Meine" Foreground="#8D6EEF" FontSize="28" FontWeight="Bold" />
+            <Run Text="Transaktionen" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
+    </TextBlock>
+    <DataGrid ItemsSource="{Binding Records}"
+          AutoGenerateColumns="False"
+          HeadersVisibility="Column"
+          CanUserAddRows="False"
+          CanUserDeleteRows="False"
+          CanUserResizeRows="False"
+          RowBackground="#161a25"
+          AlternatingRowBackground="#1d2331"
+          Background="Transparent"
+          BorderBrush="Transparent"
+          GridLinesVisibility="None"
+          Foreground="#E0E0E0"
+          FontSize="16"
+          HorizontalAlignment="Center"
+          ColumnHeaderHeight="50"
+          RowHeight="40"
+          Margin="30"
+          Padding="10"
+          HorizontalScrollBarVisibility="Auto"
+          VerticalScrollBarVisibility="Auto"
+          Width="750"
+          IsReadOnly="True">
+      <DataGrid.Resources>
+        <!-- Style for Column Headers -->
+        <Style TargetType="DataGridColumnHeader">
+          <Setter Property="Background" Value="#2A2A40"/>
+          <Setter Property="Foreground" Value="#A68EFF"/>
+          <Setter Property="FontSize" Value="22"/>
+          <Setter Property="FontWeight" Value="Bold"/>
+          <Setter Property="HorizontalContentAlignment" Value="Center"/>
+          <Setter Property="Padding" Value="10"/>
+          <Setter Property="BorderBrush" Value="#333"/>
+          <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+
+        <!-- Style for DataGrid Cells -->
+        <Style TargetType="DataGridCell">
+          <Setter Property="Foreground" Value="#E0E0E0"/>
+          <Setter Property="BorderBrush" Value="#1E1E2E"/>
+          <Setter Property="HorizontalContentAlignment" Value="Center"/>
+          <Setter Property="Padding" Value="10"/>
+          <Setter Property="Background" Value="Transparent"/>
+          <Style.Triggers>
+            <!-- Hover Effect for Cells -->
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter Property="Background" Value="#3A3A5A"/>
+              <Setter Property="Foreground" Value="#FFFFFF"/>
+            </Trigger>
+            <!-- Selected Row Effect -->
+            <Trigger Property="IsSelected" Value="True">
+              <Setter Property="Background" Value="#A68EFF"/>
+              <Setter Property="Foreground" Value="#1E1E2E"/>
+            </Trigger>
+          </Style.Triggers>
+        </Style>
+
+        <!-- Style for DataGrid Rows -->
+        <Style TargetType="DataGridRow">
+          <Setter Property="Background" Value="Transparent"/>
+          <Setter Property="BorderBrush" Value="Transparent"/>
+          <Style.Triggers>
+            <!-- Hover Effect for Rows -->
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter Property="Background" Value="#3A3A5A"/>
+            </Trigger>
+            <!-- Selected Row Effect -->
+            <Trigger Property="IsSelected" Value="True">
+              <Setter Property="Background" Value="#A68EFF"/>
+              <Setter Property="Foreground" Value="#1E1E2E"/>
+            </Trigger>
+          </Style.Triggers>
+        </Style>
+      </DataGrid.Resources>
+
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Betrag" 
+                    Binding="{Binding Betrag, StringFormat={}{0} CHF}" 
+                    Width="*"/>
+        <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat={}{0:dd.MM.yyyy}}" Width="*"/>
+        <DataGridTextColumn Header="Kategorie" Binding="{Binding Kategorie}" Width="*"/>
+      </DataGrid.Columns>
+    </DataGrid>
+
+  </StackPanel>
 </UserControl>
