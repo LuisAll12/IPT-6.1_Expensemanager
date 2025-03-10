@@ -11,7 +11,10 @@ namespace Expensesmanager.ViewModel
 {
   public class LoginViewModel
   {
-    public static int? CurrentUserId { get; private set; }
+    private static int? currentUserId;
+
+    public static int? CurrentUserId { get => currentUserId; }
+
     public bool AuthenticateUser(string email, string password)
     {
       bool LoginResult = false;
@@ -46,7 +49,7 @@ namespace Expensesmanager.ViewModel
 
                 if (PasswordHasher.VerifyPassword(password, StoredHash))
                 {
-                  CurrentUserId = userID;
+                  currentUserId = userID;
                   LoginResult = true;
                 }
               }
@@ -67,6 +70,10 @@ namespace Expensesmanager.ViewModel
 
       // Return Result
       return LoginResult;
+    }
+    public static void Logout() 
+    {
+      currentUserId = null;
     }
   }
 }

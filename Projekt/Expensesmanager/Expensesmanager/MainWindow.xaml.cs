@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Expensesmanager;
 using Expensesmanager.MVMM.ViewModel;
+using Expensesmanager.ViewModel;
+using Expensesmanager.View;
 
 namespace Expensesmanager
 {
@@ -62,7 +64,11 @@ namespace Expensesmanager
 
     private void LogoutButton_Click(object sender, RoutedEventArgs e)
     {
-      MessageBox.Show("Logout");
+      LoginViewModel.Logout();
+      LoginView loginviewmodel = new LoginView();
+      loginviewmodel.Show();
+
+      this.Close();
     }
   }
 }
