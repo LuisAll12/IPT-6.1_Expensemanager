@@ -2,6 +2,7 @@
 using Expensesmanager.View;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -22,45 +23,91 @@ namespace Expensesmanager.MVMM.View
   /// </summary>
   public partial class NewCategory : UserControl
   {
-    private NewCategoryViewModel nc_viewmodel;
-    public NewCategory()
-    {
-      InitializeComponent();
-      nc_viewmodel = new NewCategoryViewModel();
-    }
-    // Event-Handler für TextChanged von txtDescription
-    private void categorytxtDescription_TextChanged(object sender, TextChangedEventArgs e)
-    {
-      // Deine Logik hier
-      string input = categorytxtDescription.Text;
-      // Beispiel: Aktualisiere eine Zeichenanzahl, wenn gewünscht
-      categorycharCount.Text = input.Length.ToString() + "/255";
-    }
+        private NewCategoryViewModel nc_viewmodel;
 
-    // Event-Handler für den ResetButton_Click
-    private void ResetButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Setze alle Felder zurück
-      categorytxtDescription.Text = string.Empty;
-      // Weitere Rücksetzlogik hier
-    }
+        private double amount = double.NaN;
+        public NewCategory()
+        {
+          InitializeComponent();
+          nc_viewmodel = new NewCategoryViewModel();
+        }
+        // Event-Handler für TextChanged von txtDescription
+        private void categorytxtDescription_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           string input = categorytxtDescription.Text;
+           categorycharCount.Text = input.Length.ToString() + "/255";
+        }
 
-    // Event-Handler für den SubmitButton_Click
-    private void SubmitButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Deine Logik für den Submit Button
-      // Beispiel: Validierungen und Speichern der Daten
-      if (CheckInputs())
-      {
-        // Weitere Logik für das Absenden
-      }
-    }
+        // Event-Handler für den ResetButton_Click
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+          // Setze alle Felder zurück
+          categorytxtDescription.Text = string.Empty;
+          // Weitere Rücksetzlogik hier
 
-    // Optional: Methode zur Validierung der Eingaben
-    private bool CheckInputs()
-    {
-      // Deine Validierungslogik hier
-      return true;
-    }
+        }
+
+        // Event-Handler für den SubmitButton_Click
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            categorylblError.Visibility = Visibility.Hidden;
+
+            string validationMessage = CheckInputs();
+            if (string.IsNullOrEmpty(validationMessage))
+            {
+                // Alles OK → Absenden
+                
+
+                // Beispiel: Daten speichern etc.
+                categorylblError.Text = "Erfolgreich gespeichert";
+                categorylblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#28C940"));
+                categorylblError.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Fehleranzeige
+                categorylblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5F56"));
+                categorylblError.Text = validationMessage;
+                categorylblError.Visibility = Visibility.Visible;
+            }
+        }
+
+        // Optional: Methode zur Validierung der Eingaben
+        private string CheckInputs()
+        {
+            // Check Name
+            if (string.IsNullOrWhiteSpace(categoryName.Text))
+            {
+                return "Nicht alle Felder ausgefüllt!";
+            }
+            if (categoryName.Text.Length > 25)
+            {
+                return "Der Name ist zu lang. Bitte ändern!";
+            }
+
+            // Check Budget
+            string budgetCheck = CheckBudget();
+            if (!string.IsNullOrEmpty(budgetCheck))
+            {
+                return budgetCheck;
+            }
+
+            return string.Empty; // Kein Fehler → leere Rückgabe
+        }
+
+        private string CheckBudget()
+        {
+            string res = String.Empty;
+            if (string.IsNullOrWhiteSpace(txtBudget.Text)) return "Nicht alle Felder ausgefüllt!";
+            try
+            {
+                amount = double.Parse(txtBudget.Text);
+            }
+            catch (FormatException)
+            {
+                res = "Geben Sie einen gültigen Betrag an!";
+            }
+            return res;
+        }
   }
 }

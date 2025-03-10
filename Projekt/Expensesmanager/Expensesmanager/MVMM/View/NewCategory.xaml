@@ -52,15 +52,24 @@
       <StackPanel  Margin="0 20 0 0">
 
         <StackPanel Orientation="Horizontal">
-          <TextBlock Width="80" Height="20">
-              <Run Text="Budget:" Foreground="White" FontSize="14"/>
-              <Run Text="*" Foreground="#d04763" />
-          </TextBlock>
+                    <TextBlock Width="100" Height="20">
+                        <Run Text="Budget: " Foreground="White" FontSize="14"/>
+                        <Run Text="*" Foreground="#d04763" />
+                        <Run FontFamily="Segoe MDL2 Assets" Text=" &#xE946;" FontSize="12" Foreground="#22c3f7" Cursor="Hand"/>
+                        <TextBlock.ToolTip>
+                            <ToolTip Style="{StaticResource RoundedToolTipStyle}">
+                                <StackPanel>
+                                    <TextBlock Text="Positiv = Guthaben"/>
+                                    <TextBlock Text="Negativ = Spaaren"/>
+                                </StackPanel>
+                            </ToolTip>
+                        </TextBlock.ToolTip>
+                </TextBlock>
 
-          <TextBox x:Name="Budget" 
+                    <TextBox x:Name="txtBudget" 
                    Style="{StaticResource RoundedInputBoxTheme}"
                    Width="200"
-                   Tag="220.00"/>
+                   Tag="+/- 220.00"/>
         </StackPanel>
 
 
