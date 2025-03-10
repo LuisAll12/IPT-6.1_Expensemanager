@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\App.xaml
-10-1742289986
+111007621102
 
-231668677957
+24-2064716839
 232094121199
-MainWindow.xaml;MVMM\View\HomeView.xaml;MVMM\View\LoginView.xaml;MVMM\View\MyTransactionsView.xaml;MVMM\View\NewCategory.xaml;MVMM\View\NewTransaction.xaml;MVMM\View\RegisterView.xaml;Theme\InputBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\ToolTipStyle.xaml;
+MainWindow.xaml;MVMM\Help\HelpView.xaml;MVMM\View\HomeView.xaml;MVMM\View\LoginView.xaml;MVMM\View\MyTransactionsView.xaml;MVMM\View\NewCategory.xaml;MVMM\View\NewTransaction.xaml;MVMM\View\RegisterView.xaml;Theme\InputBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\ToolTipStyle.xaml;
 
 False
 

@@ -16,6 +16,7 @@ using Expensesmanager;
 using Expensesmanager.MVMM.ViewModel;
 using Expensesmanager.ViewModel;
 using Expensesmanager.View;
+using Expensesmanager.MVMM.Help;
 
 namespace Expensesmanager
 {
@@ -71,9 +72,11 @@ namespace Expensesmanager
       this.Close();
     }
 
-        private void HelpButton_Click(object sender, MouseButtonEventArgs e)
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello Mouse");
+            HelpView helpviewmodel = new HelpView();
+            helpviewmodel.Show();
         }
     }
 }
