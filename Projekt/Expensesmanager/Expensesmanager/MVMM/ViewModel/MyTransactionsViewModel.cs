@@ -20,24 +20,66 @@ namespace Expensesmanager.MVMM.ViewModel
         public MyTransactionsViewModel()
         {
             Records = new ObservableCollection<Record>();
-            GenerateTestData();
+            // GenerateTestData();
+            GetTransactions();
         }
-
-        private void GenerateTestData()
+        private static int? accountID { get; set; }
+        
+        private void GetTransactions()
         {
-            var kategorien = new[] { "Lebensmittel", "Miete", "Freizeit", "Transport", "Versicherung", "Gesundheit", "Sonstiges" };
-            var random = new Random();
-            var startDatum = new DateTime(2024, 1, 1);
+          accountID = LoginViewModel.CurrentUserId;
 
-            for (int i = 0; i < 50; i++)
+          // Resolve the database path
+          string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+          string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
+          string connectionString = $"Data Source={dbPath}";
+
+          if (!System.IO.File.Exists(dbPath))
+          {
+            throw new FileNotFoundException("Database file not found.", dbPath);
+          }
+
+            try
             {
-                var record = new Record
+              using (var connection = new SqliteConnection(connectionString))
+              {
+                connection.Open();
+
+                string query = @"
+                                              SELECT t.Amount, t.Date, c.Name
+                                              FROM Transactions t
+                                              JOIN Account a ON t.AccountID = a.AccountID
+                                              JOIN Category c ON t.CategoryID = c.CategoryID
+                                              WHERE a.AccountID = @accountID;";
+
+                using (var command = new SqliteCommand(query, connection))
                 {
-                    Betrag = Math.Round(random.NextDouble() * 500, 2), // Zufälliger Betrag von 0 bis 500 CHF
-                    Datum = startDatum.AddDays(random.Next(0, 365)), // Zufälliges Datum im Jahr 2024
-                    Kategorie = kategorien[random.Next(kategorien.Length)]
-                };
-                Records.Add(record);
+                  command.Parameters.AddWithValue("@accountID", accountID);
+
+                  using (var reader = command.ExecuteReader())
+                  {
+                    while (reader.Read())
+                    {
+                      var record = new Record
+                      {
+                        Betrag = reader.GetDouble(0),
+                        Datum = reader.GetDateTime(1),
+                        Kategorie = reader.GetString(2)
+                      };
+
+                      Records.Add(record);
+                    }
+                  }
+                }
+              }
+            }
+            catch (SqliteException sqlEx)
+            {
+              MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+              MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }   

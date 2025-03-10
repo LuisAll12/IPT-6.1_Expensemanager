@@ -13,10 +13,8 @@
         </TextBlock>
 
 
-        <!-- Formular -->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
 
-            <!-- Betrag -->
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="80" Height="20">
                     <Run Text="Betrag:" Foreground="White" FontSize="14"/>
@@ -26,10 +24,9 @@
                 <TextBox x:Name="txtAmount" 
                          Style="{StaticResource RoundedInputBoxTheme}"
                          Width="200"
-                         Tag="220.00"/>
+                         Tag="+/-220.00"/>
             </StackPanel>
 
-            <!-- Datum -->
             <StackPanel Orientation="Horizontal"  Margin="0 20 0 0">
                 <TextBlock Width="80" Height="20">
                     <Run Text="Datum:" Foreground="White" FontSize="14"/>
@@ -43,7 +40,6 @@
                             Tag="dd.mm.yyyy"/>
             </StackPanel>
 
-            <!-- Beschreibung -->
             <StackPanel  Margin="0 20 0 0">
                 <TextBlock Text="Beschreibung:" Foreground="White"/>
                 <TextBox x:Name="txtDescription" 
@@ -59,7 +55,6 @@
                            Text="0/255"/>
             </StackPanel>
 
-            <!-- Kategorie -->
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                 <TextBlock Width="80" Height="20">
         <Run Text="Kategorie:" Foreground="White" FontSize="14"/>
@@ -78,7 +73,7 @@
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#101000"/>
-                                    <!-- Weiß bei Hover -->
+
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -87,7 +82,6 @@
             </StackPanel>
 
 
-            <!-- Buttons -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button Content="Zurücksetzen" 
                         Width="140" 
@@ -131,7 +125,6 @@
                 </Button>
             </StackPanel>
 
-            <!-- Fehlermeldung -->
             <TextBlock x:Name="lblError" 
                        Foreground="#d04763" 
                        HorizontalAlignment="Center"
