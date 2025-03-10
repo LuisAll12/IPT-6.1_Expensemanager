@@ -33,7 +33,6 @@ namespace Expensesmanager.MVMM.ViewModel
             NewTransactionVM = new NewTransactionViewModel();
             MyTransactionsVM = new MyTransactionsViewModel();
 
-
             CurrentView = HomeViewModel;
 
             HomeViewCommand = new RelayCommand(o => 

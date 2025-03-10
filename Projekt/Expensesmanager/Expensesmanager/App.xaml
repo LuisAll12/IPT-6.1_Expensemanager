@@ -20,6 +20,10 @@
                 <view:NewTransaction/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:MyTransactionsViewModel}">
+                <view:MyTransactionsView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
