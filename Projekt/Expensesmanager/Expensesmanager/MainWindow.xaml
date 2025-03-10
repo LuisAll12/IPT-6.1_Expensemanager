@@ -62,6 +62,10 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding MyTransactionsCommand}" Checked="RadioButton_Checked"/>
 
+                <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding NewCategoryCommand}" Checked="RadioButton_Checked"/>
+
       </StackPanel>
 
             <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"

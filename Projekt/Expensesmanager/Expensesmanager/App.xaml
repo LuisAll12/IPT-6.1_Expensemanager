@@ -23,7 +23,10 @@
             <DataTemplate DataType="{x:Type viewModel:MyTransactionsViewModel}">
                 <view:MyTransactionsView/>
             </DataTemplate>
+      <DataTemplate DataType="{x:Type viewModel:NewCategoryViewModel}">
+        <view:NewCategory/>
+      </DataTemplate>
 
-        </ResourceDictionary>
+    </ResourceDictionary>
     </Application.Resources>
 </Application>
