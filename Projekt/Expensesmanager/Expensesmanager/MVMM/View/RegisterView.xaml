@@ -98,10 +98,7 @@
                      Tag="Mustermann"
                      Style="{StaticResource RoundedInputBoxTheme}"/>
             <!-- MonthlyIncome -->
-            <TextBlock Margin="0 10 0 0">
-                <Run Text="Monatliches Einkommen::" Foreground="White" FontSize="14"/>
-                <Run Text="*" Foreground="#d04763" />
-            </TextBlock>
+            <TextBlock Margin="0 10 0 0" Text="Monatliches Einkommen:" Foreground="White" FontSize="14"/>
             <TextBox x:Name="MonthlyIncomeTextBox" 
                      Tag="6500.00"
                      Style="{StaticResource RoundedInputBoxTheme}"/>
