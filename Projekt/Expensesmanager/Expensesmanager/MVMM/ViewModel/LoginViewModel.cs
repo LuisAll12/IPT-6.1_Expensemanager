@@ -12,23 +12,12 @@ namespace Expensesmanager.ViewModel
   public class LoginViewModel
   {
     private static int? currentUserId;
-
+    private string connectionString = App.ConnectionString;
     public static int? CurrentUserId { get => currentUserId; }
 
     public bool AuthenticateUser(string email, string password)
     {
       bool LoginResult = false;
-
-      //Databasepath
-      string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-      string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-      string connectionString = $"Data Source={dbPath}";
-
-
-      if (!System.IO.File.Exists(dbPath))
-      {
-        throw new FileNotFoundException("Database file not found.", dbPath);
-      }
 
       try
       {

@@ -13,5 +13,6 @@ namespace Expensesmanager.MVMM.ViewModel
 {
   internal class NewCategoryViewModel
   {
-  }
+        private string connectionString = App.ConnectionString;
+    }
 }

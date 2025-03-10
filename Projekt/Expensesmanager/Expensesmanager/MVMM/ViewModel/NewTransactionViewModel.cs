@@ -14,6 +14,8 @@ namespace Expensesmanager.MVMM.ViewModel
     internal class NewTransactionViewModel
     {
         private static int? accountID { get; set; }
+
+        private string connectionString = App.ConnectionString;
         public bool RegisterNewTransaction(double amount, string date, string description, string category)
         {
             bool rntResult = false;
@@ -24,15 +26,6 @@ namespace Expensesmanager.MVMM.ViewModel
             // Set AccountID
             accountID = LoginViewModel.CurrentUserId;
 
-            // Resolve the database path
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-            string connectionString = $"Data Source={dbPath}";
-
-            if (!System.IO.File.Exists(dbPath))
-            {
-                throw new FileNotFoundException("Database file not found.", dbPath);
-            }
             try
             {
                 using (var connection = new SqliteConnection(connectionString))
@@ -70,16 +63,6 @@ namespace Expensesmanager.MVMM.ViewModel
         private int GetCategoryIDbyName(string category)
         {
             int categoryId = -1; 
-
-            // Resolve the database path
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-            string connectionString = $"Data Source={dbPath}";
-
-            if (!System.IO.File.Exists(dbPath))
-            {
-                throw new FileNotFoundException("Database file not found.", dbPath);
-            }
 
             try
             {
@@ -131,15 +114,6 @@ namespace Expensesmanager.MVMM.ViewModel
             List<string> categoryList = new List<string>();
             accountID = LoginViewModel.CurrentUserId;
 
-            // Resolve the database path
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-            string connectionString = $"Data Source={dbPath}";
-
-            if (!System.IO.File.Exists(dbPath))
-            {
-                throw new FileNotFoundException("Database file not found.", dbPath);
-            }
             try
             {
                 using (var connection = new SqliteConnection(connectionString))

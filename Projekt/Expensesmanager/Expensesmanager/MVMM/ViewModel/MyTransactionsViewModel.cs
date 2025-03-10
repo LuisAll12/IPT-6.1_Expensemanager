@@ -19,6 +19,7 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     internal class MyTransactionsViewModel : INotifyPropertyChanged
     {
+        private string connectionString = App.ConnectionString;
         public ObservableCollection<Record> Records { get; set; }
 
         public MyTransactionsViewModel()
@@ -50,15 +51,6 @@ namespace Expensesmanager.MVMM.ViewModel
             IsLoading = true;
             accountID = LoginViewModel.CurrentUserId;
 
-            // Resolve the database path
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-            string connectionString = $"Data Source={dbPath}";
-
-            if (!System.IO.File.Exists(dbPath))
-            {
-              throw new FileNotFoundException("Database file not found.", dbPath);
-            }
 
               try
               {

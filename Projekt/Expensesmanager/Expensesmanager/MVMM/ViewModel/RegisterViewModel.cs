@@ -10,6 +10,7 @@ namespace Expensesmanager.MVMM.ViewModel
 {
   internal class RegisterViewModel
   {
+    private string connectionString = App.ConnectionString;
     public bool RegisterUser(string email, string password, string firstname, string lastname, double monthlyincome)
     {
       bool registerResult = false;
@@ -24,15 +25,6 @@ namespace Expensesmanager.MVMM.ViewModel
       if (lastname.Length > 50)
         throw new ArgumentException("Last name must be 100 characters or less.");
 
-      // Resolve the database path
-      string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-      string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-      string connectionString = $"Data Source={dbPath}";
-
-      if (!System.IO.File.Exists(dbPath))
-      {
-        throw new FileNotFoundException("Database file not found.", dbPath);
-      }
       try
       {
         using (var connection = new SqliteConnection(connectionString))

@@ -11,6 +11,8 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     class HomeViewModel
     {
+        private string connectionString = App.ConnectionString;
+
         private int userId = LoginViewModel.CurrentUserId.Value;
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -53,10 +55,6 @@ namespace Expensesmanager.MVMM.ViewModel
             int currentYear = DateTime.Now.Year;
             int currentMonth = DateTime.Now.Month;
 
-
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-            string connectionString = $"Data Source={dbPath}";
 
             // Get all Transactions
             string query = @"SELECT Amount FROM Transactions WHERE AccountID = @UserID AND strftime('%Y', Date) = @Year AND strftime('%m', Date) = @Month";
