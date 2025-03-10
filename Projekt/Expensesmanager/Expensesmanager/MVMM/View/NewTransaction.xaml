@@ -16,14 +16,24 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="80" Height="20">
-                    <Run Text="Betrag:" Foreground="White" FontSize="14"/>
+                <TextBlock Width="100" Height="20">
+                    <Run Text="Betrag: " Foreground="White" FontSize="14"/>
                     <Run Text="*" Foreground="#d04763" />
+                    <Run FontFamily="Segoe MDL2 Assets" Text=" &#xE946;" FontSize="12" Foreground="#22c3f7" Cursor="Hand"/>
+                    <TextBlock.ToolTip>
+                        <ToolTip Style="{StaticResource RoundedToolTipStyle}">
+                            <StackPanel>
+                                <TextBlock Text="Positiv = Einnahme"/>
+                                <TextBlock Text="Negativ = Ausgabe"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </TextBlock.ToolTip>
                 </TextBlock>
+
 
                 <TextBox x:Name="txtAmount" 
                          Style="{StaticResource RoundedInputBoxTheme}"
-                         Width="200"
+                         Width="199"
                          Tag="+/- 220.00"/>
             </StackPanel>
 
@@ -34,7 +44,7 @@
                 </TextBlock>
                 <TextBox x:Name="txtdateTransaction" 
                             Style="{DynamicResource RoundedInputBoxTheme}"
-                            Width="200"
+                            Width="220"
                             Background="#101721"
                             Foreground="White"
                             Tag="dd.mm.yyyy"/>
@@ -61,7 +71,7 @@
         <Run Text="*" Foreground="#d04763" />
                 </TextBlock>
                 <ComboBox x:Name="cmbCategory" 
-              Width="200" 
+              Width="220" 
               Background="#101721"
               Foreground="White" 
               DropDownOpened="cmbCategory_DropDownOpened">
