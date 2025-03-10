@@ -59,5 +59,10 @@ namespace Expensesmanager
     {
 
         }
+
+    private void LogoutButton_Click(object sender, RoutedEventArgs e)
+    {
+      MessageBox.Show("Logout");
     }
+  }
 }

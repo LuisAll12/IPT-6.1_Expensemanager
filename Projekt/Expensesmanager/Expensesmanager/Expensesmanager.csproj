@@ -192,5 +192,8 @@
   <ItemGroup>
     <Resource Include="Images\FinanceTracker_ico.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logoutIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

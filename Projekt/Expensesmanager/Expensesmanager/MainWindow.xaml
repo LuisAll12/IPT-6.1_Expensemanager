@@ -12,76 +12,111 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-    </Window.DataContext>
+  <Window.DataContext>
+    <viewModel:MainViewModel/>
+  </Window.DataContext>
 
-    <Border Background="#272537" CornerRadius="20" MouseDown="Window_MouseDown">
-        <Grid>
+  <Border Background="#272537" CornerRadius="20" MouseDown="Window_MouseDown">
+    <Grid>
 
-            <!-- Steuerung: Minimieren & Schließen -->
-            <Grid Height="30" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="2">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+      <!-- Steuerung: Minimieren & Schließen -->
+      <Grid Height="30" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="2">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                    <Button Width="15" Height="15" Background="#28C940" 
+          <Button Width="15" Height="15" Background="#28C940" 
                             BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
                             ToolTip="Minimize" Click="MinimizeButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Ellipse Fill="{TemplateBinding Background}" />
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+            <Button.Template>
+              <ControlTemplate TargetType="Button">
+                <Ellipse Fill="{TemplateBinding Background}" />
+              </ControlTemplate>
+            </Button.Template>
+          </Button>
 
-                    <Button Width="15" Height="15" Background="#FF5F56" 
+          <Button Width="15" Height="15" Background="#FF5F56" 
                             BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
                             ToolTip="Close" Click="CloseButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Ellipse Fill="{TemplateBinding Background}" />
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </StackPanel>
-            </Grid>
+            <Button.Template>
+              <ControlTemplate TargetType="Button">
+                <Ellipse Fill="{TemplateBinding Background}" />
+              </ControlTemplate>
+            </Button.Template>
+          </Button>
+        </StackPanel>
+      </Grid>
 
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+      <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
                 <Run Text="Manager" Foreground="#5529EE" FontSize="22" FontWeight="Bold" />
-            </TextBlock>
-            <StackPanel Grid.Row="1">
-                <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
+      </TextBlock>
+      <Grid Grid.Row="1">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <!-- RadioButtons -->
+          <RowDefinition Height="*"/>
+          <!-- Füllt den Raum -->
+          <RowDefinition Height="Auto"/>
+          <!-- Button am Ende -->
+        </Grid.RowDefinitions>
+
+        <!-- Alle RadioButtons hier rein -->
+        <StackPanel Grid.Row="0">
+          <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}" IsChecked="True"
                              Command="{Binding HomeViewCommand}" Checked="RadioButton_Checked"/>
-                
-                <RadioButton Content="New Transaction" Height="50" Foreground="White" FontSize="17"
+
+          <RadioButton Content="New Transaction" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewTransactionCommand}" Checked="RadioButton_Checked"/>
-                
-                <RadioButton Content="My Transactions" Height="50" Foreground="White" FontSize="17"
+
+          <RadioButton Content="My Transactions" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding MyTransactionsCommand}" Checked="RadioButton_Checked"/>
 
-                <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
+          <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewCategoryCommand}" Checked="RadioButton_Checked"/>
+        </StackPanel>
 
-      </StackPanel>
+        <!-- Dein Button ganz unten -->
+        <Button Width="140" Height="35" Cursor="Hand" Grid.Row="2" Margin="10" Click="LogoutButton_Click">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Images/logoutIcon.png" Width="20" Height="20" Margin="0,0,5,0"/>
+            <TextBlock Text="Logout" Foreground="White" FontSize="16"/>
+          </StackPanel>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
+          <Button.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+              <GradientStop Color="#8D6EEF" Offset="0.0"/>
+              <GradientStop Color="#5529EE" Offset="1.0"/>
+            </LinearGradientBrush>
+          </Button.Background>
+
+          <Button.Template>
+            <ControlTemplate TargetType="Button">
+              <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+            </ControlTemplate>
+          </Button.Template>
+        </Button>
+
+      </Grid>
+
+      <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
                             Content="{Binding CurrentView}"/>
-            
-            
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-        </Grid>
-    </Border>
+
+
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200"/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+
+    </Grid>
+  </Border>
 </Window>
