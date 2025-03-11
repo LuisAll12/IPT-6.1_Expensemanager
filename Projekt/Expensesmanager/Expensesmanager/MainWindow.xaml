@@ -49,7 +49,7 @@
                 <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
                 <Run Text="Manager" Foreground="#5529EE" FontSize="22" FontWeight="Bold" />
       </TextBlock>
-      <Grid Grid.Row="1">
+      <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,795,0">
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto"/>
           <!-- RadioButtons -->
@@ -65,18 +65,21 @@
                              Style="{StaticResource MenuButtonTheme}" IsChecked="True"
                              Command="{Binding HomeViewCommand}" Checked="RadioButton_Checked"/>
 
-          <RadioButton Content="New Transaction" Height="50" Foreground="White" FontSize="17"
+          <RadioButton Content="Neue Transaktion" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewTransactionCommand}" Checked="RadioButton_Checked"/>
 
-          <RadioButton Content="My Transactions" Height="50" Foreground="White" FontSize="17"
+          <RadioButton Content="Meine Transaktionen" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding MyTransactionsCommand}" Checked="RadioButton_Checked"/>
 
           <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewCategoryCommand}" Checked="RadioButton_Checked"/>
-        </StackPanel>
+          <RadioButton Content="Meine Kategorien" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                            Command="{Binding MyCategoriesCommand}" Checked="RadioButton_Checked"/>
+                </StackPanel>
         <StackPanel Grid.Row="2">
                     <!--Help Button-->
                     <Button Background="Transparent" BorderThickness="0" Click="HelpButton_Click">

@@ -114,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVMM\View\MyCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVMM\View\MyTransactionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +154,7 @@
     <Compile Include="MVMM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVMM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MainVeiwModel.cs" />
+    <Compile Include="MVMM\ViewModel\MyCategoriesViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MyTransactionsViewModel.cs" />
     <Compile Include="MVMM\ViewModel\NewCategoryViewModel.cs" />
     <Compile Include="MVMM\ViewModel\NewTransactionViewModel.cs" />
@@ -159,6 +164,9 @@
     </Compile>
     <Compile Include="MVMM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVMM\View\MyCategoriesView.xaml.cs">
+      <DependentUpon>MyCategoriesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVMM\View\MyTransactionsView.xaml.cs">
       <DependentUpon>MyTransactionsView.xaml</DependentUpon>
