@@ -13,10 +13,11 @@ namespace Expensesmanager.MVMM.ViewModel
 {
   internal class NewCategoryViewModel
   {
+        // Variables
         private string connectionString = App.ConnectionString;
-
         private static int? accountID { get; set; }
 
+        // Functions
         public bool NewCategory(string name, string description, double budget)
         {
             bool res = false;

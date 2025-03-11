@@ -20,37 +20,44 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     internal class MyCategoriesViewModel : INotifyPropertyChanged
     {
-        private string connectionString = App.ConnectionString;
-
-        private static int? accountID { get; set; }
-        private bool _isLoading;
-
-        public ObservableCollection<Category> Categories { get; set; }
-
+        // MainClass
         public MyCategoriesViewModel()
         {
             Categories = new ObservableCollection<Category>();
             GetCategories();
         }
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set
-            {
-                _isLoading = value;
-                OnPropertyChanged(nameof(IsLoading));
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        // Variables
+            // Database
+            private string connectionString = App.ConnectionString;
+            private static int? accountID { get; set; }
+            
+            // Categories Collection
+            public ObservableCollection<Category> Categories { get; set; }
+
+            // Loader
+            public event PropertyChangedEventHandler PropertyChanged;
+            private bool _isLoading;
+            public bool IsLoading
+            {
+                get { return _isLoading; }
+                set
+                {
+                    _isLoading = value;
+                    OnPropertyChanged(nameof(IsLoading));
+                }
+            }
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        // Functions
         private void GetCategories()
         {
-            // Starte Ladevorgang
+            // Start Loading
             IsLoading = true;
+            // Set AccountID
             accountID = LoginViewModel.CurrentUserId;
 
 
@@ -95,7 +102,7 @@ namespace Expensesmanager.MVMM.ViewModel
                 MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            // Ende Ladevorgang
+            // End Loading
             IsLoading = false;
         }
     }

@@ -13,9 +13,13 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     internal class NewTransactionViewModel
     {
+        // Variables
         private static int? accountID { get; set; }
-
         private string connectionString = App.ConnectionString;
+
+        // Functions
+
+        // New Transaction
         public bool RegisterNewTransaction(double amount, string date, string description, string category)
         {
             bool rntResult = false;
@@ -60,6 +64,7 @@ namespace Expensesmanager.MVMM.ViewModel
             return rntResult;
         }
 
+        // Get CategoryID by Name
         private int GetCategoryIDbyName(string category)
         {
             int categoryId = -1; 
@@ -109,6 +114,7 @@ namespace Expensesmanager.MVMM.ViewModel
             return categoryId;
         }
 
+        // Account Category
         public List<string> GetAccountCategory()
         {
             List<string> categoryList = new List<string>();

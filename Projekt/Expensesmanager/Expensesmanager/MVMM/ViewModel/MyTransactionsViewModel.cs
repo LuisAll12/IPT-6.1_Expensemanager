@@ -18,52 +18,59 @@ using System.Windows.Input;
 namespace Expensesmanager.MVMM.ViewModel
 {
     internal class MyTransactionsViewModel : INotifyPropertyChanged
-    {
-        private string connectionString = App.ConnectionString;
-        public ObservableCollection<Record> Records { get; set; }
-
+    {        
+        // Mainclass
         public MyTransactionsViewModel()
         {
             Records = new ObservableCollection<Record>();
             GetTransactions();
         }
-        private static int? accountID { get; set; }
-        private bool _isLoading;
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set
+
+        // Variables
+            // Database
+            private string connectionString = App.ConnectionString;
+            private static int? accountID { get; set; }
+
+            // Records
+            public ObservableCollection<Record> Records { get; set; }
+
+            // Loader
+            private bool _isLoading;
+            public bool IsLoading
             {
-                _isLoading = value;
-                OnPropertyChanged(nameof(IsLoading)); 
+                get { return _isLoading; }
+                set
+                {
+                    _isLoading = value;
+                    OnPropertyChanged(nameof(IsLoading)); 
+                }
             }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        // Functions
         private void GetTransactions()
         {
-            // Starte Ladevorgang
+            // Start Loading
             IsLoading = true;
+            // Set AccountID
             accountID = LoginViewModel.CurrentUserId;
 
 
-              try
+            try
               {
                 using (var connection = new SqliteConnection(connectionString))
                 {
                   connection.Open();
 
-                  string query = @"
-                                                SELECT t.Amount, t.Date, c.Name
-                                                FROM Transactions t
-                                                JOIN Account a ON t.AccountID = a.AccountID
-                                                JOIN Category c ON t.CategoryID = c.CategoryID
-                                                WHERE a.AccountID = @accountID;";
+                  string query = @"SELECT t.Amount, t.Date, c.Name
+                                   FROM Transactions t
+                                   JOIN Account a ON t.AccountID = a.AccountID
+                                   JOIN Category c ON t.CategoryID = c.CategoryID
+                                   WHERE a.AccountID = @accountID;";
 
                   using (var command = new SqliteCommand(query, connection))
                   {
@@ -94,7 +101,7 @@ namespace Expensesmanager.MVMM.ViewModel
                 MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
               }
 
-            // Ende Ladevorgang
+            // End Loading
             IsLoading = false;
         }
     }   

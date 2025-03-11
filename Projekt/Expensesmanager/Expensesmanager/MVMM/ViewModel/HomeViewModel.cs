@@ -11,19 +11,18 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     class HomeViewModel
     {
-        private string connectionString = App.ConnectionString;
+          // Variables
+          private string connectionString = App.ConnectionString;
+          private int userId = LoginViewModel.CurrentUserId.Value;
+          public string FirstName { get; private set; }
+          public string LastName { get; private set; }
+          public double MonthlyIncome { get; private set; }
+          public string Expenses { get; private set; }
 
-        private int userId = LoginViewModel.CurrentUserId.Value;
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public double MonthlyIncome { get; private set; }
-        public string Expenses { get; private set; }
+          // Functions
+          // User Info
           public void GetUser()
           {
-
-              string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-              string dbPath = System.IO.Path.Combine(baseDirectory, "Database", "ExpensesManagerDB.db");
-              string connectionString = $"Data Source={dbPath}";
               string query = @"SELECT FirstName, LastName, MonthlyIncome FROM Account WHERE AccountID = @UserID";
 
               //Get Account Data
@@ -47,6 +46,7 @@ namespace Expensesmanager.MVMM.ViewModel
               }
           }
 
+        // Total Expenses
         public void GetTotalExpenses()
         {
             double expenses = 0.00;

@@ -4,8 +4,13 @@ using System.Text;
 
 namespace Expensesmanager.Core
 {
+    // Hash and DeHash the Password
   public class PasswordHasher
   {
+    // Variables
+
+    // Functions
+    // Hash a new Password
     public static string HashPassword(string password)
     {
       using (var rng = new RNGCryptoServiceProvider())
@@ -26,6 +31,7 @@ namespace Expensesmanager.Core
       }
     }
 
+    // DeHash a Password
     public static bool VerifyPassword(string enteredPassword, string storedHash)
     {
       byte[] saltedHashedPassword = Convert.FromBase64String(storedHash);

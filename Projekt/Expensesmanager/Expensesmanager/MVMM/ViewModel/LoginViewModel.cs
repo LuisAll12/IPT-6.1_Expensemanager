@@ -11,10 +11,13 @@ namespace Expensesmanager.ViewModel
 {
   public class LoginViewModel
   {
+    // Variables
     private static int? currentUserId;
     private string connectionString = App.ConnectionString;
     public static int? CurrentUserId { get => currentUserId; }
-
+    
+    // Functions
+    // Login
     public bool AuthenticateUser(string email, string password)
     {
       bool LoginResult = false;

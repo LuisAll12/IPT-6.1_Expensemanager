@@ -5,7 +5,7 @@ namespace Expensesmanager.MVMM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
-
+        // Variables
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand NewTransactionCommand { get; set; }
 
@@ -30,8 +30,10 @@ namespace Expensesmanager.MVMM.ViewModel
             }
         }
 
+        // Mainclass
         public MainViewModel()
         {
+            // Set Values
             HomeViewModel = new HomeViewModel();
             NewTransactionVM = new NewTransactionViewModel();
             MyTransactionsVM = new MyTransactionsViewModel();
@@ -40,22 +42,27 @@ namespace Expensesmanager.MVMM.ViewModel
 
             CurrentView = HomeViewModel;
 
+            // HomeView
             HomeViewCommand = new RelayCommand(o => 
             {
                 CurrentView = HomeViewModel;
             });
+            // New Transaction
             NewTransactionCommand = new RelayCommand(o =>
             {
                 CurrentView = NewTransactionVM;
             });
+            // My Transactions
             MyTransactionsCommand = new RelayCommand(o =>
             {
                 CurrentView = MyTransactionsVM;
             });
+            // New Category
             NewCategoryCommand = new RelayCommand(o =>
             {
               CurrentView = NewCategoryVM;
             });
+            // My Categories
             MyCategoriesCommand = new RelayCommand(o =>
             {
                 CurrentView = MyCategoriesVM;

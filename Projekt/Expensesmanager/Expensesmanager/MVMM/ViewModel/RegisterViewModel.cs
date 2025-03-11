@@ -10,7 +10,10 @@ namespace Expensesmanager.MVMM.ViewModel
 {
   internal class RegisterViewModel
   {
+    // Variables
     private string connectionString = App.ConnectionString;
+
+    // Functions
     public bool RegisterUser(string email, string password, string firstname, string lastname, double monthlyincome)
     {
       bool registerResult = false;
