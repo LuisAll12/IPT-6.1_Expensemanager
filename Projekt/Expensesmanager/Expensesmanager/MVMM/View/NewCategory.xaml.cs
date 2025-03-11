@@ -41,10 +41,7 @@ namespace Expensesmanager.MVMM.View
         // Event-Handler für den ResetButton_Click
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-          // Setze alle Felder zurück
-          categorytxtDescription.Text = string.Empty;
-          // Weitere Rücksetzlogik hier
-
+            ResetFields();
         }
 
         // Event-Handler für den SubmitButton_Click
@@ -55,13 +52,20 @@ namespace Expensesmanager.MVMM.View
             string validationMessage = CheckInputs();
             if (string.IsNullOrEmpty(validationMessage))
             {
-                // Alles OK → Absenden
-                
+                string name =           categoryName.Text;
+                string description =    categorytxtDescription.Text;
+                double budget = double.Parse(txtBudget.Text);
 
-                // Beispiel: Daten speichern etc.
-                categorylblError.Text = "Erfolgreich gespeichert";
-                categorylblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#28C940"));
-                categorylblError.Visibility = Visibility.Visible;
+                // Alles OK → Absenden
+                if (nc_viewmodel.NewCategory(name, description, budget)) 
+                {
+                    // Beispiel: Daten speichern etc.
+                    categorylblError.Text = "Erfolgreich gespeichert";
+                    categorylblError.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#28C940"));
+                    categorylblError.Visibility = Visibility.Visible;
+
+                    ResetFields();
+                }
             }
             else
             {
@@ -108,6 +112,13 @@ namespace Expensesmanager.MVMM.View
                 res = "Geben Sie einen gültigen Betrag an!";
             }
             return res;
+        }
+
+        private void ResetFields()
+        {
+            categoryName.Text = String.Empty;
+            categorytxtDescription.Text = String.Empty;
+            txtBudget.Text = String.Empty;
         }
   }
 }
