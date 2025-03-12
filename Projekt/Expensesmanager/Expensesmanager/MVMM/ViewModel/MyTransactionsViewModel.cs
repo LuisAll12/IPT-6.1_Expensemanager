@@ -123,17 +123,6 @@ namespace Expensesmanager.MVMM.ViewModel
             IsLoading = false;
         }
 
-        // Edit Record
-        private void EditRecord(object parameter)
-        {
-            if (SelectedRecord != null)
-            {
-                // Öffnen Sie ein Bearbeitungsfenster oder ermöglichen Sie die direkte Bearbeitung im DataGrid
-                // Beispiel: Aktualisieren Sie den Betrag in der Datenbank
-                UpdateRecordInDatabase(SelectedRecord);
-            }
-        }
-
         private bool CanEditRecord(object parameter)
         {
             return SelectedRecord != null;
@@ -155,6 +144,44 @@ namespace Expensesmanager.MVMM.ViewModel
             return SelectedRecord != null;
         }
 
+        private void EditRecord(object parameter)
+        {
+            if (SelectedRecord != null)
+            {
+                // Create an instance of EditTransactionViewModel
+                var editViewModel = new EditTransactionViewModel
+                {
+                    Amount = SelectedRecord.Amount,
+                    Date = SelectedRecord.Date,
+                    Description = SelectedRecord.Description,
+                    Category = SelectedRecord.Category,
+                    TransactionID = SelectedRecord.TransactionID
+                };
+
+                // Create and show the EditTransactionView
+                var editWindow = new EditTransactionView
+                {
+                    DataContext = editViewModel,
+                    Owner = Application.Current.MainWindow
+                };
+
+                bool? result = editWindow.ShowDialog();
+
+                // If the user clicked "Save"
+                if (result == true)
+                {
+                    // Update the selected record with the new values
+                    SelectedRecord.Amount = editViewModel.Amount;
+                    SelectedRecord.Date = editViewModel.Date;
+                    SelectedRecord.Description = editViewModel.Description;
+                    SelectedRecord.Category = editViewModel.Category;
+
+                    // Update the record in the database
+                    UpdateRecordInDatabase(SelectedRecord);
+                }
+            }
+        }
+
         // Update Record in Database
         private void UpdateRecordInDatabase(Record record)
         {
@@ -165,7 +192,7 @@ namespace Expensesmanager.MVMM.ViewModel
                     connection.Open();
 
                     string query = @"UPDATE Transactions 
-                                      SET Amount = @amount, Date = @date, CategoryID = (SELECT CategoryID FROM Category WHERE Name = @category AND AccountID = @accountid)
+                                      SET Amount = @amount, Description = @description, Date = @date, CategoryID = (SELECT CategoryID FROM Category WHERE Name = @category AND AccountID = @accountid)
                                       WHERE TransactionID = @transactionid;";
 
                     //UPDATE Transactions SET Amount = '12', Date = '2008-06-19', CategoryID = (SELECT CategoryID FROM Category WHERE Name = 'essen' AND AccountID = 4) WHERE TransactionID = 11;
@@ -176,6 +203,7 @@ namespace Expensesmanager.MVMM.ViewModel
                         command.Parameters.AddWithValue("@category", record.Category);
                         command.Parameters.AddWithValue("@transactionid", record.TransactionID);
                         command.Parameters.AddWithValue("@accountid", accountID);
+                        command.Parameters.AddWithValue("@description", record.Description);
 
                         int rowsaffected = command.ExecuteNonQuery();
 
@@ -183,7 +211,7 @@ namespace Expensesmanager.MVMM.ViewModel
                         {
                             MessageBox.Show("Everything good");
                         }
-                        
+
                     }
                 }
             }
@@ -200,42 +228,88 @@ namespace Expensesmanager.MVMM.ViewModel
         // Delete Record from Database
         private void DeleteRecordFromDatabase(Record record)
         {
-            try
+            // Zeige eine Bestätigungs-MessageBox an
+            MessageBoxResult result = MessageBox.Show(
+                "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?",
+                "Bestätigung",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Question
+            );
+
+            if (result == MessageBoxResult.OK)
             {
-                using (var connection = new SqliteConnection(connectionString))
+                try
                 {
-                    connection.Open();
-
-                    string query = @"DELETE FROM Transactions 
-                                    WHERE TransactionID = @transactionid";
-
-                    using (var command = new SqliteCommand(query, connection))
+                    using (var connection = new SqliteConnection(connectionString))
                     {
-                        command.Parameters.AddWithValue("@transactionid", record.TransactionID);
+                        connection.Open();
 
-                        int Rowsaffected = command.ExecuteNonQuery();
-                        if (Rowsaffected > 0)
+                        string query = @"DELETE FROM Transactions 
+                                WHERE TransactionID = @transactionid";
+
+                        using (var command = new SqliteCommand(query, connection))
                         {
-                            MessageBox.Show("Ein Fehler trat auf beim löschend der Zeile");
+                            command.Parameters.AddWithValue("@transactionid", record.TransactionID);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show(
+                                    "Der Eintrag wurde erfolgreich gelöscht.",
+                                    "Erfolg",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information
+                                );
+                                Records.Remove(record);
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "Der Eintrag konnte nicht gelöscht werden.",
+                                    "Fehler",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                );
+                            }
                         }
                     }
                 }
+                catch (SqliteException sqlEx)
+                {
+                    MessageBox.Show(
+                        sqlEx.Message,
+                        "SQL Fehler",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Fehler",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
             }
-            catch (SqliteException sqlEx)
+            else if (result == MessageBoxResult.Cancel)
             {
-                MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    "Der Löschvorgang wurde abgebrochen.",
+                    "Abgebrochen",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                );
             }
         }
     }
-
-    // Record Class
-    public class Record : INotifyPropertyChanged
+        // Record Class
+        public class Record : INotifyPropertyChanged
     {
         private double _amount;
+        private string _description;
         private DateTime _date;
         private string _category;
         private int _transactionid;
@@ -256,6 +330,15 @@ namespace Expensesmanager.MVMM.ViewModel
             {
                 _amount = value;
                 OnPropertyChanged(nameof(Amount));
+            }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                OnPropertyChanged(nameof(Description));
             }
         }
 
