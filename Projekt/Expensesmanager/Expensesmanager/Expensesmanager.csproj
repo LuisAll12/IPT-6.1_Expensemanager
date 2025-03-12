@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>FinanceTracker_ico-removebg-preview.ico</ApplicationIcon>
+    <ApplicationIcon>sigma-_1_.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Data.Sqlite, Version=9.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -221,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FinanceTracker_ico-removebg-preview.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sigma-_1_.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

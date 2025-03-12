@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("financetracker_ico-removebg-preview.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sigma-_1_.ico")]
 
 
