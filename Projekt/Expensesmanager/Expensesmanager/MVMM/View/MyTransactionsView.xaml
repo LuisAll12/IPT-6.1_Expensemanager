@@ -58,6 +58,7 @@
 
             <!-- DataGrid -->
             <DataGrid ItemsSource="{Binding Records}"
+                      SelectedItem="{Binding SelectedRecord, Mode=TwoWay}"
                       AutoGenerateColumns="False"
                       HeadersVisibility="Column"
                       CanUserAddRows="False"
@@ -141,6 +142,7 @@
 
             <!-- EditButton -->
             <Button Content="Editieren" 
+                    Command="{Binding EditCommand}"
                     Width="100" 
                     Height="35" 
                     Background="#8D6EEF" 
@@ -154,6 +156,25 @@
                     CornerRadius="10">
                             <ContentPresenter HorizontalAlignment="Center" 
                                   VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Löschen" 
+                    Command="{Binding DeleteCommand}"
+                    Width="100" 
+                    Height="35" 
+                    Background="#8D6EEF" 
+                    Foreground="White" 
+                    BorderThickness="0"
+                    Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                      VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
