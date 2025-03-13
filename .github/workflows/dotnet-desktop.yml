@@ -57,7 +57,7 @@ jobs:
     env:
       Solution_Name: Expensesmanager.sln                       
       Test_Project_Path: ./Projekt/Expensesmanager/Expensesmanager/Expensesmanager.csproj         
-      Wap_Project_Directory: Expensesmanager.pakages
+      Wap_Project_Directory: Expensesmanager.packages
       Wap_Project_Path: ./Projekt/Expensesmanager/pakages        
     steps:
     - name: Checkout
