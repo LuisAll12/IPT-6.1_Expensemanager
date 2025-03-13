@@ -67,6 +67,6 @@ namespace Expensesmanager.MVMM.ViewModel
             {
                 CurrentView = MyCategoriesVM;
             });
-    }
+        }
     }
 }

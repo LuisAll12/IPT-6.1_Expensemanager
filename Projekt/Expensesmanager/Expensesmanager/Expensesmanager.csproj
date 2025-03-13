@@ -39,6 +39,9 @@
   <PropertyGroup>
     <ApplicationIcon>sigma-_1_.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Expensesmanager.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Data.Sqlite, Version=9.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Sqlite.Core.9.0.1\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
@@ -95,6 +98,7 @@
     </Compile>
     <Compile Include="Core\AmountToColorConverter.cs" />
     <Compile Include="Core\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Core\DB_Execute.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\PasswordHasher.cs" />
     <Compile Include="Core\RelayCommand.cs" />
