@@ -48,7 +48,7 @@ namespace Expensesmanager
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

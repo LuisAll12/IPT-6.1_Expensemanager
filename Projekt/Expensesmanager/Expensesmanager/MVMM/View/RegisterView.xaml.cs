@@ -107,7 +107,7 @@ namespace Expensesmanager.View
         // Close Button
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
         private void AccountAvailable_Click(object sender, RoutedEventArgs e)
         {

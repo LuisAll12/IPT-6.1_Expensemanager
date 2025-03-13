@@ -11,6 +11,7 @@ using System.Windows.Input;
 using static Expensesmanager.MVMM.View.MyCategoriesView;
 using System.Xml.Linq;
 using System.Security.Principal;
+using System.Linq;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
@@ -146,9 +147,10 @@ namespace Expensesmanager.MVMM.ViewModel
 
         private void EditRecord(object parameter)
         {
+            var ownerWindow = parameter as Window;
+
             if (SelectedRecord != null)
             {
-                // Create an instance of EditTransactionViewModel
                 var editViewModel = new EditTransactionViewModel
                 {
                     Amount = SelectedRecord.Amount,
@@ -158,29 +160,38 @@ namespace Expensesmanager.MVMM.ViewModel
                     TransactionID = SelectedRecord.TransactionID
                 };
 
-                // Create and show the EditTransactionView
-                var editWindow = new EditTransactionView
+                try
                 {
-                    DataContext = editViewModel,
-                    Owner = Application.Current.MainWindow
-                };
+                    var editWindow = new EditTransactionView
+                    {
+                        DataContext = editViewModel
+                    };
 
-                bool? result = editWindow.ShowDialog();
+                    if (ownerWindow != null && ownerWindow != editWindow)
+                    {
+                        editWindow.Owner = ownerWindow.Owner;
+                    }
 
-                // If the user clicked "Save"
-                if (result == true)
+                    bool? result = editWindow.ShowDialog();
+
+                    if (result == true)
+                    {
+                        SelectedRecord.Amount = editViewModel.Amount;
+                        SelectedRecord.Date = editViewModel.Date;
+                        SelectedRecord.Description = editViewModel.Description;
+                        SelectedRecord.Category = editViewModel.Category;
+
+                        UpdateRecordInDatabase(SelectedRecord);
+                    }
+                }
+                catch (Exception ex)
                 {
-                    // Update the selected record with the new values
-                    SelectedRecord.Amount = editViewModel.Amount;
-                    SelectedRecord.Date = editViewModel.Date;
-                    SelectedRecord.Description = editViewModel.Description;
-                    SelectedRecord.Category = editViewModel.Category;
-
-                    // Update the record in the database
-                    UpdateRecordInDatabase(SelectedRecord);
+                    MessageBox.Show("Fehler beim Öffnen des Edit-Fensters: " + ex);
                 }
             }
         }
+
+
 
         // Update Record in Database
         private void UpdateRecordInDatabase(Record record)
@@ -209,7 +220,12 @@ namespace Expensesmanager.MVMM.ViewModel
 
                         if (rowsaffected > 0)
                         {
-                            MessageBox.Show("Everything good");
+                            MessageBox.Show(
+                                "Der Eintrag wurde erfolgreich geändert.",
+                                "Erfolg",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information
+                            );
                         }
 
                     }

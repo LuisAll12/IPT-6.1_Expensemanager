@@ -32,10 +32,6 @@ namespace Expensesmanager.MVMM.View
     }
         public ObservableCollection<Record> Records { get; set; } = new ObservableCollection<Record>();
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Edit Button wurde geklickt!");
-        }
     }
     public class Record
     {
