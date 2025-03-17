@@ -79,7 +79,10 @@
                     <RadioButton Content="Meine Kategorien" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                             Command="{Binding MyCategoriesCommand}" Checked="RadioButton_Checked"/>
-                </StackPanel>
+                    <RadioButton Content="Benutzer" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding UserViewCommand}" Checked="RadioButton_Checked"/> 
+        </StackPanel>
                 <StackPanel Grid.Row="2">
                     <!--Help Button-->
                     <Button Background="Transparent" BorderThickness="0" Click="HelpButton_Click">

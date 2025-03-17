@@ -33,6 +33,10 @@
                 <view:MyCategoriesView/>
             </DataTemplate>
 
-        </ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewModel:UserViewModel}">
+              <view:MyCategoriesView/>
+            </DataTemplate>
+
+    </ResourceDictionary>
     </Application.Resources>
 </Application>

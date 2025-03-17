@@ -142,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVMM\View\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\InputBoxTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +172,7 @@
     <Compile Include="MVMM\ViewModel\NewCategoryViewModel.cs" />
     <Compile Include="MVMM\ViewModel\NewTransactionViewModel.cs" />
     <Compile Include="MVMM\ViewModel\RegisterViewModel.cs" />
+    <Compile Include="MVMM\ViewModel\UserViewModel.cs" />
     <Compile Include="MVMM\View\EditTransactionView.xaml.cs">
       <DependentUpon>EditTransactionView.xaml</DependentUpon>
     </Compile>
@@ -191,6 +196,9 @@
     </Compile>
     <Compile Include="MVMM\View\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVMM\View\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
