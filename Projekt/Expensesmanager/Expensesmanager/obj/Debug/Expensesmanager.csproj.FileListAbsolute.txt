@@ -173,3 +173,12 @@ C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesman
 C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.pdb
 C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.baml
 C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.g.cs
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\EditTransactionView.baml
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.baml
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\Theme\ToolTipStyle.baml
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\Help\HelpView.g.cs
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\EditTransactionView.g.cs
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\MyCategoriesView.g.cs
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.g.cs
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\Help\HelpView.baml
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\MyCategoriesView.baml

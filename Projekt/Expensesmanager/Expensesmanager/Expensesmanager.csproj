@@ -166,7 +166,7 @@
     <Compile Include="MVMM\ViewModel\EditTransactionViewModel.cs" />
     <Compile Include="MVMM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVMM\ViewModel\LoginViewModel.cs" />
-    <Compile Include="MVMM\ViewModel\MainVeiwModel.cs" />
+    <Compile Include="MVMM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MyCategoriesViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MyTransactionsViewModel.cs" />
     <Compile Include="MVMM\ViewModel\NewCategoryViewModel.cs" />
