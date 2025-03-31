@@ -15,50 +15,81 @@
             <Run Text="Manager" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
     </TextBlock>
 
-    <!-- Formular für Benutzerdaten -->
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-      <TextBlock>
-                <Run Text="Email:" Foreground="White" FontSize="14"/>
-                <Run Text="*" Foreground="#d04763" />
-      </TextBlock>
-      <TextBlock Margin="0 10 0 0">
-                <Run Text="Passwort:" Foreground="White" FontSize="14"/>
-                <Run Text="*" Foreground="#d04763" />
-      </TextBlock>
-      <TextBlock Margin="0 10 0 0">
-                <Run Text="Vorname:" Foreground="White" FontSize="14"/>
-                <Run Text="*" Foreground="#d04763" />
-      </TextBlock>
-      <TextBlock Margin="0 10 0 0">
-                <Run Text="Nachname:" Foreground="White" FontSize="14"/>
-                <Run Text="*" Foreground="#d04763" />
-      </TextBlock>
-      <TextBlock Margin="0 10 0 0" Text="Monatliches Einkommen:" Foreground="White" FontSize="14"/>
 
-      <!-- Button zum Bearbeiten des Einkommens -->
-      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-        <Button Content="Editieren" 
-                        Width="140" 
-                        Height="35" 
-                        Background="#8D6EEF" 
-                        Foreground="White" 
-                        BorderThickness="0" 
-                        Margin="10,0,10,0"
-                        Cursor="Hand">
-          <Button.Template>
-            <ControlTemplate TargetType="Button">
-              <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    CornerRadius="10">
-                <ContentPresenter HorizontalAlignment="Center" 
-                                                  VerticalAlignment="Center" />
-              </Border>
-            </ControlTemplate>
-          </Button.Template>
-        </Button>
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+      <!-- Vorname -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Vorname:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userName" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userName"/>
       </StackPanel>
 
-      <!-- Fehleranzeige (standardmäßig versteckt) -->
+      <!-- Nachname -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Nachname:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userLastName" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userLastName"/>
+      </StackPanel>
+
+      <!-- E-Mail -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="E-Mail:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userEmail" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userEmail"/>
+      </StackPanel>
+
+      <!-- Passwort -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Passwort:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userPassword" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userPassword"/>
+      </StackPanel>
+
+      <!-- Einkommen -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Einkommen:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userIncome" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="" TextChanged="change_userIncome"/>
+
+
+     </StackPanel>
+
+
+
+
+
+
+
+
+
+        <!-- Fehleranzeige (standardmäßig versteckt) -->
       <TextBlock x:Name="ErrorTextBlock" 
                        Text="Login fehlgeschlagen" 
                        Foreground="#FF5C5C" 

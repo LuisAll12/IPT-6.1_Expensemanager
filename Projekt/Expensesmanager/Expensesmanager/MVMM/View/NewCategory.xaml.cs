@@ -120,5 +120,10 @@ namespace Expensesmanager.MVMM.View
             categorytxtDescription.Text = String.Empty;
             txtBudget.Text = String.Empty;
         }
+
+    private void categoryName_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
   }
 }

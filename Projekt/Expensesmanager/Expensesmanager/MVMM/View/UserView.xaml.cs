@@ -26,6 +26,32 @@ namespace Expensesmanager.MVMM.View
       //this.DataContext = userViewModel; // Bindet das ViewModel an das View
     }
 
+    private void change_userLastName(object sender, TextChangedEventArgs e)
+    {
+ 
+    }
+
+
+    private void change_userName(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void change_userEmail(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void change_userPassword(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+
+    private void change_userIncome(object sender, TextChangedEventArgs e)
+    {
+
+    }
 
     private void MinimizeButton_Click(object sender, RoutedEventArgs e)
     {
