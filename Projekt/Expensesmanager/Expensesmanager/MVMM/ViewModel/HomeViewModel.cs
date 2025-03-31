@@ -4,8 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
+ using System.Text;
 using System.Threading.Tasks;
+using Expensesmanager.Database;
+using System.Data;
+using System.Security.Cryptography;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
@@ -19,30 +22,24 @@ namespace Expensesmanager.MVMM.ViewModel
           public double MonthlyIncome { get; private set; }
           public string Expenses { get; private set; }
 
+          private readonly DB_Services _services = new DB_Services();
           // Functions
           // User Info
           public void GetUser()
           {
-              string query = @"SELECT FirstName, LastName, MonthlyIncome FROM Account WHERE AccountID = @UserID";
 
-              //Get Account Data
-              using (var connection = new SqliteConnection(connectionString))
+              DataTable dataTable = new DataTable();
+              var parameters = new Dictionary<string, object>
               {
-                  connection.Open();
-                  using (var command = new SqliteCommand(query, connection))
-                  {
-                      command.Parameters.AddWithValue("@UserID", userId);
-
-                      using (var reader = command.ExecuteReader())
-                      {
-                          if (reader.Read())
-                          {
-                              FirstName = reader.GetString(0);
-                              LastName = reader.GetString(1);
-                              MonthlyIncome = reader.GetDouble(2);
-                          }
-                      }
-                  }
+                { "@UserID", userId }
+              };
+              string query = @"SELECT FirstName, LastName, MonthlyIncome FROM Account WHERE AccountID = @UserID";
+              dataTable = _services.ExecuteQuery(query, parameters);
+              foreach (DataRow row in dataTable.Rows)
+              {
+                FirstName = row["FirstName"].ToString();
+                LastName = row["LastName"].ToString();
+                MonthlyIncome = Convert.ToDouble(row["MonthlyIncome"]);
               }
           }
 
