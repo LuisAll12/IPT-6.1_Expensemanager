@@ -24,12 +24,16 @@
         <TextBlock Width="84" Height="20">
       <Run Text="Vorname:" Foreground="White" FontSize="14"/>
         </TextBlock>
-        <TextBox x:Name="userName" 
-             HorizontalAlignment="Stretch"
-             Style="{StaticResource RoundedInputBoxTheme}"
-             Width="200"
-             Tag="Essen" TextChanged="change_userName"/>
+        <TextBox x:Name="userName"
+                 Width="200"
+                 Style="{StaticResource RoundedInputBoxTheme}"
+                 Text="{Binding UserNameTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="change_userName"/>
+        
       </StackPanel>
+      <!-- Tag mit variable erstezen^^^^^^^^ -->
+
+
 
       <!-- Nachname -->
       <StackPanel Orientation="Horizontal">

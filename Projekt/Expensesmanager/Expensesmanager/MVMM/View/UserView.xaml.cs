@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,27 +16,48 @@ namespace Expensesmanager.MVMM.View
   /// <summary>
   /// Interaktionslogik für UserView.xaml
   /// </summary>
-  public partial class UserView : UserControl
+  public partial class UserView : UserControl, INotifyPropertyChanged
   {
+    private string _userNameTag;
 
+    public string UserNameTag
+    {
+      get => _userNameTag;
+      set
+      {
+        _userNameTag = value;
+        OnPropertyChanged(nameof(UserNameTag));  // Benachrichtige über die Änderung
+      }
+    }
 
     public UserView()
     {
       InitializeComponent();
-      //userViewModel = new UserViewModel();
-      //this.DataContext = userViewModel; // Bindet das ViewModel an das View
+      DataContext = this;  // Setze das DataContext auf das UserControl selbst
+      UserNameTag = "test";  // Setze einen Initialwert
     }
 
-    private void change_userLastName(object sender, TextChangedEventArgs e)
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void OnPropertyChanged(string name)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    private void change_userName(object sender, TextChangedEventArgs e)
+    {
+      // Beispiel: Textfeld ändert den Wert in "test"
+      UserNameTag = "test";
+    }
+  
+
+  private void change_userLastName(object sender, TextChangedEventArgs e)
     {
  
     }
 
 
-    private void change_userName(object sender, TextChangedEventArgs e)
-    {
 
-    }
 
     private void change_userEmail(object sender, TextChangedEventArgs e)
     {
