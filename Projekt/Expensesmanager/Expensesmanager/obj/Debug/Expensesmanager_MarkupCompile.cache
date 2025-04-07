@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\
 Expensesmanager
 none
 false
 DEBUG;TRACE
-C:\Users\Janik\gitlab\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\App.xaml
+C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\App.xaml
 14723143112
 
-31-1771895144
-231928861225
+3220198964
+23188917647
 MainWindow.xaml;MVMM\Help\HelpView.xaml;MVMM\View\EditTransactionView.xaml;MVMM\View\HomeView.xaml;MVMM\View\LoginView.xaml;MVMM\View\MyCategoriesView.xaml;MVMM\View\MyTransactionsView.xaml;MVMM\View\NewCategory.xaml;MVMM\View\NewTransaction.xaml;MVMM\View\RegisterView.xaml;MVMM\View\UserView.xaml;Theme\InputBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\ToolTipStyle.xaml;
 
 False

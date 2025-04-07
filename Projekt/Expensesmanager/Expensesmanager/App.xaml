@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Expensesmanager"
              xmlns:viewModel="clr-namespace:Expensesmanager.MVMM.ViewModel"
-             xmlns:view="clr-namespace:Expensesmanager.MVMM.View"
+             xmlns:view="clr-namespace:Expensesmanager.MVMM.View" 
              StartupUri="MVMM/View/LoginView.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -34,7 +34,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:UserViewModel}">
-              <view:MyCategoriesView/>
+              <view:UserView/>
             </DataTemplate>
 
     </ResourceDictionary>

@@ -76,9 +76,11 @@
                     <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NewCategoryCommand}" Checked="RadioButton_Checked"/>
+
                     <RadioButton Content="Meine Kategorien" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                             Command="{Binding MyCategoriesCommand}" Checked="RadioButton_Checked"/>
+
                     <RadioButton Content="Benutzer" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding UserViewCommand}" Checked="RadioButton_Checked"/> 

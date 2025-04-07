@@ -102,6 +102,7 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\PasswordHasher.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Database\DB_Services.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -166,7 +167,7 @@
     <Compile Include="MVMM\ViewModel\EditTransactionViewModel.cs" />
     <Compile Include="MVMM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVMM\ViewModel\LoginViewModel.cs" />
-    <Compile Include="MVMM\ViewModel\MainVeiwModel.cs" />
+    <Compile Include="MVMM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MyCategoriesViewModel.cs" />
     <Compile Include="MVMM\ViewModel\MyTransactionsViewModel.cs" />
     <Compile Include="MVMM\ViewModel\NewCategoryViewModel.cs" />
