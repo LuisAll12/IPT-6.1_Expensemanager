@@ -1,5 +1,6 @@
 ﻿using Expensesmanager.ViewModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Expensesmanager.View
 {
@@ -37,6 +38,7 @@ namespace Expensesmanager.View
         {
             EmailTextBox.Text = string.Empty;
             PasswordBox.Password = string.Empty;
+            ErrorTextBlock.Visibility = Visibility.Hidden;
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +61,7 @@ namespace Expensesmanager.View
         // Close Button
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
         private void ShowRegisterButton_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +76,18 @@ namespace Expensesmanager.View
 
             // Close the login window
             this.Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove(); // Verschiebt das Fenster, wenn die linke Maustaste gedrückt wird
+            }
+        }
+
+        private void LoginButton_Click(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

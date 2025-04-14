@@ -8,13 +8,13 @@
         Background="#181C28"
         WindowStyle="None"
         AllowsTransparency="True">
-    <Grid>
+    <Grid MouseDown="Window_MouseDown">
         <Grid Background="#181C28" Height="30" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
                 <Button x:Name="MinimizeButton" 
                         Width="12" 
                         Height="12" 
-                        Background="#FFBD2E" 
+                        Background="#28C940 "
                         BorderThickness="0" 
                         Margin="5,0,0,0" 
                         Cursor="Hand" 
@@ -27,10 +27,10 @@
                     </Button.Template>
                 </Button>
 
-                <Button x:Name="MaximizeButton" 
+                <!--<Button x:Name="MaximizeButton" 
                         Width="12" 
                         Height="12" 
-                        Background="#28C940" 
+                        Background="#FFBD2E" 
                         BorderThickness="0" 
                         Margin="5,0,0,0" 
                         Cursor="Hand" 
@@ -41,7 +41,7 @@
                                     CornerRadius="6" />
                         </ControlTemplate>
                     </Button.Template>
-                </Button>
+                </Button>-->
 
                 <Button x:Name="CloseButton" 
                         Width="12" 

@@ -6,32 +6,26 @@
         xmlns:local="clr-namespace:Expensesmanager"
         xmlns:viewModel="clr-namespace:Expensesmanager.MVMM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1020"
+        Title="Expenses Manager" Height="600" Width="1020"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
 
-    <!-- DataContext wird hier definiert -->
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <!-- UI-Inhalt -->
-    <Border Background="#272537" CornerRadius="20">
+    <Border Background="#272537" CornerRadius="20" MouseDown="Window_MouseDown">
         <Grid>
-            <!-- Tab-Leiste mit Buttons oben links -->
-            <Grid VerticalAlignment="Top" Height="30" Margin="10,10,10,0" Grid.Column="1" Grid.Row="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
-                    <!-- Grüner Button -->
-                    <Button Width="15" 
-                            Height="15" 
-                            Background="#28C940" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Minimize"
-                            Click="MinimizeButton_Click">
+
+            <!-- Steuerung: Minimieren & Schließen -->
+            <Grid Height="30" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Button Width="15" Height="15" Background="#28C940" 
+                            BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
+                            ToolTip="Minimize" Click="MinimizeButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Ellipse Fill="{TemplateBinding Background}" />
@@ -39,31 +33,9 @@
                         </Button.Template>
                     </Button>
 
-                    <!-- Orangener Button -->
-                    <Button Width="15" 
-                            Height="15" 
-                            Background="#FFBD2E" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Maximize/Restore"
-                            Click="MaximizeButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Ellipse Fill="{TemplateBinding Background}" />
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                    <!-- Roter Button -->
-                    <Button Width="15" 
-                            Height="15" 
-                            Background="#FF5F56" 
-                            BorderThickness="0" 
-                            Cursor="Hand" 
-                            Margin="5,0,0,0" 
-                            ToolTip="Close"
-                            Click="CloseButton_Click">
+                    <Button Width="15" Height="15" Background="#FF5F56" 
+                            BorderThickness="0" Cursor="Hand" Margin="5,0,0,0" 
+                            ToolTip="Close" Click="CloseButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Ellipse Fill="{TemplateBinding Background}" />
@@ -71,44 +43,94 @@
                         </Button.Template>
                     </Button>
                 </StackPanel>
-
             </Grid>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
+
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Run Text="Expenses" Foreground="#8D6EEF" FontSize="22" FontWeight="Bold" />
                 <Run Text="Manager" Foreground="#5529EE" FontSize="22" FontWeight="Bold" />
             </TextBlock>
+            <Grid Grid.Row="1" Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- RadioButtons -->
+                    <RowDefinition Height="*"/>
+                    <!-- Füllt den Raum -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Button am Ende -->
+                </Grid.RowDefinitions>
 
+                <!-- Alle RadioButtons hier rein -->
+                <StackPanel Grid.Row="0">
+                    <RadioButton Content="Home" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}" IsChecked="True"
+                             Command="{Binding HomeViewCommand}" Checked="RadioButton_Checked"/>
 
-            <!-- Navigation -->
-            <StackPanel Grid.Row="1">
-                <RadioButton Content="Home"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
+                    <RadioButton Content="Neue Transaktion" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
-                             Command="{Binding HomeViewCommand}"/>
+                             Command="{Binding NewTransactionCommand}" Checked="RadioButton_Checked"/>
 
-                <RadioButton Content="Discovery"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
+                    <RadioButton Content="Meine Transaktionen" Height="50" Foreground="White" FontSize="17"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding DiscoveryViewCommand}"/>
+                             Command="{Binding MyTransactionsCommand}" Checked="RadioButton_Checked"/>
 
-                <RadioButton Content="Featured"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="17"
-                             Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
+                    <RadioButton Content="Neue Kategorie" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding NewCategoryCommand}" Checked="RadioButton_Checked"/>
 
-            <!-- Content View -->
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10,0,0,0"
+                    <RadioButton Content="Meine Kategorien" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                            Command="{Binding MyCategoriesCommand}" Checked="RadioButton_Checked"/>
+
+                    <RadioButton Content="Benutzer" Height="50" Foreground="White" FontSize="17"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding UserViewCommand}" Checked="RadioButton_Checked"/> 
+        </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <!--Help Button-->
+                    <Button Background="Transparent" BorderThickness="0" Click="HelpButton_Click">
+                        <TextBlock Width="100" Height="30" HorizontalAlignment="Center" TextAlignment="Center">
+                            <Run Text="Hilfe" Foreground="White" FontSize="20"/>
+                            <Run FontFamily="Segoe MDL2 Assets" Text=" &#xE946;" FontSize="15" Foreground="#22c3f7" Cursor="Hand"/>
+                            <TextBlock.ToolTip>
+                                <ToolTip Style="{StaticResource RoundedToolTipStyle}">
+                                    <TextBlock Text="Hilfefenster öffnen"/>
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
+                    </Button>
+
+                    <!-- Dein Button ganz unten -->
+                    <Button Width="140" Height="35" Cursor="Hand" Margin="10" Click="LogoutButton_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="Images/logoutIcon.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                            <TextBlock Text="Logout" Foreground="White" FontSize="16"/>
+                        </StackPanel>
+
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#8D6EEF" Offset="0.0"/>
+                                <GradientStop Color="#5529EE" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+
+            </Grid>
+
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
                             Content="{Binding CurrentView}"/>
-            <!-- Hauptinhalt -->
+
+
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
@@ -117,6 +139,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
         </Grid>
     </Border>
 </Window>

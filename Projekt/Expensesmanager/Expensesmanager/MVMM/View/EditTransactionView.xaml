@@ -1,0 +1,145 @@
+﻿<Window x:Class="Expensesmanager.MVMM.View.EditTransactionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Transaktion bearbeiten" 
+        Width="350" 
+        Height="400" 
+        WindowStartupLocation="CenterOwner"
+        Background="#272537">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+        <!-- Amount -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="100" Height="20">
+                <Run Text="Betrag: " Foreground="White" FontSize="14"/>
+                <Run Text="*" Foreground="#d04763" />
+                <Run FontFamily="Segoe MDL2 Assets" Text=" &#xE946;" FontSize="12" Foreground="#22c3f7" Cursor="Hand"/>
+                <TextBlock.ToolTip>
+                    <ToolTip Style="{StaticResource RoundedToolTipStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Positiv = Einnahme"/>
+                            <TextBlock Text="Negativ = Ausgabe"/>
+                        </StackPanel>
+                    </ToolTip>
+                </TextBlock.ToolTip>
+            </TextBlock>
+            <TextBox x:Name="txtAmount" 
+                     Style="{StaticResource RoundedInputBoxTheme}"
+                     Width="199"
+                     Tag="+/- 220.00"
+                     Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <!-- Date -->
+        <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+            <TextBlock Width="80" Height="20">
+                <Run Text="Datum:" Foreground="White" FontSize="14"/>
+                <Run Text="*" Foreground="#d04763" />
+            </TextBlock>
+            <TextBox x:Name="txtdateTransaction" 
+                        Style="{DynamicResource RoundedInputBoxTheme}"
+                        Width="220"
+                        Background="#101721"
+                        Foreground="White"
+                        Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <!-- Description -->
+        <StackPanel Margin="0 20 0 0"  Width="301">
+            <TextBlock Width="105" Height="20" HorizontalAlignment="Left">
+                <Run Text="Beschreibung:" Foreground="White" FontSize="14"/>
+                <Run Text=" "/>
+                <Run Text="*" Foreground="#d04763" />
+            </TextBlock>
+            <TextBox x:Name="txtDescription" 
+                     MaxLength="255" 
+                     Height="60" 
+                     TextWrapping="Wrap" 
+                     AcceptsReturn="True"
+                     Background="#101721" 
+                     Foreground="White" 
+                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource RoundedInputBoxTheme}"/>
+            <TextBlock x:Name="charCount" Foreground="Gray" FontSize="10" HorizontalAlignment="Right"
+                       Text="{Binding Description.Length, StringFormat=\{0\}/255}"/>
+        </StackPanel>
+
+        <!-- Category -->
+        <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+            <TextBlock Width="80" Height="20">
+                <Run Text="Kategorie:" Foreground="White" FontSize="14"/>
+                <Run Text="*" Foreground="#d04763" />
+            </TextBlock>
+            <ComboBox x:Name="cmbCategory" 
+                      Width="220" 
+                      Background="#101721"
+                      Foreground="White" 
+                      ItemsSource="{Binding Categories}"
+                      SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
+                      DropDownOpened="cmbCategory_DropDownOpened">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#101721"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#101000"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Abbrechen" 
+            Width="140" 
+            Height="35" 
+            Background="#8D6EEF" 
+            Foreground="White" 
+            BorderThickness="0" 
+            Margin="10,0,10,0"
+            Cursor="Hand" 
+            Click="CancelButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Änderungen speichern" 
+            Width="140" 
+            Height="35" 
+            Background="#5529EE" 
+            Foreground="White" 
+            BorderThickness="0" 
+            Cursor="Hand" 
+            Margin="10,0,10,0"
+            Click="SaveButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+        <TextBlock x:Name="lblError" 
+           Foreground="#d04763" 
+           HorizontalAlignment="Center"
+           Visibility="Collapsed" 
+           Text="Nicht alle Felder ausgefüllt"/>
+    </StackPanel>
+</Window>

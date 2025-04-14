@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Expensesmanager.MVMM.View.UserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="640"
+        Width="470"
+        Background="Transparent">
+
+  <!-- Hauptgrid -->
+  <Grid MouseDown="Window_MouseDown">
+
+
+    <!-- TextBlock für den Titel -->
+    <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" Cursor="Hand">
+            <Run Text="Expenses" Foreground="#8D6EEF" FontSize="28" FontWeight="Bold" />
+            <Run Text="Manager" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
+    </TextBlock>
+
+
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+      <!-- Vorname -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Vorname:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userName"
+                 Width="200"
+                 Style="{StaticResource RoundedInputBoxTheme}"
+                 Text="{Binding UserNameTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="change_userName"/>
+        
+      </StackPanel>
+      <!-- Tag mit variable erstezen^^^^^^^^ -->
+
+
+
+      <!-- Nachname -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Nachname:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userLastName" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userLastName"/>
+      </StackPanel>
+
+      <!-- E-Mail -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="E-Mail:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userEmail" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userEmail"/>
+      </StackPanel>
+
+      <!-- Passwort -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Passwort:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userPassword" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="Essen" TextChanged="change_userPassword"/>
+      </StackPanel>
+
+      <!-- Einkommen -->
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
+      <Run Text="Einkommen:" Foreground="White" FontSize="14"/>
+        </TextBlock>
+        <TextBox x:Name="userIncome" 
+             HorizontalAlignment="Stretch"
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Width="200"
+             Tag="" TextChanged="change_userIncome"/>
+
+
+     </StackPanel>
+
+
+
+
+
+
+
+
+
+        <!-- Fehleranzeige (standardmäßig versteckt) -->
+      <TextBlock x:Name="ErrorTextBlock" 
+                       Text="Login fehlgeschlagen" 
+                       Foreground="#FF5C5C" 
+                       FontSize="12" 
+                       HorizontalAlignment="Center" 
+                       Visibility="Collapsed" 
+                       Margin="0,10,0,0" />
+    </StackPanel>
+  </Grid>
+</UserControl>
