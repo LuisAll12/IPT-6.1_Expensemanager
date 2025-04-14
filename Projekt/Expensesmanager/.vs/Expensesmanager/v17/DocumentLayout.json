@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\userview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\userview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\view\\userview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\userview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\viewmodel\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\viewmodel\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\view\\newcategory.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\newcategory.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\mytransactionsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\mytransactionsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\view\\newcategory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\newcategory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\newtransaction.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\newtransaction.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\database\\db_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\database\\db_services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\mytransactionsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\mytransactionsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\expensesmanager\\mvmm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\registerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\registerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\userview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\userview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\view\\userview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\view\\userview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|c:\\users\\janik\\ipt-6.1_expensemanager\\projekt\\expensesmanager\\expensesmanager\\mvmm\\viewmodel\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A0391-1190-4F0C-95D7-48FAD76B5966}|Expensesmanager\\Expensesmanager.csproj|solutionrelative:expensesmanager\\mvmm\\viewmodel\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,97 +62,113 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NewCategory.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewCategory.xaml.cs",
-              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\NewCategory.xaml.cs",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewCategory.xaml.cs",
-              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\NewCategory.xaml.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACIAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:07:49.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DB_Services.cs",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\Database\\DB_Services.cs",
-              "RelativeDocumentMoniker": "Expensesmanager\\Database\\DB_Services.cs",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\Database\\DB_Services.cs",
-              "RelativeToolTip": "Expensesmanager\\Database\\DB_Services.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T08:05:17.057Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HomeView.xaml",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\HomeView.xaml",
-              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\HomeView.xaml",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\HomeView.xaml",
-              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\HomeView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-24T10:12:28.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\HomeViewModel.cs",
-              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\ViewModel\\HomeViewModel.cs",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\HomeViewModel.cs",
-              "RelativeToolTip": "Expensesmanager\\MVMM\\ViewModel\\HomeViewModel.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAADYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T10:13:40.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
-              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
-              "RelativeToolTip": "Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T10:14:25.787Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "NewCategory.xaml",
               "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewCategory.xaml",
               "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\NewCategory.xaml",
               "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewCategory.xaml",
               "RelativeToolTip": "Expensesmanager\\MVMM\\View\\NewCategory.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-24T10:12:20.943Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
-              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
-              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
-              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAcwDMAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:44:22.179Z",
+              "WhenOpened": "2025-03-24T10:12:20.943Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "MyTransactionsView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml.cs",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml.cs",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml.cs",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T08:46:22.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyTransactionsView.xaml",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\MyTransactionsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-14T08:46:15.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewTransaction.xaml",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewTransaction.xaml",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\NewTransaction.xaml",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\NewTransaction.xaml",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\NewTransaction.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-14T08:44:16.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterView.xaml",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\RegisterView.xaml",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\RegisterView.xaml",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\RegisterView.xaml",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\RegisterView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-14T08:14:20.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\LoginView.xaml",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\LoginView.xaml",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-14T08:14:09.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "UserView.xaml",
               "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml",
               "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\UserView.xaml",
               "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml",
               "RelativeToolTip": "Expensesmanager\\MVMM\\View\\UserView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-24T09:47:54.249Z",
+              "WhenOpened": "2025-04-14T08:09:33.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\ViewModel\\UserViewModel.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T08:09:35.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
+              "RelativeDocumentMoniker": "Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
+              "ToolTip": "C:\\Users\\Janik\\ipt-6.1_expensemanager\\Projekt\\Expensesmanager\\Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
+              "RelativeToolTip": "Expensesmanager\\MVMM\\View\\UserView.xaml.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAmwFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T08:09:32.794Z",
               "EditorCaption": ""
             }
           ]

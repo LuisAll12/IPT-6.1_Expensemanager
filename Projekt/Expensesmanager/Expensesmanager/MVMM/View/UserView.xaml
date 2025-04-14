@@ -31,62 +31,65 @@
                  TextChanged="change_userName"/>
         
       </StackPanel>
-      <!-- Tag mit variable erstezen^^^^^^^^ -->
-
 
 
       <!-- Nachname -->
+
       <StackPanel Orientation="Horizontal">
         <TextBlock Width="84" Height="20">
       <Run Text="Nachname:" Foreground="White" FontSize="14"/>
         </TextBlock>
-        <TextBox x:Name="userLastName" 
-             HorizontalAlignment="Stretch"
-             Style="{StaticResource RoundedInputBoxTheme}"
-             Width="200"
-             Tag="Essen" TextChanged="change_userLastName"/>
+        <TextBox x:Name="userLastName"
+           Width="200"
+           Style="{StaticResource RoundedInputBoxTheme}"
+           Text="{Binding UserLastNameTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+           TextChanged="change_userLastName"/>
+
       </StackPanel>
 
+
+
       <!-- E-Mail -->
-      <StackPanel Orientation="Horizontal">
-        <TextBlock Width="84" Height="20">
-      <Run Text="E-Mail:" Foreground="White" FontSize="14"/>
-        </TextBlock>
-        <TextBox x:Name="userEmail" 
-             HorizontalAlignment="Stretch"
-             Style="{StaticResource RoundedInputBoxTheme}"
-             Width="200"
-             Tag="Essen" TextChanged="change_userEmail"/>
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Width="84" Height="20">
+        <Run Text="E-Mail:" Foreground="White" FontSize="14"/>
+          </TextBlock>
+          <TextBox x:Name="userEmail"
+       Width="200"
+       Style="{StaticResource RoundedInputBoxTheme}"
+       Text="{Binding UserEmailTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+       TextChanged="change_userEmail"/>
+
       </StackPanel>
 
       <!-- Passwort -->
-      <StackPanel Orientation="Horizontal">
-        <TextBlock Width="84" Height="20">
-      <Run Text="Passwort:" Foreground="White" FontSize="14"/>
-        </TextBlock>
-        <TextBox x:Name="userPassword" 
-             HorizontalAlignment="Stretch"
-             Style="{StaticResource RoundedInputBoxTheme}"
+
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Width="84" Height="20">
+          <Run Text="Passwort:" Foreground="White" FontSize="14"/>
+            </TextBlock>
+            <TextBox x:Name="userPassword"
              Width="200"
-             Tag="Essen" TextChanged="change_userPassword"/>
+             Style="{StaticResource RoundedInputBoxTheme}"
+             Text="{Binding UserPasswordTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             TextChanged="change_userPassword"/>
+
+
       </StackPanel>
 
       <!-- Einkommen -->
-      <StackPanel Orientation="Horizontal">
-        <TextBlock Width="84" Height="20">
-      <Run Text="Einkommen:" Foreground="White" FontSize="14"/>
-        </TextBlock>
-        <TextBox x:Name="userIncome" 
-             HorizontalAlignment="Stretch"
-             Style="{StaticResource RoundedInputBoxTheme}"
-             Width="200"
-             Tag="" TextChanged="change_userIncome"/>
 
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Width="84" Height="20">
+        <Run Text="Einkommen:" Foreground="White" FontSize="14"/>
+              </TextBlock>
+              <TextBox x:Name="userIncome"
+     Width="200"
+     Style="{StaticResource RoundedInputBoxTheme}"
+     Text="{Binding UserIncomeTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+     TextChanged="change_userIncome"/>
 
-     </StackPanel>
-
-
-
+            </StackPanel>
 
 
 

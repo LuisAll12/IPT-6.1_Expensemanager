@@ -116,7 +116,13 @@
             </Button.Template>
           </Button>
         </StackPanel>
-
+        <StackPanel>
+          <TextBlock Margin="0,10,0,0" TextAlignment="Center">
+<Run Text="Mit " Foreground="White" FontSize="14"/>
+<Run Text="*" Foreground="#d04763" FontSize="14"/>
+<Run Text=" markierte Felder sind pflicht!" Foreground="White" FontSize="14"/>
+          </TextBlock>
+        </StackPanel>
         <!-- Fehlermeldung -->
         <TextBlock x:Name="categorylblError" 
                        Foreground="#d04763" 

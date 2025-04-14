@@ -16,7 +16,7 @@
             <Run Text="Transaktionen" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
         </TextBlock>
         <Grid>
-            <!-- Progress Ring -->
+             <!--Progress Ring--> 
             <Ellipse Name="ProgressRing"
                            Width="70"
                            Height="70"
@@ -44,7 +44,7 @@
                 </Ellipse.Triggers>
             </Ellipse>
         </Grid>
-        <StackPanel>
+        <StackPanel Height="453">
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -180,8 +180,11 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-            </StackPanel>
-            
-        </StackPanel>
+       
+
+
+      </StackPanel>
+ 
+    </StackPanel>
     </StackPanel>
 </UserControl>

@@ -66,26 +66,30 @@
             <Run Text="Manager" Foreground="#5529EE" FontSize="28" FontWeight="Bold" />
         </TextBlock>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-            <TextBlock Text="E-Mail:" 
-                   Foreground="White" 
-                   FontSize="14" 
-                   Margin="0,20,0,5" />
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Height="254">
+
+      <TextBlock Margin="0,20,0,5">
+ <Run Text="E-Mail:" Foreground="White" FontSize="14"/>
+ <Run Text="*" Foreground="#d04763" FontSize="14"/>
+      </TextBlock>
 
 
-            <TextBox x:Name="EmailTextBox" 
+      <TextBox x:Name="EmailTextBox" 
                      Tag="Max.Mustermann@user.com" 
                      Style="{StaticResource RoundedInputBoxTheme}" />
 
-            <TextBlock Text="Passwort:" 
-                       Foreground="White" 
-                       FontSize="14" 
-                       Margin="0,20,0,5" />
-            <PasswordBox x:Name="PasswordBox" 
+
+
+      <TextBlock Margin="0,20,0,5">
+    <Run Text="Passwort:" Foreground="White" FontSize="14"/>
+    <Run Text="*" Foreground="#d04763" FontSize="14"/>
+      </TextBlock>
+
+      <PasswordBox x:Name="PasswordBox" 
                          Style="{StaticResource RoundedPasswordBoxTheme}"/>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Button Content="Reset" 
+                <Button Content="Zurücksetzen" 
                         Width="100" 
                         Height="35" 
                         Background="#8D6EEF" 
@@ -125,7 +129,17 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+
             </StackPanel>
+      <StackPanel>
+
+        <TextBlock Margin="0 10 0 0" TextAlignment="Center">
+        <Run Text="Mit " Foreground="White" FontSize="14"/>
+        <Run Text="*" Foreground="#d04763" FontSize="14"/>
+        <Run Text=" markierte Felder sind pflicht!" Foreground="White" FontSize="14"/>
+        </TextBlock>
+      </StackPanel>
+
 
             <TextBlock x:Name="ErrorTextBlock" 
                        Text="Login fehlgeschlagen" 
@@ -136,7 +150,10 @@
                        Margin="0,10,0,0" />
 
         </StackPanel>
-        <Button Content="Kein Account?" 
+    
+        
+
+    <Button Content="Kein Account?" 
                 Background="#5529EE" 
                 Foreground="White" 
                 BorderBrush="#424242" 

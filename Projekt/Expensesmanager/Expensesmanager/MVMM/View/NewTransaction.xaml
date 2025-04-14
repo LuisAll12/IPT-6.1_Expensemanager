@@ -113,7 +113,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Content="Submit" 
+                <Button Content="Erstellen" 
                         Width="140" 
                         Height="35" 
                         Background="#5529EE" 
@@ -134,8 +134,12 @@
                     </Button.Template>
                 </Button>
             </StackPanel>
-
-            <TextBlock x:Name="lblError" 
+      <TextBlock Margin="0 10 0 0" TextAlignment="Center">
+<Run Text="Mit " Foreground="White" FontSize="14"/>
+<Run Text="*" Foreground="#d04763" FontSize="14"/>
+<Run Text=" markierte Felder sind pflicht!" Foreground="White" FontSize="14"/>
+      </TextBlock>
+      <TextBlock x:Name="lblError" 
                        Foreground="#d04763" 
                        HorizontalAlignment="Center"
                        Visibility="Collapsed" 

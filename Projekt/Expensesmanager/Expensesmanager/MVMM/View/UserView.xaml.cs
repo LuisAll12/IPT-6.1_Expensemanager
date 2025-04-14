@@ -1,4 +1,9 @@
-﻿using System.ComponentModel;
+﻿using Expensesmanager.Core;
+using Expensesmanager.Database;
+using Expensesmanager.ViewModel;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,7 +23,13 @@ namespace Expensesmanager.MVMM.View
   /// </summary>
   public partial class UserView : UserControl, INotifyPropertyChanged
   {
+    private int userId = LoginViewModel.CurrentUserId.Value;
+
     private string _userNameTag;
+    private string _userLastNameTag;
+    private string _userEmailTag;
+    private string _userPasswordTag;
+    private string _userIncomeTag;
 
     public string UserNameTag
     {
@@ -26,7 +37,46 @@ namespace Expensesmanager.MVMM.View
       set
       {
         _userNameTag = value;
-        OnPropertyChanged(nameof(UserNameTag));  // Benachrichtige über die Änderung
+        OnPropertyChanged(nameof(UserNameTag));
+      }
+    }
+    public string UserLastNameTag
+    {
+      get => _userLastNameTag;
+      set
+      {
+        _userLastNameTag = value;
+        OnPropertyChanged(nameof(UserLastNameTag));  // Benachrichtige über die Änderung
+      }
+    }
+
+    public string UserEmailTag
+    {
+      get => _userEmailTag;
+      set
+      {
+        _userEmailTag = value;
+        OnPropertyChanged(nameof(UserEmailTag));  // Benachrichtige über die Änderung
+      }
+    }
+
+    public string UserPasswordTag
+    {
+      get => _userPasswordTag;
+      set
+      {
+        _userPasswordTag = value;
+        OnPropertyChanged(nameof(UserPasswordTag));  // Benachrichtige über die Änderung
+      }
+    }
+
+    public string UserIncomeTag
+    {
+      get => _userIncomeTag;
+      set
+      {
+        _userIncomeTag = value;
+        OnPropertyChanged(nameof(UserIncomeTag));  // Benachrichtige über die Änderung
       }
     }
 
@@ -34,10 +84,55 @@ namespace Expensesmanager.MVMM.View
     {
       InitializeComponent();
       DataContext = this;  // Setze das DataContext auf das UserControl selbst
-      UserNameTag = "test";  // Setze einen Initialwert
+
+      var dbServices = DB_Services.Instance;
+
+
+      string query = "SELECT UserName FROM Users WHERE UserId = @UserId";
+
+      // Parameter für die SQL-Abfrage
+      var parameters = new Dictionary<string, object>
+        {
+            { "@UserId", userId }
+        };
+
+      // ExecuteQuery aufrufen, um das Ergebnis zu holen
+      DataTable result = dbServices.ExecuteQuery(query, parameters);
+
+      foreach (DataRow row in result.Rows)
+      {
+        UserNameTag = row["FirstName"].ToString();
+        OnPropertyChanged(nameof(UserNameTag));
+
+      }
     }
 
+
     public event PropertyChangedEventHandler PropertyChanged;
+
+    public void getUserName()
+    {
+      var dbServices = DB_Services.Instance;
+
+
+      string query = "SELECT UserName FROM Users WHERE UserId = @UserId";
+
+      // Parameter für die SQL-Abfrage
+      var parameters = new Dictionary<string, object>
+        {
+            { "@UserId", userId }
+        };
+
+      // ExecuteQuery aufrufen, um das Ergebnis zu holen
+      DataTable result = dbServices.ExecuteQuery(query, parameters);
+
+      foreach (DataRow row in result.Rows)
+      {
+        UserNameTag = row["FirstName"].ToString();
+        OnPropertyChanged(nameof(UserNameTag));
+
+      }
+    }
 
     protected void OnPropertyChanged(string name)
     {
@@ -46,14 +141,13 @@ namespace Expensesmanager.MVMM.View
 
     private void change_userName(object sender, TextChangedEventArgs e)
     {
-      // Beispiel: Textfeld ändert den Wert in "test"
-      UserNameTag = "test";
+      
     }
   
 
   private void change_userLastName(object sender, TextChangedEventArgs e)
     {
- 
+
     }
 
 

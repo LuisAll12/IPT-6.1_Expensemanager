@@ -22,10 +22,12 @@ namespace Expensesmanager.MVMM.ViewModel
           public double MonthlyIncome { get; private set; }
           public string Expenses { get; private set; }
 
-          private readonly DB_Services _services = new DB_Services();
-          // Functions
-          // User Info
-          public void GetUser()
+        private readonly DB_Services _services = DB_Services.Instance;
+
+        //private readonly DB_Services _services = new DB_Services();
+        // Functions
+        // User Info
+        public void GetUser()
           {
 
               DataTable dataTable = new DataTable();
