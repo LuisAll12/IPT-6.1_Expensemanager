@@ -15,41 +15,83 @@ git clone git@gitlab.com:LuisAll12/ipt-6.1_expensemanager.git
 ```
 
 
-Anschliessend [Expensesmanager.exe](Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.exe) unter diesem Pfad öffnen.
-## Bedienungsanleitung
+Anschliessend [Expensesmanager.exe](https://gitlab.com/LuisAll12/ipt-6.1_expensemanager/-/blob/main/Projekt/Expensesmanager/Expensesmanager/obj/Debug/Expensesmanager.exe) unter diesem Pfad öffnen.
 
-### 1. Konto erstellen
+## 📘 Bedienungsanleitung
 
-Ein Nutzerkonto wird benötigt, um persönliche Inhalte in der Applikation abzuspeichern, ohne Nutzerkonto kann die Applikation nicht genutzt werden.
+### 1. 🧾 Konto erstellen
 
-Button: Kein Account klicken
-Pflichtfelder ausfüllen
-### 2. Kategorie erstellen
+Ein Nutzerkonto ist erforderlich, um persönliche Inhalte in der Applikation zu speichern. Ohne Konto ist die Nutzung der App nicht möglich.
 
-Eine Kategorie ermöglicht es dem Nutzer Transaktionen in Bereiche einzuteilen. Kategorien können vom Nutzer passend zu seinen Bedürfnissen erstellt werden.
+**So geht’s:**
+1. Auf **"Kein Account"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Auf **"Registrieren"** klicken
 
-Auf Neue Kategorie klicken
+---
 
-Pflichtfelder ausfüllen
+### 2. 🗂️ Kategorie erstellen
 
-auf Erstellen klicken
-### 3. Kategorien anzeigen & bearbeiten
+Kategorien helfen, Transaktionen in sinnvolle Bereiche zu gliedern. Sie können individuell an die Bedürfnisse des Nutzers angepasst werden.
 
-Kategorien können im Fenster Meine Kategorien angezeigt werden. Die Kategorien könen hier auch bearbeitet werden, hier können die Kategorien auch editiert werden.
+**So geht’s:**
+1. Auf **"Neue Kategorie"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Auf **"Erstellen"** klicken
 
-### Transaktionen erstellen
+---
 
-Transaktionen helfen uns den Geldfluss im Expenses Manager darzustellen. Transaktionen können einer Kategorie zugeordnet werden, dies hilft dem Nutzer den Überblick über die Transaktionen zu behalten.
+### 3. 📑 Kategorien anzeigen & bearbeiten
 
-Klicke Neue Transaktion
-Pflichtfelder ausfüllen
-Kategorie anwählen
-auf Erstellen klicken
+Im Bereich **"Meine Kategorien"** lassen sich alle erstellten Kategorien anzeigen und bearbeiten.
 
-### Transaktionen anzeigen, editieren & löschen
+**So geht’s:**
+- Kategorien anzeigen  
+- Auf die gewünschte Kategorie klicken  
+- **Bearbeiten** auswählen und Änderungen speichern
 
-unter meine Transaktionen können die Transaktionen eingesehen werden.
-editieren anwählen
+---
+
+### 4. 💸 Transaktionen erstellen
+
+Transaktionen erfassen den Geldfluss innerhalb der App. Sie können einer Kategorie zugeordnet werden, um den Überblick zu behalten.
+
+**So geht’s:**
+1. Auf **"Neue Transaktion"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Kategorie auswählen  
+4. Auf **"Erstellen"** klicken
+
+---
+
+### 5. 🔍 Transaktionen anzeigen, editieren & löschen
+
+Im Bereich **"Meine Transaktionen"** sehen Sie alle erfassten Transaktionen.
+
+**Anzeigen & Bearbeiten:**
+- Gewünschte Transaktion auswählen  
+- Auf **"Editieren"** klicken  
+- Änderungen vornehmen und speichern
+
+**Löschen:**
+- Gewünschte Transaktion auswählen  
+- Auf **"Löschen"** klicken
+
+---
+
+### 6. 👤 Benutzerkonto einsehen & bearbeiten
+
+Im Bereich **"Benutzerkonto"** können Sie Ihre persönlichen Daten einsehen und bearbeiten.
+
+
+
+
+
+
+
+
+
+
 
 
 
