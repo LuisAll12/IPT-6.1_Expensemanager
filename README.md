@@ -15,10 +15,87 @@ git clone git@gitlab.com:LuisAll12/ipt-6.1_expensemanager.git
 ```
 
 
-Anschliessend [Expensesmanager.exe](Projekt\Expensesmanager\Expensesmanager\obj\Debug\Expensesmanager.exe) unter diesem Pfad öffnen.
-## Bedienungsanleitung
+Anschliessend [Expensesmanager.exe](https://gitlab.com/LuisAll12/ipt-6.1_expensemanager/-/blob/main/Projekt/Expensesmanager/Expensesmanager/obj/Debug/Expensesmanager.exe) unter diesem Pfad öffnen.
 
-### 1. Konto erstellen
+## 📘 Bedienungsanleitung
+
+### 1. 🧾 Konto erstellen
+
+Ein Nutzerkonto ist erforderlich, um persönliche Inhalte in der Applikation zu speichern. Ohne Konto ist die Nutzung der App nicht möglich.
+
+**So geht’s:**
+1. Auf **"Kein Account"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Auf **"Registrieren"** klicken
+
+---
+
+### 2. 🗂️ Kategorie erstellen
+
+Kategorien helfen, Transaktionen in sinnvolle Bereiche zu gliedern. Sie können individuell an die Bedürfnisse des Nutzers angepasst werden.
+
+**So geht’s:**
+1. Auf **"Neue Kategorie"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Auf **"Erstellen"** klicken
+
+---
+
+### 3. 📑 Kategorien anzeigen & bearbeiten
+
+Im Bereich **"Meine Kategorien"** lassen sich alle erstellten Kategorien anzeigen und bearbeiten.
+
+**So geht’s:**
+- Kategorien anzeigen  
+- Auf die gewünschte Kategorie klicken  
+- **Bearbeiten** auswählen und Änderungen speichern
+
+---
+
+### 4. 💸 Transaktionen erstellen
+
+Transaktionen erfassen den Geldfluss innerhalb der App. Sie können einer Kategorie zugeordnet werden, um den Überblick zu behalten.
+
+**So geht’s:**
+1. Auf **"Neue Transaktion"** klicken  
+2. Pflichtfelder ausfüllen  
+3. Kategorie auswählen  
+4. Auf **"Erstellen"** klicken
+
+---
+
+### 5. 🔍 Transaktionen anzeigen, editieren & löschen
+
+Im Bereich **"Meine Transaktionen"** sehen Sie alle erfassten Transaktionen.
+
+**Anzeigen & Bearbeiten:**
+- Gewünschte Transaktion auswählen  
+- Auf **"Editieren"** klicken  
+- Änderungen vornehmen und speichern
+
+**Löschen:**
+- Gewünschte Transaktion auswählen  
+- Auf **"Löschen"** klicken
+
+---
+
+### 6. 👤 Benutzerkonto einsehen & bearbeiten
+
+Im Bereich **"Benutzerkonto"** können Sie Ihre persönlichen Daten einsehen und bearbeiten.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
