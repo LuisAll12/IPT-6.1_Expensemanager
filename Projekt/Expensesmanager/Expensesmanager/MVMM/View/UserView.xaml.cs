@@ -1,5 +1,6 @@
 ﻿using Expensesmanager.Core;
 using Expensesmanager.Database;
+using Expensesmanager.MVMM.ViewModel;
 using Expensesmanager.ViewModel;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,6 +83,8 @@ namespace Expensesmanager.MVMM.View
 
     public UserView()
     {
+      this.DataContext = new UserViewModel();
+
       InitializeComponent();
       DataContext = this;  // Setze das DataContext auf das UserControl selbst
 
@@ -115,8 +118,9 @@ namespace Expensesmanager.MVMM.View
       var dbServices = DB_Services.Instance;
 
 
-      string query = "SELECT UserName FROM Users WHERE UserId = @UserId";
+      string query = @"SELECT UserName FROM Users WHERE UserId = @UserId;";
 
+      
       // Parameter für die SQL-Abfrage
       var parameters = new Dictionary<string, object>
         {

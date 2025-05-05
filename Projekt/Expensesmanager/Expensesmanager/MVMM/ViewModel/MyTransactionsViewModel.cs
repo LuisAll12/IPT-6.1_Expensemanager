@@ -12,6 +12,8 @@ using static Expensesmanager.MVMM.View.MyCategoriesView;
 using System.Xml.Linq;
 using System.Security.Principal;
 using System.Linq;
+using Expensesmanager.Database;
+using System.Data;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
@@ -70,61 +72,58 @@ namespace Expensesmanager.MVMM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // Functions
-        private void GetTransactions()
+    // Functions
+    private void GetTransactions()
+    {
+      // Start Loading
+      IsLoading = true;
+
+      // Set AccountID
+      accountID = LoginViewModel.CurrentUserId;
+
+      try
+      {
+        string query = @"
+            SELECT t.Amount, t.Date, c.Name, t.TransactionID
+            FROM Transactions t
+            JOIN Account a ON t.AccountID = a.AccountID
+            JOIN Category c ON t.CategoryID = c.CategoryID
+            WHERE a.AccountID = @accountID;";
+
+        // Parameter dictionary vorbereiten
+        var parameters = new Dictionary<string, object>
         {
-            // Start Loading
-            IsLoading = true;
-            // Set AccountID
-            accountID = LoginViewModel.CurrentUserId;
+            { "@accountID", accountID }
+        };
 
-            try
-            {
-                using (var connection = new SqliteConnection(connectionString))
-                {
-                    connection.Open();
+        // Query über Singleton ausführen
+        var result = DB_Services.Instance.ExecuteQuery(query, parameters);
 
-                    string query = @"SELECT t.Amount, t.Date, c.Name, t.TransactionID
-                                   FROM Transactions t
-                                   JOIN Account a ON t.AccountID = a.AccountID
-                                   JOIN Category c ON t.CategoryID = c.CategoryID
-                                   WHERE a.AccountID = @accountID;";
+        // Records befüllen
+        foreach (DataRow row in result.Rows)
+        {
+          var record = new Record
+          {
+            Amount = Convert.ToDouble(row["Amount"]),
+            Date = Convert.ToDateTime(row["Date"]),
+            Category = row["Name"].ToString(),
+            TransactionID = Convert.ToInt32(row["TransactionID"])
+          };
 
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@accountID", accountID);
-
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                var record = new Record
-                                {
-                                    Amount = reader.GetDouble(0),
-                                    Date = DateTime.Parse(reader.GetString(1)),
-                                    Category = reader.GetString(2),
-                                    TransactionID = reader.GetInt32(3),
-                                };
-                                Records.Add(record);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SqliteException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            // End Loading
-            IsLoading = false;
+          Records.Add(record);
         }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
 
-        private bool CanEditRecord(object parameter)
+      // End Loading
+      IsLoading = false;
+    }
+
+
+    private bool CanEditRecord(object parameter)
         {
             return SelectedRecord != null;
         }
