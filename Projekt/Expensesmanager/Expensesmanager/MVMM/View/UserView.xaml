@@ -79,24 +79,50 @@
 
       <!-- Einkommen -->
 
-            <StackPanel Orientation="Horizontal">
-              <TextBlock Width="84" Height="20">
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Width="84" Height="20">
         <Run Text="Einkommen:" Foreground="White" FontSize="14"/>
-              </TextBlock>
-              <TextBox x:Name="userIncome"
+        </TextBlock>
+        <TextBox x:Name="userIncome"
      Width="200"
      Style="{StaticResource RoundedInputBoxTheme}"
      Text="{Binding UserIncomeTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
      />
 
-            </StackPanel>
+
+
+      </StackPanel>
+
+      <!-- Save-Button im Style der anderen Buttons -->
+      <Button Content="Speichern" 
+        Width="140" 
+        Height="35" 
+        Background="#8D6EEF" 
+        Foreground="White" 
+        BorderThickness="0" 
+        Cursor="Hand" 
+        Margin="10,20,10,0"
+        Click="SaveButton_Click">
+        <Button.Template>
+          <ControlTemplate TargetType="Button">
+            <Border Background="{TemplateBinding Background}" 
+              BorderBrush="{TemplateBinding BorderBrush}" 
+              CornerRadius="10">
+              <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" />
+            </Border>
+          </ControlTemplate>
+        </Button.Template>
+      </Button>
 
 
 
 
 
 
-        <!-- Fehleranzeige (standardmäßig versteckt) -->
+
+
+      <!-- Fehleranzeige (standardmäßig versteckt) -->
       <TextBlock x:Name="ErrorTextBlock" 
                        Text="Login fehlgeschlagen" 
                        Foreground="#FF5C5C" 
