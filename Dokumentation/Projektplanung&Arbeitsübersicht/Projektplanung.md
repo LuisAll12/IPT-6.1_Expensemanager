@@ -29,11 +29,8 @@
   1. **Klassendiagramm**:
      - Darstellung der Klassen, ihrer Attribute und Methoden.
      - Beziehungen zwischen Klassen wie Vererbung und Assoziationen.
-  2. **Use-Case Diagramm**:
-     - Visualisierung der Benutzerinteraktionen mit der Anwendung.
+  2. **UML-Diagramm**:
      - Darstellung der Hauptfunktionen.
-  3. **Sequenzdiagramm**:
-     - Beschreibung der Abläufe innerhalb spezifischer Szenarien (z. B. "Transaktion speichern").
 
 ---
 
@@ -77,14 +74,7 @@
 
 ---
 
-## **Schritt 9: Statistiken und Berichte**
-- **Ziel**: Erstellung von grafischen Auswertungen und Berichtsmodulen.
-- **Aufgaben**:
-  - Integration von Diagrammen (z. B. Balken- und Tortendiagrammen) mit LiveCharts oder OxyPlot.
-
----
-
-## **Schritt 10: Testing und Debugging**
+## **Schritt 9: Testing und Debugging**
 - **Ziel**: Sicherstellen, dass die Anwendung stabil und fehlerfrei ist.
 - **Aufgaben**:
   - Testen aller Funktionalitäten (manuelles und automatisiertes Testen).
@@ -93,7 +83,7 @@
 
 ---
 
-## **Schritt 11: Dokumentation**
+## **Schritt 10: Dokumentation**
 - **Ziel**: Erstellung einer vollständigen Projekt- und Nutzerdokumentation.
 - **Aufgaben**:
   - Technische Dokumentation (Code-Struktur, Datenbankentwurf).
@@ -101,7 +91,7 @@
 
 ---
 
-## **Schritt 12: Deployment**
+## **Schritt 10: Deployment**
 - **Ziel**: Bereitstellung der Anwendung.
 - **Aufgaben**:
   - Verpackung der Anwendung für den Endbenutzer (z. B. Erstellen einer .exe).

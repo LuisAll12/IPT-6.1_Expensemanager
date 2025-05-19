@@ -4,7 +4,7 @@ verlinkung und Auszüge
 ## Verlinkung zum Video
 verlinkung und Auszüge
 ## Arbeitsjournal
-Link zum [Arbeitsjournal](https://gitlab.com/LuisAll12/ipt-6.1_expensemanager/-/blob/main/Dokumentation/Arbeitsjournal.xlsx?ref_type=heads)
+Link zum [Arbeitsjournal](https://gitlab.com/LuisAll12/ipt-6.1_expensemanager/-/blob/main/Dokumentation/Projektplanung&Arbeits%C3%BCbersicht/Arbeitsjournal.xlsx?ref_type=heads)
 Screenshot vom finalen Arbeitsjournal
 ## Programmablauplan
 Link zum [Programmablaufplan]()
