@@ -28,7 +28,7 @@
                  Width="200"
                  Style="{StaticResource RoundedInputBoxTheme}"
                  Text="{Binding UserNameTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 TextChanged="change_userName"/>
+                 />
         
       </StackPanel>
 
@@ -43,7 +43,7 @@
            Width="200"
            Style="{StaticResource RoundedInputBoxTheme}"
            Text="{Binding UserLastNameTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-           TextChanged="change_userLastName"/>
+           />
 
       </StackPanel>
 
@@ -58,7 +58,7 @@
        Width="200"
        Style="{StaticResource RoundedInputBoxTheme}"
        Text="{Binding UserEmailTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-       TextChanged="change_userEmail"/>
+       />
 
       </StackPanel>
 
@@ -72,8 +72,8 @@
              Width="200"
              Style="{StaticResource RoundedInputBoxTheme}"
              Text="{Binding UserPasswordTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-             TextChanged="change_userPassword"/>
-
+             />
+        <!-- TextChanged="change_userPassword"-->
 
       </StackPanel>
 
@@ -87,7 +87,7 @@
      Width="200"
      Style="{StaticResource RoundedInputBoxTheme}"
      Text="{Binding UserIncomeTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-     TextChanged="change_userIncome"/>
+     />
 
             </StackPanel>
 

@@ -13,173 +13,57 @@ using System.Data;
 using Expensesmanager.ViewModel;
 using Expensesmanager.MVMM.View;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
-
   public class UserViewModel : INotifyPropertyChanged
   {
-    
-
-    private int userId = LoginViewModel.CurrentUserId.Value;
-
-    private string _userNameTag;
-    private string _userLastNameTag;
-    private string _userEmailTag;
-    private string _userPasswordTag;
-    private string _userIncomeTag;
-
-    public string UserNameTag
-    {
-      get => _userNameTag;
-      set
-      {
-        _userNameTag = value;
-        OnPropertyChanged(nameof(UserNameTag));
-      }
-    }
-
-    public string UserLastNameTag
-    {
-      get => _userLastNameTag;
-      set
-      {
-        _userLastNameTag = value;
-        OnPropertyChanged(nameof(UserLastNameTag));
-      }
-    }
-
-    public string UserEmailTag
-    {
-      get => _userEmailTag;
-      set
-      {
-        _userEmailTag = value;
-        OnPropertyChanged(nameof(UserEmailTag));
-      }
-    }
-
-    public string UserPasswordTag
-    {
-      get => _userPasswordTag;
-      set
-      {
-        _userPasswordTag = value;
-        OnPropertyChanged(nameof(UserPasswordTag));
-      }
-    }
-
-    public string UserIncomeTag
-    {
-      get => _userIncomeTag;
-      set
-      {
-        _userIncomeTag = value;
-        OnPropertyChanged(nameof(UserIncomeTag));
-      }
-    }
+    public string UserNameTag { get; set; }
+    public string UserLastNameTag { get; set; }
+    public string UserEmailTag { get; set; }
+    public string UserPasswordTag { get; set; }
+    public string UserIncomeTag { get; set; }
 
     public UserViewModel()
     {
       LoadUserData();
     }
 
+    //public void LoadUserData()
+    //{
+    //  var db = DB_Services.Instance;
+    //private string connectionString = App.ConnectionString;
 
-    private bool _isLoading;
-    public bool IsLoading
-    {
-      get { return _isLoading; }
-      set
-      {
-        _isLoading = value;
-        OnPropertyChanged(nameof(IsLoading));
-      }
-    }
-    private static int? accountID { get; set; }
-    public ObservableCollection<UserViewModel> Users { get; set; } = new ObservableCollection<UserViewModel>();
+    private int userId = LoginViewModel.CurrentUserId.Value;
+
+
+    //
+    private readonly DB_Services _services = DB_Services.Instance;
 
     public void LoadUserData()
     {
-      IsLoading = true;
-      accountID = LoginViewModel.CurrentUserId;
 
-      try
+      DataTable dataTable = new DataTable();
+      var parameters = new Dictionary<string, object>
+              {
+                { "@UserID", userId }
+              };
+      string query = @"SELECT FirstName, LastName, Email, Password, MonthlyIncome FROM Account WHERE AccountID = @UserID";
+
+      dataTable = _services.ExecuteQuery(query, parameters);
+      foreach (DataRow row in dataTable.Rows)
       {
-        string query = @"
-    SELECT FirstName, LastName, Email, Password, Income 
-    FROM Account WHERE AccountID = @AccountId;";
-
-        var parameters = new Dictionary<string, object>
-    {
-      { "@AccountId", accountID }
-    };
-
-        var result = DB_Services.Instance.ExecuteQuery(query, parameters);
-
-        if (result.Rows.Count > 0)
-        {
-          DataRow row = result.Rows[0];
-          // Nur ein User wird geladen
-          var record = new UserViewModel
-          {
-            UserNameTag = row["FirstName"].ToString(),
-            UserLastNameTag = row["LastName"].ToString(),
-            UserEmailTag = row["Email"].ToString(),
-            UserPasswordTag = row["Password"].ToString(),
-            UserIncomeTag = row["Income"].ToString()
-          };
-
-          // Setze den User, anstatt die Liste zu füllen
-          Users.Clear(); // Optional, um sicherzustellen, dass keine alten Daten bleiben
-          Users.Add(record);  // Der eingeloggte Benutzer wird zur Liste hinzugefügt
-        }
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message, "Fehler beim Laden", MessageBoxButton.OK, MessageBoxImage.Error);
-      }
-      finally
-      {
-        IsLoading = false;
+        UserNameTag = row["FirstName"].ToString();
+        UserLastNameTag = row["LastName"].ToString();
+        UserEmailTag = row["Email"].ToString();
+        UserPasswordTag = row["Password"].ToString();
+        UserIncomeTag = row["MonthlyIncome"].ToString();
       }
     }
-
-
-
-
-
-    //  var dbServices = DB_Services.Instance;
-
-
-    //  string query = @"SELECT FirstName, LastName, Email, Password, Income FROM Account WHERE AccountID = @AccountId";
-
-    //  var parameters = new Dictionary<string, object>
-    //  {
-    //    { "@AccountId", userId }
-    //  };
-
-    //  var result = DB_Services.Instance.ExecuteQuery(query, parameters);
-
-    //  if (result.Rows.Count > 0)
-    //  {
-    //    DataRow row = result.Rows[0];
-    //    UserNameTag = row["FirstName"].ToString();
-    //    UserLastNameTag = row["LastName"].ToString();
-    //    UserEmailTag = row["Email"].ToString();
-    //    UserPasswordTag = row["Password"].ToString();
-    //    UserIncomeTag = row["Income"].ToString();
-    //  }
-    //  else
-    //  {
-    //    UserNameTag = "Nicht gefunden"; // Optionales Fallback
-    //  }
-    //}
 
     public event PropertyChangedEventHandler PropertyChanged;
-
-    protected void OnPropertyChanged(string name)
-    {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    }
   }
+
+
 }

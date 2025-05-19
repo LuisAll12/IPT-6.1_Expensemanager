@@ -90,10 +90,10 @@ namespace Expensesmanager.Database
     public DataTable ExecuteQuery(string query, Dictionary<string, object> parameters = null)
     {
       DataTable resultTable = new DataTable();
-
+      string connStr = connectionString;
       try
       {
-        using (var connection = new SqliteConnection(connectionString))
+        using (var connection = new SqliteConnection(connStr))
         {
           using (var command = new SqliteCommand(query, connection))
           {
