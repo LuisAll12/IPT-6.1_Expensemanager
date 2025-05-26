@@ -62,6 +62,23 @@ namespace Expensesmanager.MVMM.ViewModel
       }
     }
 
+    public void ChangeData()
+    {
+      var parameters = new Dictionary<string, object>
+    {
+        { "@UserID", userId },
+        { "@FirstName", UserNameTag },
+        { "@LastName", UserLastNameTag },
+        { "@Email", UserEmailTag },
+        { "@Password", UserPasswordTag },
+        { "@MonthlyIncome", UserIncomeTag }
+    };
+
+      string query = @"UPDATE Account SET FirstName = @FirstName, LastName = @LastName, Email = @Email, Password = @Password, MonthlyIncome = @MonthlyIncome WHERE AccountID = @UserID";
+
+      _services.ExecuteNonQuery(query, parameters);
+    }
+
     public event PropertyChangedEventHandler PropertyChanged;
   }
 

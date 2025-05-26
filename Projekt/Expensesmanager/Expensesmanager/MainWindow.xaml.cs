@@ -73,10 +73,14 @@ namespace Expensesmanager
     }
 
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
-        {
-            HelpView helpviewmodel = new HelpView();
-            helpviewmodel.Show();
-        }
+    private void HelpButton_Click(object sender, RoutedEventArgs e)
+    {
+      System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+      {
+        FileName = "https://gitlab.com/LuisAll12/ipt-6.1_expensemanager", 
+        UseShellExecute = true
+      });
     }
+
+  }
 }

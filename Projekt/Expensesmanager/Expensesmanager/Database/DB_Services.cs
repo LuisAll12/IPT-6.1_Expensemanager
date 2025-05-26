@@ -119,7 +119,37 @@ namespace Expensesmanager.Database
         Console.WriteLine(ex.ToString());
       }
 
+
+
       return resultTable;
     }
+
+    public void ExecuteNonQuery(string query, Dictionary<string, object> parameters = null)
+    {
+      try
+      {
+        using (var connection = new SqliteConnection(connectionString))
+        {
+          using (var command = new SqliteCommand(query, connection))
+          {
+            if (parameters != null)
+            {
+              foreach (var param in parameters)
+              {
+                command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+              }
+            }
+
+            connection.Open();
+            command.ExecuteNonQuery(); // führt INSERT, UPDATE oder DELETE aus
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine(ex.ToString());
+      }
+    }
+
   }
 }
