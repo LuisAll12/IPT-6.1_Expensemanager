@@ -52,7 +52,6 @@ namespace Expensesmanager.MVMM.View
             ExpensesTextBlock.Text = Expenses;
             RemainingDaysTextBlock.Text = RemainingDays.ToString();
             SetTBColores(Expenses, RemainingDays, monthlyIncome);
-
         }
 
         public void SetTBColores( string Expenses, int RemainingDays, double monthlyIncome)
