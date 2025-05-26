@@ -192,136 +192,91 @@ namespace Expensesmanager.MVMM.ViewModel
 
 
 
-        // Update Record in Database
-        private void UpdateRecordInDatabase(Record record)
-        {
+          // Update Record in Database
+          private void UpdateRecordInDatabase(Record record)
+          {
             try
             {
-                using (var connection = new SqliteConnection(connectionString))
-                {
-                    connection.Open();
+              string query = @"UPDATE Transactions 
+                               SET Amount = @amount, Description = @description, Date = @date, CategoryID = (SELECT CategoryID FROM Category WHERE Name = @category AND AccountID = @accountid)
+                               WHERE TransactionID = @transactionid;";
 
-                    string query = @"UPDATE Transactions 
-                                      SET Amount = @amount, Description = @description, Date = @date, CategoryID = (SELECT CategoryID FROM Category WHERE Name = @category AND AccountID = @accountid)
-                                      WHERE TransactionID = @transactionid;";
+              var parameters = new Dictionary<string, object>
+              {
+                  { "@amount", record.Amount },
+                  { "@date", record.Date.ToString("yyyy-MM-dd") },
+                  { "@category", record.Category },
+                  { "@transactionid", record.TransactionID },
+                  { "@accountid", accountID },
+                  { "@description", record.Description }
+              };
 
-                    //UPDATE Transactions SET Amount = '12', Date = '2008-06-19', CategoryID = (SELECT CategoryID FROM Category WHERE Name = 'essen' AND AccountID = 4) WHERE TransactionID = 11;
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@amount", record.Amount);
-                        command.Parameters.AddWithValue("@date", record.Date.ToString("yyyy-MM-dd"));
-                        command.Parameters.AddWithValue("@category", record.Category);
-                        command.Parameters.AddWithValue("@transactionid", record.TransactionID);
-                        command.Parameters.AddWithValue("@accountid", accountID);
-                        command.Parameters.AddWithValue("@description", record.Description);
+              DB_Services.Instance.ExecuteNonQuery(query, parameters);
 
-                        int rowsaffected = command.ExecuteNonQuery();
-
-                        if (rowsaffected > 0)
-                        {
-                            MessageBox.Show(
-                                "Der Eintrag wurde erfolgreich geändert.",
-                                "Erfolg",
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Information
-                            );
-                        }
-
-                    }
-                }
-            }
-            catch (SqliteException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+              MessageBox.Show(
+                  "Der Eintrag wurde erfolgreich geändert.",
+                  "Erfolg",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Information
+              );
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+              MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+          }
 
-        // Delete Record from Database
-        private void DeleteRecordFromDatabase(Record record)
+    // Delete Record from Database
+    private void DeleteRecordFromDatabase(Record record)
+    {
+      MessageBoxResult result = MessageBox.Show(
+          "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?",
+          "Bestätigung",
+          MessageBoxButton.OKCancel,
+          MessageBoxImage.Question
+      );
+
+      if (result == MessageBoxResult.OK)
+      {
+        try
         {
-            // Zeige eine Bestätigungs-MessageBox an
-            MessageBoxResult result = MessageBox.Show(
-                "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?",
-                "Bestätigung",
-                MessageBoxButton.OKCancel,
-                MessageBoxImage.Question
-            );
+          string query = @"DELETE FROM Transactions WHERE TransactionID = @transactionid";
 
-            if (result == MessageBoxResult.OK)
+          var parameters = new Dictionary<string, object>
             {
-                try
-                {
-                    using (var connection = new SqliteConnection(connectionString))
-                    {
-                        connection.Open();
+                { "@transactionid", record.TransactionID }
+            };
 
-                        string query = @"DELETE FROM Transactions 
-                                WHERE TransactionID = @transactionid";
+          DB_Services.Instance.ExecuteNonQuery(query, parameters);
 
-                        using (var command = new SqliteCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@transactionid", record.TransactionID);
+          MessageBox.Show(
+              "Der Eintrag wurde erfolgreich gelöscht.",
+              "Erfolg",
+              MessageBoxButton.OK,
+              MessageBoxImage.Information
+          );
 
-                            int rowsAffected = command.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show(
-                                    "Der Eintrag wurde erfolgreich gelöscht.",
-                                    "Erfolg",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Information
-                                );
-                                Records.Remove(record);
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    "Der Eintrag konnte nicht gelöscht werden.",
-                                    "Fehler",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error
-                                );
-                            }
-                        }
-                    }
-                }
-                catch (SqliteException sqlEx)
-                {
-                    MessageBox.Show(
-                        sqlEx.Message,
-                        "SQL Fehler",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        ex.Message,
-                        "Fehler",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
-                }
-            }
-            else if (result == MessageBoxResult.Cancel)
-            {
-                MessageBox.Show(
-                    "Der Löschvorgang wurde abgebrochen.",
-                    "Abgebrochen",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information
-                );
-            }
+          Records.Remove(record);
         }
+        catch (Exception ex)
+        {
+          MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+      }
+      else
+      {
+        MessageBox.Show(
+            "Der Löschvorgang wurde abgebrochen.",
+            "Abgebrochen",
+            MessageBoxButton.OK,
+            MessageBoxImage.Information
+        );
+      }
     }
-        // Record Class
-        public class Record : INotifyPropertyChanged
+
+  }
+  // Record Class
+  public class Record : INotifyPropertyChanged
     {
         private double _amount;
         private string _description;
