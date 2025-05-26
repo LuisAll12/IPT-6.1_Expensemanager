@@ -37,7 +37,6 @@ namespace Expensesmanager.MVMM.ViewModel
         // Mainclass
         public MainViewModel()
         {
-            // Set Values
             HomeViewModel = new HomeViewModel();
             NewTransactionVM = new NewTransactionViewModel();
             MyTransactionsVM = new MyTransactionsViewModel();

@@ -29,15 +29,14 @@ namespace Expensesmanager.MVMM.ViewModel
             DeleteCommand = new RelayCommand(DeleteRecord, CanDeleteRecord);
         }
 
-        // Variables
-        // Database
+       
         private string connectionString = App.ConnectionString;
         private static int? accountID { get; set; }
 
-        // Records
+  
         public ObservableCollection<Record> Records { get; set; }
 
-        // Selected Record
+    
         private Record _selectedRecord;
         public Record SelectedRecord
         {
@@ -49,7 +48,6 @@ namespace Expensesmanager.MVMM.ViewModel
             }
         }
 
-        // Loader
         private bool _isLoading;
         public bool IsLoading
         {
@@ -90,16 +88,13 @@ namespace Expensesmanager.MVMM.ViewModel
             JOIN Category c ON t.CategoryID = c.CategoryID
             WHERE a.AccountID = @accountID;";
 
-        // Parameter dictionary vorbereiten
         var parameters = new Dictionary<string, object>
         {
             { "@accountID", accountID }
         };
 
-        // Query über Singleton ausführen
         var result = DB_Services.Instance.ExecuteQuery(query, parameters);
 
-        // Records befüllen
         foreach (DataRow row in result.Rows)
         {
           var record = new Record
@@ -118,7 +113,6 @@ namespace Expensesmanager.MVMM.ViewModel
         MessageBox.Show(ex.Message, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
       }
 
-      // End Loading
       IsLoading = false;
     }
 
@@ -128,12 +122,10 @@ namespace Expensesmanager.MVMM.ViewModel
             return SelectedRecord != null;
         }
 
-        // Delete Record
         private void DeleteRecord(object parameter)
         {
             if (SelectedRecord != null)
             {
-                // Löschen Sie den Datensatz aus der Datenbank
                 DeleteRecordFromDatabase(SelectedRecord);
                 Records.Remove(SelectedRecord);
             }
@@ -192,7 +184,6 @@ namespace Expensesmanager.MVMM.ViewModel
 
 
 
-          // Update Record in Database
           private void UpdateRecordInDatabase(Record record)
           {
             try
@@ -226,7 +217,6 @@ namespace Expensesmanager.MVMM.ViewModel
             }
           }
 
-    // Delete Record from Database
     private void DeleteRecordFromDatabase(Record record)
     {
       MessageBoxResult result = MessageBox.Show(

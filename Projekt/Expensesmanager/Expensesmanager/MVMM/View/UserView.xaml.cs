@@ -21,6 +21,7 @@ namespace Expensesmanager.MVMM.View
     {
       InitializeComponent();
       _userViewModel = new UserViewModel();
+      DataContext = _userViewModel;
       Loaded += HomeView_Loaded;
     }
 
