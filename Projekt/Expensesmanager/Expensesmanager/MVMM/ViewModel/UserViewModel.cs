@@ -64,20 +64,49 @@ namespace Expensesmanager.MVMM.ViewModel
 
     public void ChangeData()
     {
-      var parameters = new Dictionary<string, object>
+      try
+      {
+        if (userId == null)
+        {
+          MessageBox.Show("Fehler: Keine gültige User-ID.");
+          return;
+        }
+
+        if (!decimal.TryParse(UserIncomeTag, out decimal income))
+        {
+          MessageBox.Show("Ungültiges Einkommen.");
+          return;
+        }
+
+        var parameters = new Dictionary<string, object>
     {
         { "@UserID", userId },
         { "@FirstName", UserNameTag },
         { "@LastName", UserLastNameTag },
         { "@Email", UserEmailTag },
         { "@Password", UserPasswordTag },
-        { "@MonthlyIncome", UserIncomeTag }
+        { "@MonthlyIncome", income }
     };
 
-      string query = @"UPDATE Account SET FirstName = @FirstName, LastName = @LastName, Email = @Email, Password = @Password, MonthlyIncome = @MonthlyIncome WHERE AccountID = @UserID";
+        string query = @"
+      UPDATE Account 
+      SET FirstName = @FirstName, 
+          LastName = @LastName, 
+          Email = @Email, 
+          Password = @Password, 
+          MonthlyIncome = @MonthlyIncome 
+      WHERE AccountID = @UserID";
 
-      _services.ExecuteNonQuery(query, parameters);
+        _services.ExecuteNonQuery(query, parameters);
+
+        MessageBox.Show("Daten erfolgreich gespeichert! ✅");
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show("Fehler beim Speichern: " + ex.Message);
+      }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
   }
