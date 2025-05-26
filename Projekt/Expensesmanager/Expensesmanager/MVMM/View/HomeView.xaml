@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:Expensesmanager.MVMM.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="500">
     <StackPanel>
@@ -113,29 +114,24 @@
                        HorizontalAlignment="Left"
                        Margin="0,0,0,20"/>
 
-            <StackPanel Orientation="Horizontal" Height="154">
-
-                <Border Width="150"
-                        Height="150"
-                        Background="#844eff"
-                        CornerRadius="10"
-                        Margin="0"/>
-
-                <Border Width="150"
-                        Height="150"
-                        Background="#4e99ff"
-                        CornerRadius="10"/>
-
-                <Border Width="150"
-                        Height="150"
-                        Background="#4eff91"
-                        CornerRadius="10"/>
-
-                <Border Width="150"
-                        Height="150"
-                        Background="#ecff4e"
-                        CornerRadius="10"/>
+            <StackPanel>
+              <TextBlock Text="Transaktionen über die Zeit"
+                             FontSize="28"
+                             Foreground="White"
+                             Margin="0,0,0,20"/>
+              <lvc:CartesianChart Series="{Binding LineSeriesCollection}">
+                <lvc:CartesianChart.AxisX>
+                  <lvc:Axis Title="Datum"
+                                    Labels="{Binding DateLabels}"
+                                    LabelsRotation="45"
+                                    Foreground="White"/>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                  <lvc:Axis Title="Betrag"
+                                    Foreground="White"/>
+                </lvc:CartesianChart.AxisY>
+              </lvc:CartesianChart>
             </StackPanel>
-        </StackPanel>
+    </StackPanel>
     </StackPanel>
 </UserControl>

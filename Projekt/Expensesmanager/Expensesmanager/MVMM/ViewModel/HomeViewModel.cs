@@ -1,12 +1,11 @@
-﻿using Expensesmanager.ViewModel;
-using Microsoft.Data.Sqlite;
+﻿using Expensesmanager.Database;
+using Expensesmanager.ViewModel;
+using LiveCharts;
+using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Expensesmanager.Database;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
@@ -18,16 +17,14 @@ namespace Expensesmanager.MVMM.ViewModel
     public double MonthlyIncome { get; private set; }
     public string Expenses { get; private set; }
 
+    public SeriesCollection LineSeriesCollection { get; private set; }
+    public List<string> DateLabels { get; private set; }
+
     private readonly DB_Services _services = DB_Services.Instance;
 
-    // Userdaten
     public void GetUser()
     {
-      var parameters = new Dictionary<string, object>
-            {
-                { "@UserID", userId }
-            };
-
+      var parameters = new Dictionary<string, object> { { "@UserID", userId } };
       string query = @"SELECT FirstName, LastName, MonthlyIncome 
                              FROM Account 
                              WHERE AccountID = @UserID";
@@ -41,7 +38,6 @@ namespace Expensesmanager.MVMM.ViewModel
       }
     }
 
-    // Gesamtausgaben über Singleton
     public void GetTotalExpenses()
     {
       double expenses = 0.00;
@@ -70,6 +66,46 @@ namespace Expensesmanager.MVMM.ViewModel
       }
 
       Expenses = expenses.ToString("F2");
+    }
+
+    public void LoadTransactionChartData()
+    {
+      string query = @"
+                SELECT Date, Amount 
+                FROM Transactions 
+                WHERE AccountID = @UserID";
+
+      var parameters = new Dictionary<string, object> { { "@UserID", userId } };
+
+      DataTable dataTable = _services.ExecuteQuery(query, parameters);
+
+      var grouped = dataTable.AsEnumerable()
+          .Select(row => new
+          {
+            Date = Convert.ToDateTime(row["Date"]),
+            Amount = Convert.ToDouble(row["Amount"])
+          })
+          .GroupBy(x => x.Date.ToString("yyyy-MM"))
+          .OrderBy(g => g.Key)
+          .Select(g => new
+          {
+            Month = g.Key,
+            TotalAmount = g.Sum(x => x.Amount)
+          })
+          .ToList();
+
+      LineSeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Transaktionen",
+                    PointGeometry = DefaultGeometries.Circle,
+                    PointGeometrySize = 10,
+                    Values = new ChartValues<double>(grouped.Select(g => g.TotalAmount))
+                }
+            };
+
+      DateLabels = grouped.Select(g => g.Month).ToList();
     }
   }
 }
