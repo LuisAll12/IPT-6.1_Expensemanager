@@ -1,61 +1,50 @@
-﻿using Microsoft.Data.Sqlite;
-using SQLitePCL;
-using System;
-using System.IO;
-using System.Windows;
-using System.Security.Cryptography;
-using Expensesmanager.Core;
-using Expensesmanager.ViewModel;
-using System.Windows.Documents;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Windows;
+using Expensesmanager.Database;
+using Expensesmanager.ViewModel;
 
 namespace Expensesmanager.MVMM.ViewModel
 {
-  internal class NewCategoryViewModel
+  public class NewCategoryViewModel
   {
-        // Variables
-        private string connectionString = App.ConnectionString;
-        private static int? accountID { get; set; }
+    private static int? accountID => LoginViewModel.CurrentUserId;
 
-        // Functions
-        public bool NewCategory(string name, string description, double budget)
-        {
-            bool res = false;
+    // Singleton Instance von DB_Services
+    private readonly DB_Services _services = DB_Services.Instance;
 
-            accountID = LoginViewModel.CurrentUserId;
+    public bool NewCategory(string name, string description, double budget)
+    {
+      if (accountID == null)
+      {
+        MessageBox.Show("Kein Benutzer eingeloggt!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return false;
+      }
 
-            try
+      string query = @"
+                INSERT INTO Category (Name, Description, AccountID, Budget) 
+                VALUES (@Name, @Description, @AccountID, @Budget);
+            ";
+
+      var parameters = new Dictionary<string, object>
             {
-                using (var connection = new SqliteConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = @"INSERT INTO Category (Name, Description, AccountID, Budget) 
-                                    VALUES (@Name, @Description, @AccountID, @Budget);";
+                { "@AccountID", accountID },
+                { "@Name", name },
+                { "@Description", description },
+                { "@Budget", budget }
+            };
 
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-
-                        command.Parameters.AddWithValue("@AccountID", accountID);
-                        command.Parameters.AddWithValue("@Name", name);
-                        command.Parameters.AddWithValue("@Description", description);
-                        command.Parameters.AddWithValue("@Budget", budget);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0) { res = true; }
-                    }
-                }
-            }
-            catch (SqliteException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Message, "SQL Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Registrierungsfehler", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            return res;
-        }
+      try
+      {
+        _services.ExecuteNonQuery(query, parameters);
+        return true;
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Fehler beim Speichern: {ex.Message}", "DB Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+        return false;
+      }
     }
+  }
 }

@@ -21,8 +21,10 @@ namespace Expensesmanager.MVMM.View
     {
       InitializeComponent();
       _userViewModel = new UserViewModel();
+      DataContext = _userViewModel;
       Loaded += HomeView_Loaded;
     }
+
     private void HomeView_Loaded(object sender, RoutedEventArgs e)
     {
       _userViewModel.LoadUserData();
@@ -40,14 +42,13 @@ namespace Expensesmanager.MVMM.View
       string einkommen = _userViewModel.UserIncomeTag;
 
 
-      //Greet_TextBlock.Text = $"Hallo {firstName} {lastName}";
       userName.Text = firstName.ToString();
 
     }
 
     private void SaveButton_Click(object sender, RoutedEventArgs e)
     {
-     
+      _userViewModel.ChangeData();
     }
 
     public void Window_MouseDown(object sender, MouseButtonEventArgs e)
