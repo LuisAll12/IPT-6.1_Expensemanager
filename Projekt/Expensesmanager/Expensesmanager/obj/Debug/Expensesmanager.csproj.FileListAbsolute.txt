@@ -182,3 +182,11 @@ C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\ob
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.g.cs
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\Help\HelpView.baml
 C:\Users\Janik\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\MyCategoriesView.baml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.pdb
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.baml
+C:\Users\41783\OneDrive - sluz\-BBZW\2 LJ\Semester02\IPT_6.1\ipt-6.1_expensemanager\Projekt\Expensesmanager\Expensesmanager\obj\Debug\MVMM\View\UserView.g.cs
