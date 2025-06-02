@@ -33,11 +33,11 @@ namespace Expensesmanager.MVMM.View
         }
         private void HomeView_Loaded(object sender, RoutedEventArgs e)
         {
-          _homeViewModel.GetUser();
-          _homeViewModel.GetTotalExpenses();
-          _homeViewModel.LoadTransactionChartData();
-          DataContext = _homeViewModel;
-          GetSetUserData();
+            DataContext = _homeViewModel; // ZUERST DataContext setzen
+            _homeViewModel.GetUser();
+            _homeViewModel.GetTotalExpenses();
+            _homeViewModel.LoadTransactionChartData(); // DANN Daten laden
+            GetSetUserData();
         }
 
         public void GetSetUserData()
