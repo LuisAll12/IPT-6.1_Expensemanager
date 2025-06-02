@@ -102,36 +102,36 @@
                 </Grid>
             </Border>
         </StackPanel>
-
-        <StackPanel Height="381">
+        <StackPanel>
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="Margin" Value="15,0,0,0"/>
                 </Style>
             </StackPanel.Resources>
-
-            <TextBlock Text="Kategorie-Ausgaben pro Monat"
-                       FontSize="28"
+            <TextBlock Text="Personalisiertes Diagramm"
                        Foreground="White"
+                       FontSize="28"
+                       HorizontalAlignment="Left"
                        Margin="0,0,0,20"/>
 
-            <lvc:CartesianChart Series="{Binding LineSeriesCollection}"
-                                LegendLocation="Top"
-                                Height="300"
-                                Foreground="White">
+            <StackPanel>
+              <TextBlock Text="Transaktionen über die Zeit"
+                             FontSize="28"
+                             Foreground="White"
+                             Margin="0,0,0,20"/>
+              <lvc:CartesianChart Series="{Binding LineSeriesCollection}" Height="270">
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Monat" 
-                              Labels="{Binding DateLabels}" 
-                              LabelsRotation="45"
-                              Foreground="White"/>
+                  <lvc:Axis Title="Datum"
+                                    Labels="{Binding DateLabels}"
+                                    LabelsRotation="45"
+                                    Foreground="White"/>
                 </lvc:CartesianChart.AxisX>
-
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Betrag (€)" 
-                              Foreground="White"
-                              LabelFormatter="{Binding YFormatter}"/>
+                  <lvc:Axis Title="Betrag"
+                                    Foreground="White"/>
                 </lvc:CartesianChart.AxisY>
-            </lvc:CartesianChart>
-        </StackPanel>
+              </lvc:CartesianChart>
+            </StackPanel>
+    </StackPanel>
     </StackPanel>
 </UserControl>
